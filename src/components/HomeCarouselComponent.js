@@ -33,7 +33,7 @@ const HomeCarouselComponent = () => {
   
           <Carousel.Caption>
             <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Save Your Time</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -47,7 +47,7 @@ const HomeCarouselComponent = () => {
           <Carousel.Caption>
             <h3>Third slide label</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              We Are Here To Help You
             </p>
           </Carousel.Caption>
         </Carousel.Item>
