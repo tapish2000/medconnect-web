@@ -1,6 +1,7 @@
 import React from 'react';
 import Carousel from './components/HomeCarouselComponent';
 import Navigation from './components/NavigationComponent';
+import Footer from './components/footer/FooterComponent';
 import './App.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <Navigation />
       <Carousel />
+      <Footer />
     </div>
   );
 }
