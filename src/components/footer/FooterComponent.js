@@ -1,0 +1,63 @@
+import React, { Component } from 'react';
+import './FooterComponent.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faYoutube,
+	faFacebook,
+	faTwitter,
+	faInstagram
+  } from "@fortawesome/free-brands-svg-icons";
+
+class Footer extends Component {
+	render() {
+		return (
+			<div className="main-footer bg-primary">
+				<div className="container-fluid text-light">
+					<div className="d-flex justify-content-around">
+						<div className="col-md-2"><h5>Quick Links</h5></div>
+						<div className="col-md col-4">
+							<div className="row">
+								<div className="col-12"><a className="text-light" href="#">Home</a></div>
+								<div className="col-12"><a className="text-light" href="#">Store</a></div>
+							</div>
+						</div>
+						<div className="col-md col-4">
+							<div className="row">
+								<div className="col-12"><a className="text-light" href="#">Generic Allopathic Products</a></div>
+								<div className="col-12"><a className="text-light" href="#">Branded Allopathic Products</a></div>
+							</div>
+						</div>
+						<div className="col-md col-4">
+						<div className="row">
+								<div className="col-12"><a className="text-light" href="#">Generic Ayurvedic Products</a></div>
+								<div className="col-12"><a className="text-light" href="#">Branded Ayurvedic Products</a></div>
+							</div>
+						</div>
+					</div>
+					<div className="d-flex justify-content-around">
+						<div class="social-container">
+							<h5 className="text-white">Connect With Us</h5>
+							<a href="#" className="facebook social">
+								<FontAwesomeIcon icon={faFacebook} size="2x" />
+							</a>
+							<a href="#" className="twitter social">
+								<FontAwesomeIcon icon={faTwitter} size="2x" />
+							</a>
+							<a href="#" className="instagram social">
+								<FontAwesomeIcon icon={faInstagram} size="2x" />
+							</a>
+						</div>
+						<div className="footer-bottom">
+							<p className="text-xs-center">
+								&copy;{new Date().getFullYear()} MedConnect App - All Rights Reserved
+							</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		);
+	}
+}
+
+export default Footer;
