@@ -16,7 +16,6 @@ const AllopathicBrandedComponent = () => {
   return (
     <>
       <Container fluid>
-        <Navigation />
 
         <Breadcrumb>
           <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
@@ -100,9 +99,6 @@ const AllopathicBrandedComponent = () => {
         </Row>
       </Container>
 
-      <Container fluid>
-        <Footer />
-      </Container>
     </>
   );
 }

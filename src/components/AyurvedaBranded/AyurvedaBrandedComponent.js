@@ -7,8 +7,6 @@ import BrandCardComponent from '../cards/BrandCardComponent';
 import AyurvedaBrands from './AyurvedaBrands';
 import AyurvedaMedicines from './AyurvedaMedicines';
 import Carousel from 'react-bootstrap/Carousel';
-import Navigation from '../NavigationComponent';
-import Footer from '../footer/FooterComponent';
 import './AyurvedaBrandedComponent.css';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
@@ -16,7 +14,6 @@ const AyurvedaBrandedComponent = () => {
   return (
     <>
       <Container fluid>
-        <Navigation />
 
         <Breadcrumb>
           <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
@@ -100,9 +97,6 @@ const AyurvedaBrandedComponent = () => {
         </Row>
       </Container>
 
-      <Container fluid>
-        <Footer />
-      </Container>
     </>
   );
 }
