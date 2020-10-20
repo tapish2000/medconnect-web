@@ -25,6 +25,7 @@ class Navigation extends Component {
 							<NavDropdown.Item href="#action/4.1">Generic</NavDropdown.Item>
 							<NavDropdown.Item href="#action/4.2">Branded</NavDropdown.Item>
 						</NavDropdown>
+						<Nav.Link href="#map">Ayurvedic</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
