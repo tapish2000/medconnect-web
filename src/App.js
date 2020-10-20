@@ -1,13 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import Carousel from './components/HomeCarouselComponent';
 import Navigation from './components/NavigationComponent';
+import Footer from './components/footer/FooterComponent';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Navigation />
-      <h1>MedConnect</h1>
+      <Carousel />
+      <Footer />
     </div>
   );
 }
