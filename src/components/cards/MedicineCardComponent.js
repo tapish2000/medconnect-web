@@ -1,7 +1,8 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import './CardsComponent.css';
 
-function MedicineCard(props) {
+function MedicineCardComponent(props) {
     return (<>
 
         <Card className="MyCard" style={{ width: '18rem' }}>
@@ -16,4 +17,4 @@ function MedicineCard(props) {
     </>);
 }
 
-export default MedicineCard;
+export default MedicineCardComponent;

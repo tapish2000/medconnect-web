@@ -2,17 +2,17 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import MedicineCard from './MedicineCard';
-import BrandsCard from './BrandsCard';
+import MedicineCardComponent from '../cards/MedicineCardComponent';
+import BrandCardComponent from '../cards/BrandCardComponent';
 import AyurvedaBrands from './AyurvedaBrands';
 import AyurvedaMedicines from './AyurvedaMedicines';
 import Carousel from 'react-bootstrap/Carousel';
 import Navigation from '../NavigationComponent';
 import Footer from '../footer/FooterComponent';
-import './AyurvedaBrandedPage.css';
+import './AyurvedaBrandedComponent.css';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
-const AyurvedaBrandedPage = () => {
+const AyurvedaBrandedComponent = () => {
   return (
     <>
       <Container fluid>
@@ -32,7 +32,7 @@ const AyurvedaBrandedPage = () => {
               {AyurvedaBrands.map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
-                    <BrandsCard
+                    <BrandCardComponent
                       Key={val.id}
                       imgsrc={val.imgsrc}
                       title={val.title}
@@ -49,7 +49,7 @@ const AyurvedaBrandedPage = () => {
               {AyurvedaBrands.map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
-                    <BrandsCard
+                    <BrandCardComponent
                       Key={val.id}
                       imgsrc={val.imgsrc}
                       title={val.title}
@@ -66,7 +66,7 @@ const AyurvedaBrandedPage = () => {
               {AyurvedaBrands.map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
-                    <BrandsCard
+                    <BrandCardComponent
                       Key={val.id}
                       imgsrc={val.imgsrc}
                       title={val.title}
@@ -87,7 +87,7 @@ const AyurvedaBrandedPage = () => {
           {AyurvedaMedicines.map((val) => {
             return (
               <Col md={3} className="mt-3 mb-3">
-                <MedicineCard
+                <MedicineCardComponent
                   Key={val.id}
                   imgsrc={val.imgsrc}
                   title={val.title}
@@ -107,4 +107,4 @@ const AyurvedaBrandedPage = () => {
   );
 }
 
-export default AyurvedaBrandedPage;
+export default AyurvedaBrandedComponent;

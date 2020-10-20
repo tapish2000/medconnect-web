@@ -1,25 +1,4 @@
-body{
-    background-color: #d2dbdd;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .MyHeading{
-    margin-top: 10px;
-    padding: 30px 0;
-    text-align: center;
-    font-family: "Raleway",sans-serif;
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    color: #868686;
-    background-color: #fff;
-    font-size: 1.5rem;
-  }
-  
-  .MyCard{
+.MyCard{
     font-family: "Raleway",sans-serif;
     transition: all 0.4s cubic-bezier(0.175,0.885,0,1);
     background-color: #fff;

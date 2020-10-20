@@ -18,7 +18,7 @@ body{
     background-color: #fff;
     font-size: 1.5rem;
   }
-  
+
   .MyCard{
     font-family: "Raleway",sans-serif;
     transition: all 0.4s cubic-bezier(0.175,0.885,0,1);

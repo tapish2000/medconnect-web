@@ -1,18 +1,18 @@
 import React from 'react';
+import './AllopathicBrandedComponent.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import MedicineCard from './MedicineCard';
-import BrandsCard from './BrandsCard';
+import MedicineCardComponent from '../cards/MedicineCardComponent';
+import BrandCardComponent from '../cards/BrandCardComponent';
 import AllopathicBrands from './AllopathicBrands';
 import AllopathicMedicines from './AllopathicMedicines';
 import Carousel from 'react-bootstrap/Carousel';
 import Navigation from '../NavigationComponent';
 import Footer from '../footer/FooterComponent';
-import './AllopathicBrandedPage.css';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
-const AllopathicBrandedPage = () => {
+const AllopathicBrandedComponent = () => {
   return (
     <>
       <Container fluid>
@@ -32,7 +32,7 @@ const AllopathicBrandedPage = () => {
               {AllopathicBrands.map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
-                    <BrandsCard
+                    <BrandCardComponent
                       Key={val.id}
                       imgsrc={val.imgsrc}
                       title={val.title}
@@ -49,7 +49,7 @@ const AllopathicBrandedPage = () => {
               {AllopathicBrands.map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
-                    <BrandsCard
+                    <BrandCardComponent
                       Key={val.id}
                       imgsrc={val.imgsrc}
                       title={val.title}
@@ -66,7 +66,7 @@ const AllopathicBrandedPage = () => {
               {AllopathicBrands.map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
-                    <BrandsCard
+                    <BrandCardComponent
                       Key={val.id}
                       imgsrc={val.imgsrc}
                       title={val.title}
@@ -87,7 +87,7 @@ const AllopathicBrandedPage = () => {
           {AllopathicMedicines.map((val) => {
             return (
               <Col md={3} className="mt-3 mb-3">
-                <MedicineCard
+                <MedicineCardComponent
                   Key={val.id}
                   imgsrc={val.imgsrc}
                   title={val.title}
@@ -107,4 +107,4 @@ const AllopathicBrandedPage = () => {
   );
 }
 
-export default AllopathicBrandedPage;
+export default AllopathicBrandedComponent;
