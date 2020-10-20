@@ -4,8 +4,6 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import MedicineCardComponent from '../cards/MedicineCardComponent';
 import AllopathicGenericMedicines from './AllopathicGenericMedicines';
-import Navigation from '../NavigationComponent';
-import Footer from '../footer/FooterComponent';
 import './AllopathicGenericComponent.css';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
@@ -13,10 +11,9 @@ const AllopathicGenericComponent = () => {
   return (
     <>
       <Container fluid>
-        <Navigation />
 
         <Breadcrumb>
-          <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
           <Breadcrumb.Item active>Allopathic Generic</Breadcrumb.Item>
         </Breadcrumb>
       </Container>
@@ -38,10 +35,6 @@ const AllopathicGenericComponent = () => {
             );
           })}
         </Row>
-      </Container>
-
-      <Container fluid>
-        <Footer />
       </Container>
     </>
   );

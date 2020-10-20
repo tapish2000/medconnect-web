@@ -8,18 +8,15 @@ import BrandCardComponent from '../cards/BrandCardComponent';
 import AllopathicBrands from './AllopathicBrands';
 import AllopathicMedicines from './AllopathicMedicines';
 import Carousel from 'react-bootstrap/Carousel';
-import Navigation from '../NavigationComponent';
-import Footer from '../footer/FooterComponent';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
 const AllopathicBrandedComponent = () => {
   return (
     <>
       <Container fluid>
-        <Navigation />
 
         <Breadcrumb>
-          <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
           <Breadcrumb.Item active>Allopathic Branded</Breadcrumb.Item>
         </Breadcrumb>
       </Container>
@@ -98,10 +95,6 @@ const AllopathicBrandedComponent = () => {
             );
           })}
         </Row>
-      </Container>
-
-      <Container fluid>
-        <Footer />
       </Container>
     </>
   );
