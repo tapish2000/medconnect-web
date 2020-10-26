@@ -3,7 +3,7 @@ import './AllopathicBrandedComponent.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import MedicineCardComponent from '../cards/MedicineCardComponent';
+import MedicineCardDetailsComponent from '../cards/MedicineCardDetailsComponent';
 import BrandCardComponent from '../cards/BrandCardComponent';
 import AllopathicBrands from './AllopathicBrands';
 import AllopathicMedicines from './AllopathicMedicines';
@@ -84,7 +84,7 @@ const AllopathicBrandedComponent = () => {
           {AllopathicMedicines.map((val) => {
             return (
               <Col md={3} className="mt-3 mb-3">
-                <MedicineCardComponent
+                <MedicineCardDetailsComponent
                   Key={val.id}
                   imgsrc={val.imgsrc}
                   title={val.title}
