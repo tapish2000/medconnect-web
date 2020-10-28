@@ -35,7 +35,7 @@ class Footer extends Component {
 						</div>
 					</div>
 					<div className="d-flex justify-content-around">
-						<div class="social-container">
+						<div className="social-container">
 							<h5 className="text-white">Connect With Us</h5>
 							<a href="#" className="facebook social">
 								<FontAwesomeIcon icon={faFacebook} size="2x" />

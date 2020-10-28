@@ -83,15 +83,20 @@ const AllopathicBrandedComponent = () => {
         <Row className="m-3">
           {AllopathicMedicines.map((val) => {
             return (
-              <Col md={3} className="mt-3 mb-3">
-                <MedicineCardComponent
-                  Key={val.id}
-                  imgsrc={val.imgsrc}
-                  title={val.title}
-                  text={val.sname}
-                  link={val.link}
-                />
-              </Col>
+              
+                
+                <Col md={3} className="mt-3 mb-3">
+                  <MedicineCardComponent
+                    Key={val.id}
+                    imgsrc={val.imgsrc}
+                    title={val.title}
+                    text={val.sname}
+                    link={val.link}
+                  />
+                </Col>
+
+               
+              
             );
           })}
         </Row>
