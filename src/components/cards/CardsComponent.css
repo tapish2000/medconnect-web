@@ -75,3 +75,26 @@
     align-items: center;
     
   }
+
+
+  #cardDesign{
+    width:100%;
+    /* margin-left: 15%; */
+    /* margin-right: 15%; */
+  }
+  #image{
+    height: 500px;
+    min-height: 200px;
+    width: 70%;
+    min-width: 50%;
+  }
+
+
+  .inner1{
+    margin-top: 5%;
+    margin-bottom:5%;
+    width:60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

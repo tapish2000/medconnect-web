@@ -7,18 +7,21 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 
 
-function MedicineCardComponent(props) {
-    return (<>
+function MedicineCardDetailsComponent(props) {
 
-        <Card className="MyCard" style={{ width: '100%' }}>
+    // console.log(props);
+    // console.log(e);
+    return (<>  
+        
+        <Card className="MyCard" id = "cardDesign">
             
             <Card.Body className="MyCardBody">
                 <div className = "outer">
-                    <Card.Img className="MyImg" variant="top" src={props.imgsrc} />
+                    <Card.Img className="MyImg" variant="top" src={props.imgsrc} id = "image"/>
                 </div>
                 
                 <div className="outer">
-                    <div className="inner">
+                    <div className="inner1">
                         <Card.Title style = {{textAlign:"left",margin:"5%"}}>Medicine Name</Card.Title>
                         <MedicineInfoComponent style = {{margin:"5%"}} tag = "pain relief" saltName = "paracetamol" medicineWeight = "500gm" medicineQuantity ="15 tablest(s) in a strip" manufacturerName = "Consumer HealthCare Ltd" country="INDIA" amount = "Rs 16.23" />
                         
@@ -46,4 +49,4 @@ function MedicineCardComponent(props) {
     </>);
 }
 
-export default MedicineCardComponent;
+export default MedicineCardDetailsComponent;
