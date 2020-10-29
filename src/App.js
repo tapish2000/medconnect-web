@@ -7,7 +7,7 @@ import AllopathicBranded from './components/AllopathicBranded/AllopathicBrandedC
 import AllopathicGeneric from './components/AllopathicGeneric/AllopathicGenericComponent';
 import AyurvedicBranded from './components/AyurvedaBranded/AyurvedaBrandedComponent';
 import AyurvedicGeneric from './components/AyurvedaGeneric/AyurvedaGenericComponent';
-import MedicineCardDetailsComponent from './components/cards/MedicineCardDetailsComponent';
+import MedicineDetailComponent from './components/MedicineDetails/MedicineDetailComponent'
 import ShowPage from './components/ShopsList/ShowPage'
 import './App.css';
 
