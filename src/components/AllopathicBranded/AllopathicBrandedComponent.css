@@ -1,57 +1,64 @@
-body{
-    background-color: #d2dbdd;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .MyHeading{
-    margin-top: 10px;
-    padding: 30px 0;
-    text-align: center;
-    font-family: "Raleway",sans-serif;
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    color: #868686;
-    background-color: #fff;
-    font-size: 1.5rem;
-  }
+body {
+  background-color: #d2dbdd;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  .MyCard{
-    font-family: "Raleway",sans-serif;
-    transition: all 0.4s cubic-bezier(0.175,0.885,0,1);
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
-  }
-  
-  .MyCard:hover{
-    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .MyImg{
-    height: 180px;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-  }
-  
-  .MyButton{
-    padding: 5px 8px;
-    font-family: "Raleway", sans-serif;
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    color: #868686;
-    background-color: #fff;
-    outline: none;
-    border: 1px solid black;
-    cursor: pointer;
-  }
-  .MyButton:hover{
-    background-color: #fff;
-    color: #868686;
-    border: 1px solid black;
-  }
+.MyHeading {
+  margin-top: 10px;
+  padding: 30px 0;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #868686;
+  background-color: #fff;
+  font-size: 1.5rem;
+}
+
+.MyCard {
+  font-family: 'Raleway', sans-serif;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+}
+
+.MyCard:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+}
+
+.MyImg {
+  height: 180px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.MyButton {
+  padding: 5px 8px;
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #868686;
+  background-color: #fff;
+  outline: none;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.MyButton:hover {
+  background-color: #fff;
+  color: #868686;
+  border: 1px solid black;
+}
+
+.SpinnerDiv {
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+  align-items: center;
+}
