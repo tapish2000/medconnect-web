@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Search from './SearchComponent'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Navigation extends Component {
@@ -25,6 +26,7 @@ class Navigation extends Component {
 							<NavDropdown.Item href="/ayurgen">Generic</NavDropdown.Item>
 							<NavDropdown.Item href="/ayurbrand">Branded</NavDropdown.Item>
 						</NavDropdown>
+						<Search/>
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
