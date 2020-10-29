@@ -7,6 +7,7 @@ import AllopathicBranded from './components/AllopathicBranded/AllopathicBrandedC
 import AllopathicGeneric from './components/AllopathicGeneric/AllopathicGenericComponent';
 import AyurvedicBranded from './components/AyurvedaBranded/AyurvedaBrandedComponent';
 import AyurvedicGeneric from './components/AyurvedaGeneric/AyurvedaGenericComponent';
+import MedicineCardDetailsComponent from './components/cards/MedicineCardDetailsComponent';
 import './App.css';
 
 function App() {
@@ -20,9 +21,13 @@ function App() {
           <Route exact path="/allopgen" component={AllopathicGeneric} />
           <Route exact path="/ayurbrand" component={AyurvedicBranded} />
           <Route exact path="/ayurgen" component={AyurvedicGeneric} />
+          <Route path="/medicinedetails">
+            <MedicineCardDetailsComponent  imgsrc = "https://picsum.photos/200/300"/>
+          </Route>
         </Switch>
       </BrowserRouter>
       <Footer />
+      {/* <Search/> */}
     </div>
   );
 }
