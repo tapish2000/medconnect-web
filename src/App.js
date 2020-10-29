@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
-import Home from './components/HomePageComponent';
+import Home from './components/Home/HomePageComponent';
 import Navigation from './components/NavigationComponent';
 import Footer from './components/footer/FooterComponent';
 import AllopathicBranded from './components/AllopathicBranded/AllopathicBrandedComponent';
