@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Carousel from '../HomeCarouselComponent';
+import Carousel from './HomeCarouselComponent';
 
 class Home extends Component {
 	render() {
