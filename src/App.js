@@ -8,6 +8,9 @@ import AllopathicGeneric from './components/AllopathicGeneric/AllopathicGenericC
 import AyurvedicBranded from './components/AyurvedaBranded/AyurvedaBrandedComponent';
 import AyurvedicGeneric from './components/AyurvedaGeneric/AyurvedaGenericComponent';
 import MedicineCardDetailsComponent from './components/cards/MedicineCardDetailsComponent';
+
+import MapBox from './components/mapBox/mapBox';
+
 import './App.css';
 
 function App() {
@@ -23,6 +26,9 @@ function App() {
           <Route exact path="/ayurgen" component={AyurvedicGeneric} />
           <Route path="/medicinedetails">
             <MedicineCardDetailsComponent  imgsrc = "https://picsum.photos/200/300"/>
+          </Route>
+          <Route exact path="/stores">
+            <MapBox currentLocationOfUser = "just testing but will be changed later as soon as we add feature of allowing access to user's current location on opening of website"/>
           </Route>
         </Switch>
       </BrowserRouter>
