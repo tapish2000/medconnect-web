@@ -7,23 +7,32 @@ import AllopathicBranded from './components/AllopathicBranded/AllopathicBrandedC
 import AllopathicGeneric from './components/AllopathicGeneric/AllopathicGenericComponent';
 import AyurvedicBranded from './components/AyurvedaBranded/AyurvedaBrandedComponent';
 import AyurvedicGeneric from './components/AyurvedaGeneric/AyurvedaGenericComponent';
-import MedicineDetailComponent from './components/MedicineDetails/MedicineDetailComponent';
+import MedicineDetailComponent from './components/MedicineDetails/MedicineDetailComponent'
+import ShowPage from './components/ShopsList/ShowPage'
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"> 
       <Navigation />
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/allopbrand" component={AllopathicBranded} />
+          <Route
+            exact
+            path="/allopbrand/:id"
+            component={() => (
+              <MedicineDetailComponent showBtn={false} imgsrc="https://picsum.photos/200/300" />
+            )}
+          />
           <Route exact path="/allopgen" component={AllopathicGeneric} />
           <Route exact path="/ayurbrand" component={AyurvedicBranded} />
           <Route exact path="/ayurgen" component={AyurvedicGeneric} />
           <Route path="/medicinedetails">
-            <MedicineDetailComponent  imgsrc = "https://picsum.photos/200/300"/>
+            <MedicineDetailComponent imgsrc="https://picsum.photos/200/300" />
           </Route>
+          <Route path="/shoplist" component={ShowPage} />
         </Switch>
       </BrowserRouter>
       <Footer />

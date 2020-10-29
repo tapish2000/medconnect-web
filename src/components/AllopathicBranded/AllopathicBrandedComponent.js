@@ -19,7 +19,7 @@ const AllopathicBrandedComponent = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/medicine/allopathic/branded')
+      .get('https://glacial-caverns-39108.herokuapp.com/medicine/allopathic/branded')
       .then((response) => {
         console.log(response);
         setAllopathicMedicines(response.data);
@@ -118,7 +118,7 @@ const AllopathicBrandedComponent = () => {
                     manufacturer={val.manufacturer}
                     strength={val.strength}
                     price={val.price}
-                    link={'/'}
+                    id={val._id}
                   />
                 </Col>
               );
