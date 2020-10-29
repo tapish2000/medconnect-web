@@ -1,13 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import Card from 'react-bootstrap/Card';
 import './CardsComponent.css';
 
 function MedicineCardComponent(props) {
-  var url = '/medicinedetails/';
-
   return (
     <>
-      <Card.Link href={url}>
+      <Card.Link as={Link} to={`${props.location.pathname}/${props.id}`}>
         <Card className="MyCard" style={{ width: '100%', height: '100%' }}>
           <Card.Img className="MyImg" variant="top" src={props.imgsrc} />
           <Card.Body className="MyCardBody">
@@ -25,4 +25,4 @@ function MedicineCardComponent(props) {
   );
 }
 
-export default MedicineCardComponent;
+export default withRouter(MedicineCardComponent);

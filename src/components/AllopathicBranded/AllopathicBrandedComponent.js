@@ -118,7 +118,7 @@ const AllopathicBrandedComponent = () => {
                     manufacturer={val.manufacturer}
                     strength={val.strength}
                     price={val.price}
-                    link={'/'}
+                    id={val._id}
                   />
                 </Col>
               );
