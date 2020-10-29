@@ -17,25 +17,25 @@ class Footer extends Component {
 						<div className="col-md-2"><h5>Quick Links</h5></div>
 						<div className="col-md col-4">
 							<div className="row">
-								<div className="col-12"><a className="text-light" href="#">Home</a></div>
-								<div className="col-12"><a className="text-light" href="#">Store</a></div>
+								<div className="col-12"><a className="text-light" href="/">Home</a></div>
+								<div className="col-12"><a className="text-light" href="/stores">Store</a></div>
 							</div>
 						</div>
 						<div className="col-md col-4">
 							<div className="row">
-								<div className="col-12"><a className="text-light" href="#">Generic Allopathic Products</a></div>
-								<div className="col-12"><a className="text-light" href="#">Branded Allopathic Products</a></div>
+								<div className="col-12"><a className="text-light" href="/allopgen">Generic Allopathic Products</a></div>
+								<div className="col-12"><a className="text-light" href="/allopbrand">Branded Allopathic Products</a></div>
 							</div>
 						</div>
 						<div className="col-md col-4">
 						<div className="row">
-								<div className="col-12"><a className="text-light" href="#">Generic Ayurvedic Products</a></div>
-								<div className="col-12"><a className="text-light" href="#">Branded Ayurvedic Products</a></div>
+								<div className="col-12"><a className="text-light" href="/ayurgen">Generic Ayurvedic Products</a></div>
+								<div className="col-12"><a className="text-light" href="/ayurbrand">Branded Ayurvedic Products</a></div>
 							</div>
 						</div>
 					</div>
 					<div className="d-flex justify-content-around">
-						<div class="social-container">
+						<div className="social-container">
 							<h5 className="text-white">Connect With Us</h5>
 							<a href="#" className="facebook social">
 								<FontAwesomeIcon icon={faFacebook} size="2x" />

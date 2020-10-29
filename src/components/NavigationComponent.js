@@ -15,15 +15,15 @@ class Navigation extends Component {
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="mr-auto">
-						<Nav.Link href="#">Home</Nav.Link>
-						<Nav.Link href="#map">Stores</Nav.Link>
+						<Nav.Link href="/">Home</Nav.Link>
+						<Nav.Link href="/stores">Stores</Nav.Link>
 						<NavDropdown title="Allopathic Products" id="basic-nav-dropdown">
-							<NavDropdown.Item href="#action/3.1">Generic</NavDropdown.Item>
-							<NavDropdown.Item href="#action/3.2">Branded</NavDropdown.Item>
+							<NavDropdown.Item href="/allopgen">Generic</NavDropdown.Item>
+							<NavDropdown.Item href="/allopbrand">Branded</NavDropdown.Item>
 						</NavDropdown>
 						<NavDropdown title="Ayurvedic Products" id="basic-nav-dropdown">
-							<NavDropdown.Item href="#action/4.1">Generic</NavDropdown.Item>
-							<NavDropdown.Item href="#action/4.2">Branded</NavDropdown.Item>
+							<NavDropdown.Item href="/ayurgen">Generic</NavDropdown.Item>
+							<NavDropdown.Item href="/ayurbrand">Branded</NavDropdown.Item>
 						</NavDropdown>
 						<Nav.Link href="#map">Ayurvedic</Nav.Link>
 					</Nav>
