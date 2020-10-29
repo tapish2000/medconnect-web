@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Search from './SearchComponent'
+import Search from './Search/SearchComponent'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Navigation extends Component {
