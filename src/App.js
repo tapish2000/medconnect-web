@@ -7,12 +7,13 @@ import AllopathicBranded from './components/AllopathicBranded/AllopathicBrandedC
 import AllopathicGeneric from './components/AllopathicGeneric/AllopathicGenericComponent';
 import AyurvedicBranded from './components/AyurvedaBranded/AyurvedaBrandedComponent';
 import AyurvedicGeneric from './components/AyurvedaGeneric/AyurvedaGenericComponent';
-import MedicineDetailComponent from './components/MedicineDetails/MedicineDetailComponent';
+import MedicineDetailComponent from './components/MedicineDetails/MedicineDetailComponent'
+import ShowPage from './components/ShopsList/ShowPage'
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"> 
       <Navigation />
       <BrowserRouter>
         <Switch>
@@ -31,6 +32,7 @@ function App() {
           <Route path="/medicinedetails">
             <MedicineDetailComponent imgsrc="https://picsum.photos/200/300" />
           </Route>
+          <Route path="/shoplist" component={ShowPage} />
         </Switch>
       </BrowserRouter>
       <Footer />
