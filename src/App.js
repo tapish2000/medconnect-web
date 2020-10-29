@@ -18,11 +18,18 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/allopbrand" component={AllopathicBranded} />
+          <Route
+            exact
+            path="/allopbrand/:id"
+            component={() => (
+              <MedicineCardDetailsComponent imgsrc="https://picsum.photos/200/300" />
+            )}
+          />
           <Route exact path="/allopgen" component={AllopathicGeneric} />
           <Route exact path="/ayurbrand" component={AyurvedicBranded} />
           <Route exact path="/ayurgen" component={AyurvedicGeneric} />
           <Route path="/medicinedetails">
-            <MedicineCardDetailsComponent  imgsrc = "https://picsum.photos/200/300"/>
+            <MedicineCardDetailsComponent imgsrc="https://picsum.photos/200/300" />
           </Route>
         </Switch>
       </BrowserRouter>
