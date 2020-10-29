@@ -9,7 +9,9 @@ import BrandCardComponent from '../cards/BrandCardComponent';
 import AllopathicBrands from './AllopathicBrands';
 
 import Carousel from 'react-bootstrap/Carousel';
+import CardGroup from 'react-bootstrap/CardGroup';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import Spinner from 'react-bootstrap/Spinner';
 
 const AllopathicBrandedComponent = () => {
   const [AllopathicMedicines, setAllopathicMedicines] = useState([]);
@@ -96,25 +98,33 @@ const AllopathicBrandedComponent = () => {
 
       <Container fluid>
         <h1 className="MyHeading"> Allopathic Medicines </h1>
-        <Row className="m-3">
-          {loading ? (
-            <h1>Loading...</h1>
-          ) : (
-            AllopathicMedicines.map((val) => {
+        {loading ? (
+          <div className="SpinnerDiv">
+            <Spinner
+              animation="border"
+              variant="primary"
+              style={{ margin: 'auto' }}
+            />
+          </div>
+        ) : (
+          <Row className="m-3">
+            {AllopathicMedicines.map((val) => {
               return (
                 <Col md={3} className="mt-3 mb-3">
                   <MedicineCardComponent
                     Key={val._id}
                     imgsrc={val.image_url}
                     title={val.name}
-                    text={val.manufacturer}
+                    manufacturer={val.manufacturer}
+                    strength={val.strength}
+                    price={val.price}
                     link={'/'}
                   />
                 </Col>
               );
-            })
-          )}
-        </Row>
+            })}
+          </Row>
+        )}
       </Container>
     </>
   );
