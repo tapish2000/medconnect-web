@@ -10,7 +10,7 @@ class Navigation extends Component {
 		return (
 			<Navbar collapseOnSelect sticky="top" bg="primary" variant="dark" expand="lg">
 				<Navbar.Brand href="#">
-					<img src="./public/assets/logo.png" alt="" width="20" height="20" className="d-inline-block align-top" /> {' '}
+					<img src="./assets/logo.png" alt="" width="40" className="d-inline-block align-top" style={{backgroundColor:"white",margin:"10px"}} />
 					MedConnect
 					</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
