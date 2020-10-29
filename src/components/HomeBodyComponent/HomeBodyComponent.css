@@ -1,4 +1,25 @@
-.MyCard{
+body{
+    background-color: #d2dbdd;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .MyHeading{
+    margin-top: 10px;
+    padding: 30px 0;
+    text-align: center;
+    font-family: "Raleway",sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #868686;
+    background-color: #fff;
+    font-size: 1.5rem;
+  }
+
+  .MyCard{
     font-family: "Raleway",sans-serif;
     transition: all 0.4s cubic-bezier(0.175,0.885,0,1);
     background-color: #fff;
@@ -33,56 +54,4 @@
     background-color: #fff;
     color: #868686;
     border: 1px solid black;
-  }
-
-
-  .outer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .inner{
-    margin-top: 5%;
-    margin-bottom:5%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .cartbtn{
-    float:right;
-    display: flex;
-    margin-left: 25%;
-  }
-
-  .inputTag{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    
-  }
-
-
-  #cardDesign{
-    width:100%;
-    /* margin-left: 15%; */
-    /* margin-right: 15%; */
-  }
-  #image{
-    height: 500px;
-    min-height: 200px;
-    width: 70%;
-    min-width: 50%;
-  }
-
-
-  .inner1{
-    margin-top: 5%;
-    margin-bottom:5%;
-    width:60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
