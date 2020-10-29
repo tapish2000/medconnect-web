@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './AllopathicBrandedComponent.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -6,15 +7,30 @@ import Container from 'react-bootstrap/Container';
 import MedicineCardComponent from '../cards/MedicineCardComponent';
 import BrandCardComponent from '../cards/BrandCardComponent';
 import AllopathicBrands from './AllopathicBrands';
-import AllopathicMedicines from './AllopathicMedicines';
+
 import Carousel from 'react-bootstrap/Carousel';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
 const AllopathicBrandedComponent = () => {
+  const [AllopathicMedicines, setAllopathicMedicines] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:5000/medicine/allopathic/branded')
+      .then((response) => {
+        console.log(response);
+        setAllopathicMedicines(response.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <>
       <Container fluid>
-
         <Breadcrumb>
           <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
           <Breadcrumb.Item active>Allopathic Branded</Breadcrumb.Item>
@@ -81,28 +97,27 @@ const AllopathicBrandedComponent = () => {
       <Container fluid>
         <h1 className="MyHeading"> Allopathic Medicines </h1>
         <Row className="m-3">
-          {AllopathicMedicines.map((val) => {
-            return (
-              
-                
+          {loading ? (
+            <h1>Loading...</h1>
+          ) : (
+            AllopathicMedicines.map((val) => {
+              return (
                 <Col md={3} className="mt-3 mb-3">
                   <MedicineCardComponent
-                    Key={val.id}
-                    imgsrc={val.imgsrc}
-                    title={val.title}
-                    text={val.sname}
-                    link={val.link}
+                    Key={val._id}
+                    imgsrc={val.image_url}
+                    title={val.name}
+                    text={val.manufacturer}
+                    link={'/'}
                   />
                 </Col>
-
-               
-              
-            );
-          })}
+              );
+            })
+          )}
         </Row>
       </Container>
     </>
   );
-}
+};
 
 export default AllopathicBrandedComponent;
