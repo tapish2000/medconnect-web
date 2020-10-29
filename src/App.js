@@ -27,6 +27,7 @@ function App() {
         </Switch>
       </BrowserRouter>
       <Footer />
+      {/* <Search/> */}
     </div>
   );
 }
