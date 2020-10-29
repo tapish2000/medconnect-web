@@ -15,62 +15,6 @@
   border-radius: 5px;
 }
   
-  /*
-  .MyButton {
-    padding: 5px 8px;
-    font-family: "Raleway", sans-serif;
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    color: #868686;
-    background-color: #fff;
-    outline: none;
-    border: 1px solid black;
-    cursor: pointer;
-  }
-
-  .MyButton:hover {
-    background-color: #fff;
-    color: #868686;
-    border: 1px solid black;
-  }
-
-
-  .outer {
-    display: flex;
-    justify-content: left;
-    align-items: left;
-  }
-
-  .inner {
-    margin-top: 5%;
-    margin-bottom:5%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-
-  .tag {
-    background: grey;
-    padding: 5%;
-    color: black;
-    font-size: 100%;
-    color: #f5f5ef;
-    width:100%;
-    height:50%;
-  }
-
-  .inputTag {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    
-  }
-*/
-
 #cardDesign {
   width:100%;
   /* margin-left: 15%; */
@@ -78,22 +22,12 @@
 } 
 
 #image {
-  height: 500px;
+  height: 400px;
   min-height: 200px;
   width: 70%;
   min-width: 50%;
   padding-bottom: 1em;
 }
-
-
-  /* .inner1 {
-    margin-top: 5%;
-    margin-bottom:5%;
-    width:60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
 
 #quantity {
   margin-top: 1%;
