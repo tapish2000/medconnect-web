@@ -17,11 +17,11 @@
     
     width:100%;
     margin-top: 40vh;
-    margin-right: 5vw;
+    /* margin-right: 5vw; */
     /* margin-left:5vw; */
 }
 
 .whole{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
