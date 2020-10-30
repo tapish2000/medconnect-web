@@ -9,7 +9,7 @@ class Navigation extends Component {
 	render() {
 		return (
 			<Navbar collapseOnSelect sticky="top" bg="primary" variant="dark" expand="lg">
-				<Navbar.Brand href="#">
+				<Navbar.Brand href="/">
 					<img src="./assets/logo.png" alt="" width="40" className="d-inline-block align-top" style={{backgroundColor:"white",margin:"10px"}} />
 					MedConnect
 					</Navbar.Brand>
@@ -26,8 +26,8 @@ class Navigation extends Component {
 							<NavDropdown.Item href="/ayurgen">Generic</NavDropdown.Item>
 							<NavDropdown.Item href="/ayurbrand">Branded</NavDropdown.Item>
 						</NavDropdown>
-						<Search/>
 					</Nav>
+					<Search/>
 				</Navbar.Collapse>
 			</Navbar>
 		);

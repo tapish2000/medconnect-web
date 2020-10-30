@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Form, Button} from 'react-bootstrap'
 import ReactDOM from 'react-dom'
 import ReactTags from 'react-tag-autocomplete'
 import './SearchComponent.css'
@@ -9,11 +10,12 @@ class Search extends Component{
         
         this.state = {
             tags: [],
+            // need to populate it by API call
             suggestions: [
-            { id: 3, name: "Bananas" },
-            { id: 4, name: "Mangos" },
-            { id: 5, name: "Lemons" },
-            { id: 6, name: "Apricots" }
+            { id: 3, name: "Paracetemol" },
+            { id: 4, name: "Aspirin" },
+            { id: 5, name: "Benadryl Syrup" },
+            { id: 6, name: "Calpol" }
             ]
         }
         
@@ -32,12 +34,15 @@ class Search extends Component{
     }
     render() {
         return (
-            <ReactTags
-              ref={this.reactTags}
-              tags={this.state.tags}
-              suggestions={this.state.suggestions}
-              onDelete={this.onDelete.bind(this)}
-              onAddition={this.onAddition.bind(this)} />
+            <Form inline>
+                <ReactTags
+                ref={this.reactTags}
+                tags={this.state.tags}
+                suggestions={this.state.suggestions}
+                onDelete={this.onDelete.bind(this)}
+                onAddition={this.onAddition.bind(this)} />
+                <Button variant="outline-success">Search</Button>
+            </Form>
         );
     }
 }
