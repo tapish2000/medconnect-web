@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Container,Carousel,Col,Row, Card} from 'react-bootstrap'
+import {Container,Carousel,Col,Row, Card, Button} from 'react-bootstrap'
 import ShopCardComponent from './ShopCardComponent'
 import MedicineLists from './MedicineList'
 
@@ -38,6 +38,7 @@ class ShopPage extends Component{
                                     </Row>
                                 </Carousel.Item>
                                 </Carousel>
+                                <Button variant="warning">Add to Cart</Button>
                             </Card.Body>
                         </Card>
                     )

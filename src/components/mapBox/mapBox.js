@@ -4,7 +4,7 @@ import ReactMapGL,{Marker, Popup} from 'react-map-gl';
 import AccessToken from '../config/secret';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { geolocated } from "react-geolocated";
+import { geolocated } from 'react-geolocated';
 
 // import { Editor, DrawPolygonMode } from 'react-map-gl-draw';
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Card from 'react-bootstrap/Card';
+import {Card,Button} from 'react-bootstrap';
 import './CardsComponent.css';
 
 class ShopCardComponent extends Component {
@@ -13,6 +13,7 @@ class ShopCardComponent extends Component {
                 <Card.Body className="MyCardBody">
                     <Card.Title>{this.props.title}</Card.Title>
                     <Card.Text>{this.props.text}</Card.Text>
+                    <a href="#">Add to cart</a>
                 </Card.Body>
             </Card>
         );
