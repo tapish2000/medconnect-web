@@ -9,6 +9,7 @@ import AyurvedicBranded from './components/AyurvedaBranded/AyurvedaBrandedCompon
 import AyurvedicGeneric from './components/AyurvedaGeneric/AyurvedaGenericComponent';
 import MedicineDetailComponent from './components/MedicineDetails/MedicineDetailComponent'
 import ShowPage from './components/ShopsList/ShowPage'
+import MapBox from './components/mapBox/mapBox';
 import './App.css';
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
             <MedicineDetailComponent imgsrc="https://picsum.photos/200/300" />
           </Route>
           <Route path="/shoplist" component={ShowPage} />
+          <Route exact path = "/stores">
+            <MapBox />
+          </Route>
         </Switch>
       </BrowserRouter>
       <Footer />

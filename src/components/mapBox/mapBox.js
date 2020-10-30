@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import Locations from './locations'; //dataset of locations,not specifically for medicine shops
-import ReactMapGL,{Marker, Popup, DrawControl} from 'react-map-gl';
+import ReactMapGL,{Marker, Popup} from 'react-map-gl';
 import AccessToken from '../config/secret';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -140,10 +140,6 @@ function MapBox(props){
                             
                             
                             Locations.features.map((loc)=>(
-
-                                
-
-                                
                                 // console.log(distance);
                                 //loc means location with metadata
                                 (checkDistance(getDistanceFromLatLonInKm(loc.geometry.coordinates[1],loc.geometry.coordinates[0],UserCoordinates.longitude,UserCoordinates.latitude),currentRadius))?(
@@ -221,15 +217,6 @@ function MapBox(props){
         </>
     )
 }
-
-
-
-
-
-
-
-
-
 
 export default geolocated({
 
