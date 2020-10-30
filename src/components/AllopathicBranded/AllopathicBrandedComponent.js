@@ -8,19 +8,11 @@ import BrandCardComponent from '../cards/BrandCardComponent';
 import AllopathicBrands from './AllopathicBrands';
 import AllopathicMedicines from './AllopathicMedicines';
 import Carousel from 'react-bootstrap/Carousel';
-import Breadcrumb from 'react-bootstrap/Breadcrumb';
+
 
 const AllopathicBrandedComponent = () => {
   return (
     <>
-      <Container fluid>
-
-        <Breadcrumb>
-          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-          <Breadcrumb.Item active>Allopathic Branded</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
       <Container fluid>
         <h1 className="MyHeading"> Allopathic Top Brands </h1>
         <Carousel indicators={false}>
