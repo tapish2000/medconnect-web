@@ -1,6 +1,7 @@
 .react-tags {
     background-color: white;
     max-width: 100%;
+    margin-right: 10px;
     position: relative;
     padding: 6px 0 0 6px;
     border: 1px solid #D1D1D1;
