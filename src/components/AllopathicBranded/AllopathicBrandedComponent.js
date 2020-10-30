@@ -10,7 +10,6 @@ import AllopathicBrands from './AllopathicBrands';
 
 import Carousel from 'react-bootstrap/Carousel';
 import CardGroup from 'react-bootstrap/CardGroup';
-import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Spinner from 'react-bootstrap/Spinner';
 
 const AllopathicBrandedComponent = () => {
@@ -32,13 +31,6 @@ const AllopathicBrandedComponent = () => {
 
   return (
     <>
-      <Container fluid>
-        <Breadcrumb>
-          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-          <Breadcrumb.Item active>Allopathic Branded</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
       <Container fluid>
         <h1 className="MyHeading"> Allopathic Top Brands </h1>
         <Carousel indicators={false}>
