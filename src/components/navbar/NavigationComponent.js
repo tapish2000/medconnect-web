@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Search from './Search/SearchComponent'
+import Search from '../Search/SearchComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './NavigationComponent.css';
+import * as FaIcons from 'react-icons/fa';
+import { IconContext } from "react-icons";
 
 class Navigation extends Component {
 	render() {
@@ -27,7 +30,20 @@ class Navigation extends Component {
 							<NavDropdown.Item href="/ayurbrand">Branded</NavDropdown.Item>
 						</NavDropdown>
 					</Nav>
+					
 					<Search/>
+					<Nav.Link href="#">
+							<>
+								<h1 className="cartImg"><IconContext.Provider value={{ color: "white"}}>
+								    <FaIcons.FaCartPlus />
+                                </IconContext.Provider></h1>
+								
+								<h6 className="cartHeading">0</h6>
+							</>
+						</Nav.Link>
+
+
+
 				</Navbar.Collapse>
 			</Navbar>
 		);
