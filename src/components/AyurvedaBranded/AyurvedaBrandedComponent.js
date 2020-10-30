@@ -8,19 +8,10 @@ import AyurvedaBrands from './AyurvedaBrands';
 import AyurvedaMedicines from './AyurvedaMedicines';
 import Carousel from 'react-bootstrap/Carousel';
 import './AyurvedaBrandedComponent.css';
-import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
 const AyurvedaBrandedComponent = () => {
   return (
     <>
-      <Container fluid>
-
-        <Breadcrumb>
-          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-          <Breadcrumb.Item active>Ayurveda Branded</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
       <Container fluid>
         <h1 className="MyHeading"> Ayurveda Top Brands </h1>
         <Carousel indicators={false}>
