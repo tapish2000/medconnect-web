@@ -10,11 +10,12 @@ class Search extends Component{
         
         this.state = {
             tags: [],
+            // need to populate it by API call
             suggestions: [
-            { id: 3, name: "Bananas" },
-            { id: 4, name: "Mangos" },
-            { id: 5, name: "Lemons" },
-            { id: 6, name: "Apricots" }
+            { id: 3, name: "Paracetemol" },
+            { id: 4, name: "Aspirin" },
+            { id: 5, name: "Benadryl Syrup" },
+            { id: 6, name: "Calpol" }
             ]
         }
         
