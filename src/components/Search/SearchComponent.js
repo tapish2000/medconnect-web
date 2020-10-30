@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Form, Button} from 'react-bootstrap'
 import ReactDOM from 'react-dom'
 import ReactTags from 'react-tag-autocomplete'
 import './SearchComponent.css'
@@ -32,12 +33,15 @@ class Search extends Component{
     }
     render() {
         return (
-            <ReactTags
-              ref={this.reactTags}
-              tags={this.state.tags}
-              suggestions={this.state.suggestions}
-              onDelete={this.onDelete.bind(this)}
-              onAddition={this.onAddition.bind(this)} />
+            <Form inline>
+                <ReactTags
+                ref={this.reactTags}
+                tags={this.state.tags}
+                suggestions={this.state.suggestions}
+                onDelete={this.onDelete.bind(this)}
+                onAddition={this.onAddition.bind(this)} />
+                <Button variant="outline-success">Search</Button>
+            </Form>
         );
     }
 }
