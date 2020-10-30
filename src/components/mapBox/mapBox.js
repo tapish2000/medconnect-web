@@ -56,7 +56,7 @@ function MapBox(props){
 
 
     const [selectedMedicineShop, setSelectedMedicineShop] = useState(null);
-    const [currentRadius,setCurrentRadius] = useState(5515);
+    const [currentRadius,setCurrentRadius] = useState(100);
 
    
     function getLoc(){
@@ -94,6 +94,7 @@ function MapBox(props){
           ; 
         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
         var d = R * c; // Distance in km
+        console.log(d);
         return d;
       }
       
@@ -105,11 +106,11 @@ function MapBox(props){
       function eventHandler(e){
           let value = e.target.textContent;
           if(value === "5km"){
-              value = 5510;
+              value = 10;
           }else if(value === "10km"){
-              value = 5520;
+              value = 30;
           }else{
-              value = 5550;
+              value = 50;
           }
           setCurrentRadius(value);
 
@@ -142,7 +143,7 @@ function MapBox(props){
                             Locations.features.map((loc)=>(
                                 // console.log(distance);
                                 //loc means location with metadata
-                                (checkDistance(getDistanceFromLatLonInKm(loc.geometry.coordinates[1],loc.geometry.coordinates[0],UserCoordinates.longitude,UserCoordinates.latitude),currentRadius))?(
+                                (checkDistance(getDistanceFromLatLonInKm(loc.geometry.coordinates[1],loc.geometry.coordinates[0],45.383321536272049,-75.3472987731628),currentRadius))?(
                                     <Marker key = {loc.properties.ID} latitude={loc.geometry.coordinates[1]} longitude = {loc.geometry.coordinates[0]} >
                                         <div>
                                             <button className = "marker-btn" onMouseOver = {(event)=>{
