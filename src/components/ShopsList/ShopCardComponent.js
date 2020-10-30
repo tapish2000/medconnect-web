@@ -13,7 +13,7 @@ class ShopCardComponent extends Component {
                 <Card.Body className="MyCardBody">
                     <Card.Title>{this.props.title}</Card.Title>
                     <Card.Text>{this.props.text}</Card.Text>
-                    <a href="#">Add to cart</a>
+                    <a href="#">Details</a>
                 </Card.Body>
             </Card>
         );
