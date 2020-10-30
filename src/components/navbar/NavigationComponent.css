@@ -8,3 +8,7 @@
 .cartImg{
     margin-bottom: 20px;
 }
+
+#dropdown-basic::after{
+    display: none; 
+ }
