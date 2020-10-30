@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import Dropdown from 'react-bootstrap/Dropdown'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Search from '../Search/SearchComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -33,17 +34,29 @@ class Navigation extends Component {
 					
 					<Search/>
 					<Nav.Link href="#">
-							<>
-								<h1 className="cartImg"><IconContext.Provider value={{ color: "white"}}>
-								    <FaIcons.FaCartPlus />
-                                </IconContext.Provider></h1>
-								
-								<h6 className="cartHeading">0</h6>
-							</>
-						</Nav.Link>
+						<>
+							<h1 className="cartImg"><IconContext.Provider value={{ color: "white"}}>
+								<FaIcons.FaCartPlus />
+                            </IconContext.Provider></h1>
+							<h6 className="cartHeading">0</h6>
+						</>
+					</Nav.Link>
 
+                    <Nav>
+                    <Dropdown>
+                         <Dropdown.Toggle variant="none" id="dropdown-basic">
+                         <h1><IconContext.Provider value={{ color: "white"}}>
+                           <FaIcons.FaUserCircle />
+                        </IconContext.Provider></h1>
+                         </Dropdown.Toggle>
 
-
+                        <Dropdown.Menu className="dropdown-menu-right">
+                            <Dropdown.Item href="#/action-1">Edit Profile</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Current Bookings</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Booking History</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                    </Nav>
 				</Navbar.Collapse>
 			</Navbar>
 		);
