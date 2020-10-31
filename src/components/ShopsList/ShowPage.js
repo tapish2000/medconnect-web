@@ -13,7 +13,7 @@ class ShopPage extends Component{
     }
 
     addToCartHandler=(shop)=>{
-        this.props.onAddToCart(shop.medicines);
+        this.props.onAddToCart(shop);
     }
     render(){
         return(
@@ -58,7 +58,7 @@ class ShopPage extends Component{
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddToCart: (medicineList) => dispatch({type: "ADD_TO_CART", medicineList,}),
+        onAddToCart: ({medicines,shop_name}) => dispatch({type: "ADD_TO_CART", medicineList:medicines,shopName:shop_name}),
     }
 };
 

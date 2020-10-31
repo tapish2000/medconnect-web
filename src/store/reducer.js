@@ -9,9 +9,13 @@ const reducer=(state=initialState,action)=>{
     switch(action.type){
         case "ADD_TO_CART":
             const amount=state.cartAmount+action.medicineList.length;
+            const medicineListWithShopName=action.medicineList.map((medicine)=>{
+                return {...medicine,shopName:action.shopName};
+            })
+            console.log(medicineListWithShopName)
             return  {
                 cartAmount:amount,
-                medicinesInCart:action.medicineList
+                medicinesInCart:medicineListWithShopName
             };
         default:
             return state;

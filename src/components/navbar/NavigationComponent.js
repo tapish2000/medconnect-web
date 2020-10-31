@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import {connect} from 'react-redux';
+
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Dropdown from 'react-bootstrap/Dropdown'
@@ -9,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './NavigationComponent.css';
 import * as FaIcons from 'react-icons/fa';
 import { IconContext } from "react-icons";
+import { Link } from 'react-router-dom';
 
 const Navigation =(props)=> {
 
@@ -34,7 +36,7 @@ const Navigation =(props)=> {
 					</Nav>
 					
 					<Search/>
-					<Nav.Link href="#">
+					<Nav.Link as={Link} to={"/cart"}>
 						<>
 							<h1 className="cartImg"><IconContext.Provider value={{ color: "white"}}>
 								<FaIcons.FaCartPlus />
@@ -64,7 +66,6 @@ const Navigation =(props)=> {
 	}
 
 const mapStateToProps = state => {
-	
     return {
         cartAmount: state.cartAmount
     };

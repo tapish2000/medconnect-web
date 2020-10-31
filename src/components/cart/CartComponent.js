@@ -1,59 +1,51 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux';
 import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn } from "mdbreact";
 
 class CartComponent extends Component {
-state = {
-  data: [
-      {
-        src: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg",
-        medName: "Propygenta",
-        shopName: "Chomu Ki Dukan",
-        price: "12.63",
-        qty: "5"
-      },
-      {
-        src: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/6.jpg",
-        medName: "Headphones",
-        shopName: "Sony",
-        price: "200",
-        qty: "2"
-      },
-      {
-        src: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg",
-        medName: "iPad Pro",
-        shopName: "Apple",
-        price: "600",
-        qty: "1"
-      },
-    ],
-    columns: [
-      {
-        label: '',
-        field: 'img',
-      },
-      {
-        label: <strong>Medicine/Shop Name</strong>,
-        field: 'name'
-      },
-      {
-        label: <strong>Price</strong>,
-        field: 'price'
-      },
-      {
-        label: <strong>QTY</strong>,
-        field: 'qty'
-      },
-      {
-        label: <strong>Amount</strong>,
-        field: 'amount'
-      },
-      {
-        label: '',
-        field: 'button'
-      }
-  ],
-  sum: 0
-}
+
+  constructor(props){
+    super(props);
+    this.state={
+        
+        columns: [
+          {
+            label: '',
+            field: 'img',
+          },
+          {
+            label: <strong>Medicine/Shop Name</strong>,
+            field: 'name'
+          },
+          {
+            label: <strong>Price</strong>,
+            field: 'price'
+          },
+          {
+            label: <strong>QTY</strong>,
+            field: 'qty'
+          },
+          {
+            label: <strong>Amount</strong>,
+            field: 'amount'
+          },
+          {
+            label: '',
+            field: 'button'
+          }
+      ],
+      sum: 0
+    }
+  }
+
+  static getDerivedStateFromProps(props, state){
+    console.log(props)
+        return {
+          data: props.data,
+          ...state
+        }
+  }
+
 
 totalSum = (val) => {
     this.state.sum += Number(val);
@@ -68,9 +60,9 @@ render() {
         this.totalSum(row.qty * row.price);
       return rows.push(
         {
-        'img': <img src={row.src} alt="" className="img-fluid z-depth-0" />,
+        'img': <img src={row.imgsrc} alt="" className="img-fluid z-depth-0" />,
         'name': [<h5 className="mt-3"><strong>{row.medName}</strong></h5>, <p className="text-muted">{row.shopName}</p>],
-        'price': `₹ ${row.price}`,
+        'price': `₹ ${row.price.toFixed(2)}`,
         'qty':
         <>
             <select value={`${row.qty}`} className="mdb-select md-form" style={{ width: "100px" }}>
@@ -81,7 +73,7 @@ render() {
                 <option value="10">10</option>
             </select>
         </>,
-        'amount': <strong>₹ {row.qty * row.price}</strong>,
+        'amount': <strong>₹ {(row.qty * row.price).toFixed(2)}</strong>,
         'button':
         <a href="#">Remove</a>
         }
@@ -112,4 +104,10 @@ render() {
   }
 }
 
-export default CartComponent;
+const mapStateToProps = state => {
+  return {
+      data:state.medicinesInCart
+  };
+};
+
+export default connect(mapStateToProps, null)(CartComponent);

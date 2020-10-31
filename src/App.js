@@ -16,9 +16,10 @@ import './App.css';
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App"> 
       <Navigation />
-      <BrowserRouter>
+     
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/allopbrand" component={AllopathicBranded} />
@@ -41,9 +42,10 @@ function App() {
             <MapBox />
           </Route>
         </Switch>
-      </BrowserRouter>
+      
       <Footer />
     </div>
+    </BrowserRouter>
   );
 }
 
