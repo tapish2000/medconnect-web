@@ -44,13 +44,13 @@ class Navigation extends Component {
 
                     <Nav>
                     <Dropdown>
-                         <Dropdown.Toggle variant="none" id="dropdown-basic">
+                         <Dropdown.Toggle variant="none" id="dropdown-basic" >
                          <h1><IconContext.Provider value={{ color: "white"}}>
                            <FaIcons.FaUserCircle />
                         </IconContext.Provider></h1>
                          </Dropdown.Toggle>
 
-                        <Dropdown.Menu className="dropdown-menu-right">
+                        <Dropdown.Menu className="dm">
                             <Dropdown.Item href="#/action-1">Edit Profile</Dropdown.Item>
                             <Dropdown.Item href="#/action-2">Current Bookings</Dropdown.Item>
                             <Dropdown.Item href="#/action-3">Booking History</Dropdown.Item>
