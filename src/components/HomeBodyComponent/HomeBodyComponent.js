@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import BrandCardComponent from '../cards/BrandCardComponent';
+import DailyUseCardComponent from '../cards/DailyUseCardComponent';
 import TopBrands from './TopBrands'
 import DailyUse from './DailyUse'
 import Carousel from 'react-bootstrap/Carousel';
@@ -76,7 +77,7 @@ const HomeBodyComponent = () => {
               {DailyUse.map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
-                    <BrandCardComponent
+                    <DailyUseCardComponent
                       Key={val.id}
                       imgsrc={val.imgsrc}
                       title={val.title}
@@ -93,7 +94,7 @@ const HomeBodyComponent = () => {
               {DailyUse.map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
-                    <BrandCardComponent
+                    <DailyUseCardComponent
                       Key={val.id}
                       imgsrc={val.imgsrc}
                       title={val.title}
@@ -110,7 +111,7 @@ const HomeBodyComponent = () => {
               {DailyUse.map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
-                    <BrandCardComponent
+                    <DailyUseCardComponent
                       Key={val.id}
                       imgsrc={val.imgsrc}
                       title={val.title}
