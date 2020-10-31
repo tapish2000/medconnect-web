@@ -15,57 +15,41 @@ const HomeCarouselComponent = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://picsum.photos/200/301"
+            src="https://cdn.mindful.org/how-to-meditate.jpg"
             alt="First slide"
             height="600px"
           />
-          <Carousel.Caption>
-            <h3>MedConnect</h3>
-            <p>Serach your Medicines Here</p>
-          </Carousel.Caption>
+          
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://picsum.photos/201/300"
+            src="https://vhx.imgix.net/makematic/assets/18b2f634-9524-4c4e-b7a7-50a437d08845-18f32d38.png?auto=format%2Ccompress&fit=crop&h=360&w=640"
             alt="Second slide"
             height="600px"
           />
   
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Save Your Time</p>
-          </Carousel.Caption>
+          
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://picsum.photos/200/300"
+            src="https://www1.specialolympicsontario.com/healthy-at-home/wp-content/uploads/sites/63/2020/03/Healthy-at-Home-Logo-01.png"
             alt="Third slide"
             height="600px"
           />
   
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              We Are Here To Help You
-            </p>
-          </Carousel.Caption>
+          
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://picsum.photos/200/301"
+            src="https://cdn-b.medlife.com/2020/03/coronavirus-dos-donts.jpg"
             alt="Third slide"
             height="600px"
           />
   
-          <Carousel.Caption>
-            <h3>Fourth slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
+          
         </Carousel.Item>
       </Carousel>
       </>

@@ -5,6 +5,7 @@ import AccessToken from '../config/secret';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { geolocated } from 'react-geolocated';
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 // import { Editor, DrawPolygonMode } from 'react-map-gl-draw';
 
@@ -49,9 +50,9 @@ function MapBox(props){
     const [viewport,setViewPort] = useState({
         latitude:UserCoordinates.latitude,
         longitude:UserCoordinates.longitude,
-        zoom:10,
-        width:"80vw",
-        height:"90vh"
+        zoom:8,
+        width:"70vw",
+        height:"80vh"
     });
 
 
@@ -146,14 +147,14 @@ function MapBox(props){
                                 (checkDistance(getDistanceFromLatLonInKm(loc.geometry.coordinates[1],loc.geometry.coordinates[0],45.383321536272049,-75.3472987731628),currentRadius))?(
                                     <Marker key = {loc.properties.ID} latitude={loc.geometry.coordinates[1]} longitude = {loc.geometry.coordinates[0]} >
                                         <div>
-                                            <button className = "marker-btn" onMouseOver = {(event)=>{
+                                            <img src = "https://www.pinclipart.com/picdir/middle/447-4478350_png-file-svg-fa-map-marker-png-clipart.png" style={{width:"1vw"}} onMouseOver = {(event)=>{
                                                 event.preventDefault();
                                                 setSelectedMedicineShop(loc);
                                             }} >
-                                                <div>
-                                                    <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRWZeyq8wD_Q2OH8dxezpIpyX0iNvK1oodtRQ&usqp=CAU" alt = "error" className = "imageDesign"/>
-                                                </div>
-                                            </button>
+                                                {/* <div>
+                                                    <img src = "https://www.pinclipart.com/picdir/middle/447-4478350_png-file-svg-fa-map-marker-png-clipart.png" alt = "error" className = "imageDesign"/>
+                                                </div> */}
+                                            </img>
                                         </div>  
                                     </Marker>
                                 ):null
@@ -170,14 +171,14 @@ function MapBox(props){
                                 // {{console.log(selectedMedicineShop)}}
                                 <Marker key = {1} latitude={45.383321536272049} longitude = {-75.3472987731628}>
                                     <div>
-                                        <button className = "marker-btn" onMouseOver = {(event)=>{
+                                        <img src="https://toppng.com/uploads/preview/eat-play-do-icon-map-marker-115548254600u9yjx6qhj.png" style={{width:"1vw"}} onMouseOver = {(event)=>{
                                             event.preventDefault();
                                             
                                         }} >
-                                            <div>
+                                            {/* <div>
                                                 <img src = "https://image.shutterstock.com/image-vector/user-icon-human-person-symbol-260nw-1051033475.jpg" alt = "error" className = "imageDesign"/>
-                                            </div>
-                                        </button>
+                                            </div> */}
+                                        </img>
                                     </div>  
                                 </Marker>
                             ) : null
@@ -206,7 +207,7 @@ function MapBox(props){
                 </div>
                     
                         <div className = "radiusCircle">
-                            <DropdownButton id="dropdown-item-button" title="Radius circle" className="dropDown">
+                            <DropdownButton id="dropdown-item-button" title="Radius circle" className="dropDown" variant="info">
                                 <Dropdown.Item as="button" onClick={eventHandler}>5km</Dropdown.Item>
                                 <Dropdown.Item as="button" onClick={eventHandler}>10km</Dropdown.Item>
                                 <Dropdown.Item as="button" onClick={eventHandler}>15km</Dropdown.Item>
