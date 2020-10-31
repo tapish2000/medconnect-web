@@ -12,3 +12,7 @@
 #dropdown-basic::after{
     display: none; 
  }
+.dm{
+    right: 4px;
+    left: auto;
+}
