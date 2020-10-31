@@ -41,7 +41,7 @@ class Search extends Component{
                 suggestions={this.state.suggestions}
                 onDelete={this.onDelete.bind(this)}
                 onAddition={this.onAddition.bind(this)} />
-                <Button variant="outline-success">Search</Button>
+                <Button variant="outline-dark">Search</Button>
             </Form>
         );
     }
