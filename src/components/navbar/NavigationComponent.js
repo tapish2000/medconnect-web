@@ -11,7 +11,7 @@ import { IconContext } from "react-icons";
 class Navigation extends Component {
 	render() {
 		return (
-			<Navbar collapseOnSelect sticky="top" bg="primary" variant="dark" expand="lg">
+			<Navbar collapseOnSelect sticky="top" bg="info" variant="dark" expand="lg">
 				<Navbar.Brand href="/">
 					<img src="./assets/logo.png" alt="" width="30" height="30" className="d-inline-block align-top" style={{backgroundColor:"white",margin:"10px"}} />
 					MedConnect
@@ -43,13 +43,13 @@ class Navigation extends Component {
 
                     <Nav>
                     <Dropdown>
-                         <Dropdown.Toggle variant="none" id="dropdown-basic">
+                         <Dropdown.Toggle variant="none" id="dropdown-basic" >
                          <h1><IconContext.Provider value={{ color: "white"}}>
                            <FaIcons.FaUserCircle />
                         </IconContext.Provider></h1>
                          </Dropdown.Toggle>
 
-                        <Dropdown.Menu className="dropdown-menu-center">
+                        <Dropdown.Menu className="dm">
                             <Dropdown.Item href="#/action-1">Edit Profile</Dropdown.Item>
                             <Dropdown.Item href="/current">Current Bookings</Dropdown.Item>
                             <Dropdown.Item href="/history">Booking History</Dropdown.Item>
