@@ -12,7 +12,7 @@ import { IconContext } from "react-icons";
 class Navigation extends Component {
 	render() {
 		return (
-			<Navbar collapseOnSelect sticky="top" bg="primary" variant="dark" expand="lg">
+			<Navbar collapseOnSelect sticky="top" bg="info" variant="dark" expand="lg">
 				<Navbar.Brand href="/">
 					<img src="./assets/logo.png" alt="" width="30" height="30" className="d-inline-block align-top" style={{backgroundColor:"white",margin:"10px"}} />
 					MedConnect

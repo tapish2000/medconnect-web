@@ -11,7 +11,7 @@ import {
 class Footer extends Component {
 	render() {
 		return (
-			<div className="main-footer bg-primary">
+			<div className="main-footer bg-info">
 				<div className="container-fluid text-light">
 					<div className="d-flex justify-content-around">
 						<div className="col-md-2"><h5>Quick Links</h5></div>
