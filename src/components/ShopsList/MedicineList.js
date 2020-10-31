@@ -28,6 +28,13 @@ const MedicineLists=[
             title: "Ayurveda original product",
             text: "Medicine Name",
             link: "https://www.netflix.com/in/title/81026700"
+        },
+        {
+            id:5,
+            imgsrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQHPfoHLlJ7FhMmvp1Z3Wjnkec8cuCU-HHqlg&usqp=CAU",
+            title: "Ayurveda original product",
+            text: "Medicine Name",
+            link: "https://www.netflix.com/in/title/81026700"
         }]
     },
     {

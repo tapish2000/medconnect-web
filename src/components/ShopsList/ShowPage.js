@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux';
 import {Container,Carousel,Col,Row, Card, Button} from 'react-bootstrap'
 import ShopCardComponent from './ShopCardComponent'
 import MedicineLists from './MedicineList'
@@ -9,6 +10,10 @@ class ShopPage extends Component{
         this.state = {
             Shops : {...MedicineLists}
         }
+    }
+
+    addToCartHandler=(shop)=>{
+        this.props.onAddToCart(shop.medicines);
     }
     render(){
         return(
@@ -38,7 +43,7 @@ class ShopPage extends Component{
                                     </Row>
                                 </Carousel.Item>
                                 </Carousel>
-                                <Button variant="warning">Add to Cart</Button>
+                                <Button variant="warning" onClick={()=>this.addToCartHandler(shop)}>Add to Cart</Button>
                             </Card.Body>
                         </Card>
                     )
@@ -48,4 +53,13 @@ class ShopPage extends Component{
     }
 }
 
-export default ShopPage;
+
+
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onAddToCart: (medicineList) => dispatch({type: "ADD_TO_CART", medicineList,}),
+    }
+};
+
+export default connect(null, mapDispatchToProps)(ShopPage);

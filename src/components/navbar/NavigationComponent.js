@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
+import {connect} from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Dropdown from 'react-bootstrap/Dropdown'
@@ -9,8 +10,8 @@ import './NavigationComponent.css';
 import * as FaIcons from 'react-icons/fa';
 import { IconContext } from "react-icons";
 
-class Navigation extends Component {
-	render() {
+const Navigation =(props)=> {
+
 		return (
 			<Navbar collapseOnSelect sticky="top" bg="primary" variant="dark" expand="lg">
 				<Navbar.Brand href="/">
@@ -38,7 +39,7 @@ class Navigation extends Component {
 							<h1 className="cartImg"><IconContext.Provider value={{ color: "white"}}>
 								<FaIcons.FaCartPlus />
                             </IconContext.Provider></h1>
-							<h6 className="cartHeading">0</h6>
+							<h6 className="cartHeading">{props.cartAmount}</h6>
 						</>
 					</Nav.Link>
 
@@ -61,6 +62,11 @@ class Navigation extends Component {
 			</Navbar>
 		);
 	}
-}
 
-export default Navigation;
+const mapStateToProps = state => {
+	
+    return {
+        cartAmount: state.cartAmount
+    };
+};
+export default connect(mapStateToProps, null)(Navigation);
