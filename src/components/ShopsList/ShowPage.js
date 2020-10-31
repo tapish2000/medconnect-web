@@ -58,7 +58,13 @@ class ShopPage extends Component{
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddToCart: ({medicines,shop_name}) => dispatch({type: "ADD_TO_CART", medicineList:medicines,shopName:shop_name}),
+        onAddToCart: ({medicines,shop_name}) => {
+            const medicineList=medicines.map((medicine)=>{
+                return {...medicine,shopName:shop_name};
+            })
+            dispatch({type: "ADD_TO_CART", medicineList,});
+
+        }
     }
 };
 

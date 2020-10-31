@@ -39,7 +39,7 @@ class CartComponent extends Component {
   }
 
   static getDerivedStateFromProps(props, state){
-    console.log(props)
+    
         return {
           data: props.data,
           ...state
@@ -50,6 +50,11 @@ class CartComponent extends Component {
 totalSum = (val) => {
     this.state.sum += Number(val);
 }
+
+onQuantityChanged=(e,medicine)=>{
+  console.log(e.target.value);
+  this.props.onMedicineQuantityChanged(this.props.data,medicine,e.target.value);
+  }
 
 render() {
 
@@ -65,7 +70,7 @@ render() {
         'price': `₹ ${row.price.toFixed(2)}`,
         'qty':
         <>
-            <select value={`${row.qty}`} className="mdb-select md-form" style={{ width: "100px" }}>
+            <select defaultValue={row.qty} className="mdb-select md-form" style={{ width: "100px" }} onChange={(e)=>this.onQuantityChanged(e,row)}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -91,7 +96,7 @@ render() {
           </MDBTable>
           <div className="row">
               <div className="col-9">
-                <strong>Total Amount: {this.state.sum}</strong>
+                <strong>Total Amount: {this.state.sum.toFixed(2)}</strong>
               </div>
               <div className="col-sm">
                   <a className="btn btn-outline-primary" role="button" href="#">Book Now</a>
@@ -110,4 +115,19 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(CartComponent);
+const mapDispatchToProps = dispatch => {
+  return {
+      onMedicineQuantityChanged: (medicineList,medicine,newQuantity) => {
+        let newMedicineList=[...medicineList];
+        for(let i=0;i<newMedicineList.length;i++){
+          if(newMedicineList[i]===medicine){
+            newMedicineList[i].qty=newQuantity;
+          }
+        }
+        dispatch({type: "MODIFY_CART",medicineList:newMedicineList});
+      }
+  }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartComponent);
