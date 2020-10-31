@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./CartComponent.css"
 import {connect} from 'react-redux';
 import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn } from "mdbreact";
 
@@ -48,6 +49,7 @@ class CartComponent extends Component {
 
 
 totalSum = (val) => {
+    this.state.sum=0
     this.state.sum += Number(val);
 }
 
@@ -62,15 +64,15 @@ render() {
     const { columns, data } = this.state;
 
     data.map(row => {
-        this.totalSum(row.qty * row.price);
+        this.totalSum(row.quantity * row.price);
       return rows.push(
         {
-        'img': <img src={row.imgsrc} alt="" className="img-fluid z-depth-0" />,
-        'name': [<h5 className="mt-3"><strong>{row.medName}</strong></h5>, <p className="text-muted">{row.shopName}</p>],
-        'price': `₹ ${row.price.toFixed(2)}`,
+        'img': <img src={row.image_url} alt="" className="img-fluid z-depth-0 image-cart" />,
+        'name': [<h5 className="mt-3"><strong>{row.name}</strong></h5>, <p className="text-muted">{row.shopName}</p>],
+        'price': `₹ ${row.price}`,
         'qty':
         <>
-            <select defaultValue={row.qty} className="mdb-select md-form" style={{ width: "100px" }} onChange={(e)=>this.onQuantityChanged(e,row)}>
+            <select defaultValue={row.quantity} className="mdb-select md-form" style={{ width: "100px" }} onChange={(e)=>this.onQuantityChanged(e,row)}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -78,7 +80,7 @@ render() {
                 <option value="10">10</option>
             </select>
         </>,
-        'amount': <strong>₹ {(row.qty * row.price).toFixed(2)}</strong>,
+        'amount': <strong>₹ {(row.quantity * row.price)}</strong>,
         'button':
         <a href="#">Remove</a>
         }
@@ -121,7 +123,7 @@ const mapDispatchToProps = dispatch => {
         let newMedicineList=[...medicineList];
         for(let i=0;i<newMedicineList.length;i++){
           if(newMedicineList[i]===medicine){
-            newMedicineList[i].qty=newQuantity;
+            newMedicineList[i].quantity=newQuantity;
           }
         }
         dispatch({type: "MODIFY_CART",medicineList:newMedicineList});
