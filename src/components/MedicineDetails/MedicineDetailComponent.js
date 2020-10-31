@@ -109,9 +109,7 @@ function MedicineDetails(props) {
                         >
                         Add to Cart
                         </a>
-                    </div>  
-                    :
-                    null
+                    </div> : null
                     }
                 </div>
               </div>

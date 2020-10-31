@@ -4,7 +4,6 @@ import Nav from 'react-bootstrap/Nav';
 import Dropdown from 'react-bootstrap/Dropdown'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Search from '../Search/SearchComponent';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './NavigationComponent.css';
 import * as FaIcons from 'react-icons/fa';
 import { IconContext } from "react-icons";
@@ -33,7 +32,7 @@ class Navigation extends Component {
 					</Nav>
 					
 					<Search/>
-					<Nav.Link href="#">
+					<Nav.Link href="/cart">
 						<>
 							<h1 className="cartImg"><IconContext.Provider value={{ color: "white"}}>
 								<FaIcons.FaCartPlus />
@@ -50,10 +49,10 @@ class Navigation extends Component {
                         </IconContext.Provider></h1>
                          </Dropdown.Toggle>
 
-                        <Dropdown.Menu className="dropdown-menu-right">
+                        <Dropdown.Menu className="dropdown-menu-center">
                             <Dropdown.Item href="#/action-1">Edit Profile</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Current Bookings</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Booking History</Dropdown.Item>
+                            <Dropdown.Item href="/current">Current Bookings</Dropdown.Item>
+                            <Dropdown.Item href="/history">Booking History</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     </Nav>
