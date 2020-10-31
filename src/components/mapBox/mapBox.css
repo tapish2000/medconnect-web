@@ -1,7 +1,13 @@
 .imageDesign{
-    width: 2vw;
+    width: 1vw;
 }
 
+.mapBoxDesign{
+    padding: 10px;
+    margin: 5px;
+    border-style: dashed;
+    border-width: thick;
+}
 
 .radiusCircle{
     display: flex;
