@@ -40,7 +40,7 @@ const AllopathicBrandedComponent = () => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
                     <BrandCardComponent
-                      Key={val.id}
+                      Key={val._id}
                       imgsrc={val.imgsrc}
                       title={val.title}
                       text={val.sname}
@@ -104,7 +104,7 @@ const AllopathicBrandedComponent = () => {
               return (
                 <Col md={3} className="mt-3 mb-3">
                   <MedicineCardComponent
-                    Key={val._id}
+                    Key={val.id}
                     imgsrc={val.image_url}
                     title={val.name}
                     manufacturer={val.manufacturer}
