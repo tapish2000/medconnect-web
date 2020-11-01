@@ -1,12 +1,13 @@
 .cartHeading{
-    margin-left: 20px;
-    margin-top: -75px;
+    margin-left: 13px;
+    margin-top: 0px;
     color: white;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
 }
 
 .cartImg{
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+    margin-left: 5px;
 }
 
 #dropdown-basic::after{

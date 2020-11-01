@@ -49,7 +49,7 @@ class Footer extends Component {
 						</div>
 						<div className="footer-bottom">
 							<p className="text-xs-center">
-								&copy;{new Date().getFullYear()} MedConnect App - All Rights Reserved
+								MedConnect &copy;{new Date().getFullYear()} - All Rights Reserved
 							</p>
 						</div>
 					</div>

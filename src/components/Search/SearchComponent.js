@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Form, Button} from 'react-bootstrap'
 import axios from 'axios'
 import ReactTags from 'react-tag-autocomplete'
+import ShowPage from '../ShopsList/ShowPage';
+import { Link } from 'react-router-dom';
 import './SearchComponent.css'
 
 class Search extends Component{
@@ -37,21 +39,23 @@ class Search extends Component{
             console.log(err);
         })
     }
-    onSearch(event){
+    onSearch = (event) => {
         event.preventDefault();
         console.log("I was clicked");
         const params = JSON.stringify({
             latitude : "23.672884",
             longitude : "86.156107",
-            tags:this.state.tags,
+            tags : this.state.tags,
             travelMode : "walking",
         })
-        axios.post('https://glacial-caverns-39108.herokuapp.com/search',params,{
+        axios.post('http://glacial-caverns-39108.herokuapp.com/search',params,{
             "headers": {
                 "content-type": "application/json",
             },
         }).then((res)=>{
             console.log(res);
+            window.localStorage.setItem("searchedData", JSON.stringify(res.data.shops));
+            window.location.href = "/shoplist"
         })
         .catch((err)=>{
             console.log(err);
@@ -60,13 +64,14 @@ class Search extends Component{
     render() {
         return (
             <Form inline>
-                <ReactTags
+                <ReactTags 
+                placeholderText="Type Medicine Here..."
                 ref={this.reactTags}
                 tags={this.state.tags}
                 suggestions={this.state.suggestions}
                 onDelete={this.onDelete.bind(this)}
                 onAddition={this.onAddition.bind(this)} />
-                <Button variant="outline-dark" onClick={this.onSearch} >Search</Button>
+                <Button variant="outline-dark" onClick={this.onSearch}>Search</Button>
             </Form>
         );
     }
