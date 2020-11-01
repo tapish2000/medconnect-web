@@ -60,7 +60,8 @@ class Search extends Component{
     render() {
         return (
             <Form inline>
-                <ReactTags
+                <ReactTags 
+                placeholderText="Type Medicine Here..."
                 ref={this.reactTags}
                 tags={this.state.tags}
                 suggestions={this.state.suggestions}
