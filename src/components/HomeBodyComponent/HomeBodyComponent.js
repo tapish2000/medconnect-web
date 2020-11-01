@@ -94,8 +94,7 @@ const HomeBodyComponent = () => {
 
       <Container fluid>
         <h1 className="MyHeading"> Daily Use </h1>
-        <Carousel indicators={false}>
-          <Carousel.Item>
+
           {loading ? (
           <div className="SpinnerDiv">
             <Spinner
@@ -123,66 +122,9 @@ const HomeBodyComponent = () => {
             })}
           </Row>
         )}
-          </Carousel.Item>
-          <Carousel.Item>
-          {loading ? (
-          <div className="SpinnerDiv">
-            <Spinner
-              animation="border"
-              variant="primary"
-              style={{ margin: 'auto' }}
-            />
-          </div>
-        ) : (
-          <Row className="m-3">
-            {DailyUseMedicine.map((val) => {
-              return (
-                <Col md={3} className="mt-3 mb-3">
-                  <DailyUseCardComponent
-                    Key={val._id}
-                    imgsrc={val.image_url}
-                    title={val.name}
-                    manufacturer={val.manufacturer}
-                    strength={val.strength}
-                    price={val.price}
-                    id={val._id}
-                  />
-                </Col>
-              );
-            })}
-          </Row>
-        )}
-          </Carousel.Item>
-          <Carousel.Item>
-          {loading ? (
-          <div className="SpinnerDiv">
-            <Spinner
-              animation="border"
-              variant="primary"
-              style={{ margin: 'auto' }}
-            />
-          </div>
-        ) : (
-          <Row className="m-3">
-            {DailyUseMedicine.map((val) => {
-              return (
-                <Col md={3} className="mt-3 mb-3">
-                  <DailyUseCardComponent
-                    Key={val._id}
-                    imgsrc={val.image_url}
-                    title={val.name}
-                    manufacturer={val.manufacturer}
-                    strength={val.strength}
-                    price={val.price}
-                    id={val._id}
-                  />
-                </Col>
-              );
-            })}
-          </Row>
-        )}
-          </Carousel.Item>
-        </Carousel>
+
+          
+
       </Container>
     </>
   );
