@@ -1,15 +1,23 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
+import {connect} from 'react-redux';
+
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Dropdown from 'react-bootstrap/Dropdown'
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Spinner from 'react-bootstrap/Spinner'; 
 import Search from '../Search/SearchComponent';
 import './NavigationComponent.css';
 import * as FaIcons from 'react-icons/fa';
 import { IconContext } from "react-icons";
+import { Link } from 'react-router-dom';
 
-class Navigation extends Component {
-	render() {
+const Navigation =(props)=> {
+	console.log(props.loading);
+	useEffect(()=>{
+		props.getCartAmount();
+	},[])
+
 		return (
 			<Navbar collapseOnSelect sticky="top" bg="info" variant="dark" expand="lg">
 				<Navbar.Brand href="/">
@@ -32,14 +40,21 @@ class Navigation extends Component {
 					</Nav>
 					
 					<Search/>
-					<Nav.Link href="/cart">
-						<>
-							<h2 className="cartImg"><IconContext.Provider value={{ color: "white"}}>
+					<Nav.Link as={Link} to={"/cart"}>
+						{(props.loading)?
+							(<div className="SpinnerDiv">
+								<Spinner
+									animation="border"
+									variant="light"
+									style={{ margin: 'auto' }}
+								/>
+							</div>):
+							<>
+							<h1 className="cartImg"><IconContext.Provider value={{ color: "white"}}>
 								<FaIcons.FaCartPlus />
-                            </IconContext.Provider></h2>
-							<h6 className="cartHeading">0</h6>
-							
-						</>
+                            </IconContext.Provider></h1>
+							<h6 className="cartHeading">{props.cartAmount}</h6>
+						</>}
 					</Nav.Link>
 
                     <Nav>
@@ -61,6 +76,20 @@ class Navigation extends Component {
 			</Navbar>
 		);
 	}
-}
 
-export default Navigation;
+const mapStateToProps = state => {
+    return {
+		cartAmount: state.cartAmount,
+		loading:state.loading
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getCartAmount: () => {
+            dispatch({type: "GET_CART_AMOUNT",});
+
+        }
+    }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
