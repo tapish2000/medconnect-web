@@ -6,9 +6,7 @@ import Container from 'react-bootstrap/Container';
 import BrandCardComponent from '../cards/BrandCardComponent';
 import DailyUseCardComponent from '../cards/DailyUseCardComponent';
 import TopBrands from './TopBrands'
-import DailyUse from './DailyUse'
 import Carousel from 'react-bootstrap/Carousel';
-// import CardGroup from 'react-bootstrap/CardGroup';
 import Spinner from 'react-bootstrap/Spinner';
 import './HomeBodyComponent.css';
 

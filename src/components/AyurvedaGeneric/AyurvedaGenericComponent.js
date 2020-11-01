@@ -5,11 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import MedicineCardComponent from '../cards/MedicineCardComponent';
 import axios from 'axios';
-
-import Carousel from 'react-bootstrap/Carousel';
-import CardGroup from 'react-bootstrap/CardGroup';
 import Spinner from 'react-bootstrap/Spinner';
-// import AyurvedaGenericMedicines from './AyurvedaGenericMedicines';
 
 const AyurvedaGenericComponent = () => {
 

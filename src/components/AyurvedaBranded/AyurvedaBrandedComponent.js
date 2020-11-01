@@ -6,7 +6,6 @@ import Container from 'react-bootstrap/Container';
 import MedicineCardComponent from '../cards/MedicineCardComponent';
 import BrandCardComponent from '../cards/BrandCardComponent';
 import AyurvedaBrands from './AyurvedaBrands';
-// import AyurvedaMedicines from './AyurvedaMedicines';
 import Carousel from 'react-bootstrap/Carousel';
 import Spinner from 'react-bootstrap/Spinner';
 import './AyurvedaBrandedComponent.css';
