@@ -43,7 +43,7 @@ class CartComponent extends Component {
   }
 
   componentDidMount(){
-    axios.get('http://localhost:5000/user/cart/view/5f4a95114a72100017272afe')
+    axios.get('https://glacial-caverns-39108.herokuapp.com/user/cart/view/5f4a95114a72100017272afe')
     .then((response)=>{
       console.log(response)
       this.setState({data:response.data.cart,loading:false});
@@ -61,12 +61,12 @@ onQuantityChanged=async (e,item)=>{
   console.log(e.target.value);
   //make api call
   this.setState({loading:true})
-  await axios.post("http://localhost:5000/user/cart/changeQuantity/5f4a95114a72100017272afe",{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity},newQuantity:e.target.value}).then((response)=>{
+  await axios.post("https://glacial-caverns-39108.herokuapp.com/user/cart/changeQuantity/5f4a95114a72100017272afe",{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity},newQuantity:e.target.value}).then((response)=>{
         console.log(response)
     }).catch((err)=>{
         console.log(err);
     })
-  await axios.get('http://localhost:5000/user/cart/view/5f4a95114a72100017272afe')
+  await axios.get('https://glacial-caverns-39108.herokuapp.com/user/cart/view/5f4a95114a72100017272afe')
   .then((response)=>{
     console.log(response)
     this.setState({data:response.data.cart,loading:false});

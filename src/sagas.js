@@ -2,7 +2,7 @@ import { put, takeLatest, all,call,take } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* fetchCartItemsAmount() {
-  const json = yield fetch('http://localhost:5000/user/cart/amount/5f4a95114a72100017272afe')
+  const json = yield fetch('https://glacial-caverns-39108.herokuapp.com/user/cart/amount/5f4a95114a72100017272afe')
         .then(response => response.json(), );    
   yield put({ type: "CART_AMOUNT_RECEIVED", amount: json.amount, });
 }
@@ -20,7 +20,7 @@ function* AddItemToCart(data) {
     console.log(itemsInCart)
     let status=200;
     let lengthOfCart=0;
-    yield axios.post("http://localhost:5000/user/cart/add/5f4a95114a72100017272afe",{medicineList:itemsInCart}).then((response)=>{
+    yield axios.post("https://glacial-caverns-39108.herokuapp.com/user/cart/add/5f4a95114a72100017272afe",{medicineList:itemsInCart}).then((response)=>{
         console.log(response)
         lengthOfCart=response.data.amount;
          
