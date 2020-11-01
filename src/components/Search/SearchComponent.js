@@ -37,13 +37,13 @@ class Search extends Component{
             console.log(err);
         })
     }
-    onSearch(event){
+    onSearch = (event) => {
         event.preventDefault();
         console.log("I was clicked");
         const params = JSON.stringify({
             latitude : "23.672884",
             longitude : "86.156107",
-            tags:this.state.tags,
+            tags : this.state.tags,
             travelMode : "walking",
         })
         axios.post('https://glacial-caverns-39108.herokuapp.com/search',params,{
@@ -52,6 +52,7 @@ class Search extends Component{
             },
         }).then((res)=>{
             console.log(res);
+            
         })
         .catch((err)=>{
             console.log(err);

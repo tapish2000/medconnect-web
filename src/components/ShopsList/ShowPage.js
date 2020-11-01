@@ -4,7 +4,6 @@ import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import {Container,Carousel,Col,Row, Card, Button} from 'react-bootstrap'
 import ShopCardComponent from './ShopCardComponent'
-import MedicineLists from './MedicineList'
 
 class ShopPage extends Component{
     constructor(props){
