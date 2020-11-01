@@ -30,6 +30,7 @@ class ShopPage extends Component{
           finalExampleData.push(
           {
               shop_name:"Sameed",
+              shop_id:"5f47e5ea174464ed81cc5100",
               medicines:medicineListWithQuantity
           });
           console.log(finalExampleData);
@@ -97,7 +98,7 @@ const mapDispatchToProps = dispatch => {
             const medicineList=medicines.map((medicine)=>{
                 return {...medicine,shopName:shop_name};
             })
-            dispatch({type: "ADD_TO_CART", medicineList,});
+            dispatch({type: "ADD_ITEM_TO_CART", medicineList,});
 
         }
     }
