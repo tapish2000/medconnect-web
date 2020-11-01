@@ -1,6 +1,7 @@
 const initialState={
     cartAmount:0,
-    medicinesInCart:[]
+    medicinesInCart:[],
+    loading:true
 }
 
 
@@ -21,6 +22,17 @@ const reducer=(state=initialState,action)=>{
                 return  {
                     cartAmount:action.medicineList.length,
                     medicinesInCart:action.medicineList
+                };
+            case "GET_CART_AMOUNT":
+                return  {
+                    ...state,
+                    loading:true,
+                };
+            case "CART_AMOUNT_RECEIVED":
+                return  {
+                    ...state,
+                    cartAmount:action.amount,
+                    loading:false,
                 };
         default:
             return state;

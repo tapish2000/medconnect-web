@@ -15,7 +15,7 @@ function DailyUseCardComponent(props) {
             <Card.Text>{props.strength} </Card.Text>
             <Card.Text>{props.manufacturer}</Card.Text>
             <Card.Text>₹ {props.price}</Card.Text>
-            <a href="#" target="_blank">
+            <a href="#">
               <button className="MyButton">Details</button>
             </a>
           </Card.Body>

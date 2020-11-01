@@ -5,17 +5,21 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Dropdown from 'react-bootstrap/Dropdown'
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Spinner from 'react-bootstrap/Spinner'; 
 import Search from '../Search/SearchComponent';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './NavigationComponent.css';
 import * as FaIcons from 'react-icons/fa';
 import { IconContext } from "react-icons";
 import { Link } from 'react-router-dom';
 
 const Navigation =(props)=> {
+	console.log(props.loading);
+	useEffect(()=>{
+		props.getCartAmount();
+	},[])
 
 		return (
-			<Navbar collapseOnSelect sticky="top" bg="primary" variant="dark" expand="lg">
+			<Navbar collapseOnSelect sticky="top" bg="info" variant="dark" expand="lg">
 				<Navbar.Brand href="/">
 					<img src="./assets/logo.png" alt="" width="30" height="30" className="d-inline-block align-top" style={{backgroundColor:"white",margin:"10px"}} />
 					MedConnect
@@ -37,12 +41,20 @@ const Navigation =(props)=> {
 					
 					<Search/>
 					<Nav.Link as={Link} to={"/cart"}>
-						<>
+						{(props.loading)?
+							(<div className="SpinnerDiv">
+								<Spinner
+									animation="border"
+									variant="light"
+									style={{ margin: 'auto' }}
+								/>
+							</div>):
+							<>
 							<h1 className="cartImg"><IconContext.Provider value={{ color: "white"}}>
 								<FaIcons.FaCartPlus />
                             </IconContext.Provider></h1>
 							<h6 className="cartHeading">{props.cartAmount}</h6>
-						</>
+						</>}
 					</Nav.Link>
 
                     <Nav>
@@ -55,8 +67,8 @@ const Navigation =(props)=> {
 
                         <Dropdown.Menu className="dm">
                             <Dropdown.Item href="#/action-1">Edit Profile</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Current Bookings</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Booking History</Dropdown.Item>
+                            <Dropdown.Item href="/current">Current Bookings</Dropdown.Item>
+                            <Dropdown.Item href="/history">Booking History</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     </Nav>
@@ -67,7 +79,17 @@ const Navigation =(props)=> {
 
 const mapStateToProps = state => {
     return {
-        cartAmount: state.cartAmount
+		cartAmount: state.cartAmount,
+		loading:state.loading
     };
 };
-export default connect(mapStateToProps, null)(Navigation);
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getCartAmount: () => {
+            dispatch({type: "GET_CART_AMOUNT",});
+
+        }
+    }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
