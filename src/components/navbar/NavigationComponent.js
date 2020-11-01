@@ -50,10 +50,11 @@ const Navigation =(props)=> {
 								/>
 							</div>):
 							<>
-							<h1 className="cartImg"><IconContext.Provider value={{ color: "white"}}>
-								<FaIcons.FaCartPlus />
-                            </IconContext.Provider></h1>
 							<h6 className="cartHeading">{props.cartAmount}</h6>
+							<IconContext.Provider value={{ style: { verticalAlign: 'middle',color:"white",height:'30px',width:'30px' } }}>
+								<FaIcons.FaCartPlus />
+                            </IconContext.Provider>
+							
 						</>}
 					</Nav.Link>
 

@@ -57,12 +57,28 @@ totalSum = (val) => {
     this.state.sum += Number(val);
 }
 
-// onQuantityChanged=(e,medicine)=>{
-//   console.log(e.target.value);
-//   this.props.onMedicineQuantityChanged(this.props.data,medicine,e.target.value);
-//   }
+onQuantityChanged=async (e,item)=>{
+  console.log(e.target.value);
+  //make api call
+  this.setState({loading:true})
+  await axios.post("http://localhost:5000/user/cart/changeQuantity/5f4a95114a72100017272afe",{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity},newQuantity:e.target.value}).then((response)=>{
+        console.log(response)
+    }).catch((err)=>{
+        console.log(err);
+    })
+  await axios.get('http://localhost:5000/user/cart/view/5f4a95114a72100017272afe')
+  .then((response)=>{
+    console.log(response)
+    this.setState({data:response.data.cart,loading:false});
+  }).catch((err)=>{
+    console.log(err);
+  })
+
+}
 
 render() {
+
+    console.log(this.state.data)
     let sum=0;
 
     const rows = [];
@@ -79,7 +95,7 @@ render() {
         'qty':
         <>
             <select defaultValue={row.quantity} className="mdb-select md-form" style={{ width: "100px" }}
-            //  onChange={(e)=>this.onQuantityChanged(e,row)}
+             onChange={(e)=>this.onQuantityChanged(e,row)}
              >
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -125,6 +141,12 @@ render() {
     );
   }
 }
+
+
+
+
+
+
 
 // const mapStateToProps = state => {
 //   return {
