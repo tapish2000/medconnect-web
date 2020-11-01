@@ -24,7 +24,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-tag-autocomplete": "^6.1.0",
-    "reactjs-localstorage": "^1.0.1"
+    "reactjs-localstorage": "^1.0.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.1.3"
