@@ -67,7 +67,7 @@ function App() {
           </Route> */}
           <Route exact path="/current" component={CurrentBooking} />
           <Route exact path="/history" component={BookingHistory} />
-          <Route path="/shoplist" component={ShowPage} />
+          <Route path="/shoplist" render={(props)=><ShowPage {...props} />} />
           <Route exact path = "/stores">
             <MapBox />
           </Route>
