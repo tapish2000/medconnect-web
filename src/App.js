@@ -13,6 +13,7 @@ import CurrentBooking from './components/bookings/CurrentBookingComponent';
 import BookingHistory from './components/bookings/BookingHistoryComponent';
 import Cart from './components/cart/CartComponent';
 import MapBox from './components/mapBox/mapBox';
+import DailyUseCardComponent from './components/cards/DailyUseCardComponent';
 import Login from './components/accesories/login/LoginPage'
 import './App.css';
 
@@ -31,13 +32,40 @@ function App() {
               <MedicineDetailComponent showBtn={false} imgsrc="https://picsum.photos/200/300" />
             )}
           />
+          <Route
+            exact
+            path="/allopgen/:id"
+            component={() => (
+              <MedicineDetailComponent showBtn={false} imgsrc="https://picsum.photos/200/300" />
+            )}
+          />
+          
+
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/allopgen" component={AllopathicGeneric} />
           <Route exact path="/ayurbrand" component={AyurvedicBranded} />
           <Route exact path="/ayurgen" component={AyurvedicGeneric} />
-          <Route path="/medicinedetails">
+          
+          <Route
+            exact
+            path="/ayurgen/:id"
+            component={() => (
+              <MedicineDetailComponent showBtn={false} imgsrc="https://picsum.photos/200/300" />
+            )}
+          />
+
+          <Route
+            exact
+            path="/ayurbrand/:id"
+            component={() => (
+              <MedicineDetailComponent showBtn={false} imgsrc="https://picsum.photos/200/300" />
+            )}
+          />
+
+
+          {/* <Route path="/medicinedetails">
             <MedicineDetailComponent imgsrc="https://picsum.photos/200/300" />
-          </Route>
+          </Route> */}
           <Route exact path="/current" component={CurrentBooking} />
           <Route exact path="/history" component={BookingHistory} />
           <Route path="/shoplist" render={(props)=><ShowPage {...props} />} />
@@ -45,6 +73,15 @@ function App() {
           <Route exact path = "/stores">
             <MapBox />
           </Route>
+
+          <Route
+            exact
+            path="/:id"
+            component={() => (
+              <MedicineDetailComponent showBtn={false} imgsrc="https://picsum.photos/200/300" />
+            )}
+          />
+
         </Switch>
       </BrowserRouter>
       <Footer />
