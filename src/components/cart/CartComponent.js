@@ -76,6 +76,25 @@ onQuantityChanged=async (e,item)=>{
 
 }
 
+removeItemHandler= async (item)=>{
+  //make api call
+  console.log(item,"REMOVE")
+  this.setState({loading:true})
+  await axios.post("http://localhost:5000/user/cart/removeMedicine/5f4a95114a72100017272afe",{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity}}).then((response)=>{
+        console.log(response)
+        this.props.onMedicineRemoved();
+    }).catch((err)=>{
+        console.log(err);
+    })
+  await axios.get('https://glacial-caverns-39108.herokuapp.com/user/cart/view/5f4a95114a72100017272afe')
+  .then((response)=>{
+    console.log(response)
+    this.setState({data:response.data.cart,loading:false});
+  }).catch((err)=>{
+    console.log(err);
+  })
+}
+
 render() {
 
     console.log(this.state.data)
@@ -106,7 +125,8 @@ render() {
         </>,
         'amount': <strong>₹ {(row.quantity * row.medicine.price)}</strong>,
         'button':
-        <a href="#">Remove</a>
+        
+        <a href="#" onClick={()=>this.removeItemHandler(row)}>Remove</a>
         }
       )
       
@@ -154,19 +174,13 @@ render() {
 //   };
 // };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//       onMedicineQuantityChanged: (medicineList,medicine,newQuantity) => {
-//         let newMedicineList=[...medicineList];
-//         for(let i=0;i<newMedicineList.length;i++){
-//           if(newMedicineList[i]===medicine){
-//             newMedicineList[i].quantity=newQuantity;
-//           }
-//         }
-//         dispatch({type: "MODIFY_CART",medicineList:newMedicineList});
-//       }
-//   }
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+      onMedicineRemoved: ()=>{
+        dispatch({type: "GET_CART_AMOUNT"})},
+      }
+  }
 
 
-export default (CartComponent);
+
+export default connect(null,mapDispatchToProps)(CartComponent);
