@@ -13,9 +13,9 @@ class Navigation extends Component {
 		return (
 			<Navbar collapseOnSelect sticky="top" bg="info" variant="dark" expand="lg">
 				<Navbar.Brand href="/">
-					<img src="./assets/logo.png" alt="" width="30" height="30" className="d-inline-block align-top" style={{backgroundColor:"white",margin:"10px"}} />
-					MedConnect
-					</Navbar.Brand>
+					<img src="./assets/logo.png" alt="" width="30" height="30" className="d-inline-block align-top" style={{backgroundColor:"white"}} />
+					<h6>MedConnect</h6>
+				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="mr-auto">
@@ -34,19 +34,20 @@ class Navigation extends Component {
 					<Search/>
 					<Nav.Link href="/cart">
 						<>
-							<h1 className="cartImg"><IconContext.Provider value={{ color: "white"}}>
+							<h2 className="cartImg"><IconContext.Provider value={{ color: "white"}}>
 								<FaIcons.FaCartPlus />
-                            </IconContext.Provider></h1>
+                            </IconContext.Provider></h2>
 							<h6 className="cartHeading">0</h6>
+							
 						</>
 					</Nav.Link>
 
                     <Nav>
                     <Dropdown>
                          <Dropdown.Toggle variant="none" id="dropdown-basic" >
-                         <h1><IconContext.Provider value={{ color: "white"}}>
+                         <h3><IconContext.Provider value={{ color: "white"}}>
                            <FaIcons.FaUserCircle />
-                        </IconContext.Provider></h1>
+                        </IconContext.Provider></h3>
                          </Dropdown.Toggle>
 
                         <Dropdown.Menu className="dm">
