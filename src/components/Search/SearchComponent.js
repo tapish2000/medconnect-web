@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Form, Button} from 'react-bootstrap'
-import ReactDOM from 'react-dom'
+import axios from 'axios'
 import ReactTags from 'react-tag-autocomplete'
 import './SearchComponent.css'
 
@@ -10,13 +10,7 @@ class Search extends Component{
         
         this.state = {
             tags: [],
-            // need to populate it by API call
-            suggestions: [
-            { id: 3, name: "Paracetemol" },
-            { id: 4, name: "Aspirin" },
-            { id: 5, name: "Benadryl Syrup" },
-            { id: 6, name: "Calpol" }
-            ]
+            suggestions: [],
         }
         
         this.reactTags = React.createRef()
@@ -32,6 +26,37 @@ class Search extends Component{
         const tags = [].concat(this.state.tags, tag)
         this.setState({ tags })
     }
+    componentDidMount(){
+        axios.get('https://glacial-caverns-39108.herokuapp.com/medicine/tags')
+        .then((res)=>{
+            this.setState({
+                suggestions : res.data
+            })
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
+    onSearch(event){
+        event.preventDefault();
+        console.log("I was clicked");
+        const params = JSON.stringify({
+            latitude : "23.672884",
+            longitude : "86.156107",
+            tags:this.state.tags,
+            travelMode : "walking",
+        })
+        axios.post('https://glacial-caverns-39108.herokuapp.com/search',params,{
+            "headers": {
+                "content-type": "application/json",
+            },
+        }).then((res)=>{
+            console.log(res);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
     render() {
         return (
             <Form inline>
@@ -41,7 +66,7 @@ class Search extends Component{
                 suggestions={this.state.suggestions}
                 onDelete={this.onDelete.bind(this)}
                 onAddition={this.onAddition.bind(this)} />
-                <Button variant="outline-dark">Search</Button>
+                <Button variant="outline-dark" onClick={this.onSearch} >Search</Button>
             </Form>
         );
     }
