@@ -22,6 +22,7 @@ const AllopathicBrandedComponent = () => {
       .then((response) => {
         console.log(response);
         setAllopathicMedicines(response.data);
+        // console.log(AllopathicMedicines);
         setLoading(false);
       })
       .catch((err) => {

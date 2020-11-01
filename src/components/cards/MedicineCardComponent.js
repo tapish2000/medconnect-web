@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import './CardsComponent.css';
 
 function MedicineCardComponent(props) {
+  console.log(props.location.pathname);
   return (
     <>
       <Card.Link as={Link} to={`${props.location.pathname}/${props.id}`}>
