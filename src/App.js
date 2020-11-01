@@ -13,6 +13,7 @@ import CurrentBooking from './components/bookings/CurrentBookingComponent';
 import BookingHistory from './components/bookings/BookingHistoryComponent';
 import Cart from './components/cart/CartComponent';
 import MapBox from './components/mapBox/mapBox';
+import Login from './components/accesories/login/LoginPage'
 import './App.css';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route exact path="/current" component={CurrentBooking} />
           <Route exact path="/history" component={BookingHistory} />
           <Route path="/shoplist" render={(props)=><ShowPage {...props} />} />
+          <Route path='/login' component={Login} />
           <Route exact path = "/stores">
             <MapBox />
           </Route>
