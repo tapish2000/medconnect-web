@@ -8,7 +8,6 @@ import MedicineCardComponent from '../cards/MedicineCardComponent';
 import BrandCardComponent from '../cards/BrandCardComponent';
 import AllopathicBrands from './AllopathicBrands';
 import Carousel from 'react-bootstrap/Carousel';
-import CardGroup from 'react-bootstrap/CardGroup';
 import Spinner from 'react-bootstrap/Spinner';
 
 const AllopathicBrandedComponent = () => {

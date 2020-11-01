@@ -120,8 +120,10 @@ function MapBox(props){
 
     return(
         <>
+            <h1 className="MyHeading"> Nearby Medicine Shops </h1>
             <div className = "whole">
                 <div className = "mapBoxDesign">
+                
                     <ReactMapGL 
                         {...viewport} 
                         mapboxApiAccessToken = {AccessToken.REACT_APP_MAPBOX_ACCESS_TOKEN} 
