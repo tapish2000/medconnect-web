@@ -13,7 +13,7 @@ import { IconContext } from "react-icons";
 import { Link } from 'react-router-dom';
 
 const Navigation =(props)=> {
-	console.log(props.loading);
+	console.log(props);
 	useEffect(()=>{
 		props.getCartAmount();
 	},[])

@@ -96,7 +96,7 @@ const mapDispatchToProps = dispatch => {
     return {
         onAddToCart: async ({medicines,shop_name}) => {
             const medicineList=medicines.map((medicine)=>{
-                return {...medicine,shopName:shop_name};
+                return {...medicine,shop_id:"5f47e5ea174464ed81cc5100",shopName:shop_name};
             })
             dispatch({type: "ADD_ITEM_TO_CART", medicineList,});
 

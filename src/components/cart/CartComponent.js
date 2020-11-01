@@ -45,7 +45,7 @@ class CartComponent extends Component {
   componentDidMount(){
     axios.get('http://localhost:5000/user/cart/view/5f4a95114a72100017272afe')
     .then((response)=>{
-     
+      console.log(response)
       this.setState({data:response.data.cart,loading:false});
     }).catch((err)=>{
       console.log(err);

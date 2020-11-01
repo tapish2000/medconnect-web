@@ -17,6 +17,7 @@ function* AddItemToCart(data) {
     data.forEach((med)=>{
         itemsInCart.push({medicine:med._id,shop:med.shop_id,quantity:med.quantity,});
     })
+    console.log(itemsInCart)
     let status=200;
     let lengthOfCart=0;
     yield axios.post("http://localhost:5000/user/cart/add/5f4a95114a72100017272afe",{medicineList:itemsInCart}).then((response)=>{
@@ -32,8 +33,11 @@ function* AddItemToCart(data) {
         
   }
 function* AddItemToCartWatcher() {
+    while(true){
     const { medicineList } = yield take('ADD_ITEM_TO_CART');
+    console.log("DEBUG")
     yield call(AddItemToCart,medicineList);
+    }
 
 }
 
