@@ -21,10 +21,26 @@ const HomeBodyComponent = () => {
   
     useEffect(() => {
       axios
-        .get('https://glacial-caverns-39108.herokuapp.com/medicine/allopathic/branded')
+        .get('https://glacial-caverns-39108.herokuapp.com/medicine/dailyUseMedicine')
         .then((response) => {
           console.log(response);
-          setDailyUseMedicine(response.data);
+          // console.log(response.data.data);
+          let modifiedData = [];
+          let idx = 0;
+          let innerDataArray = [];
+          while(idx<response.data.data.length){
+            while(innerDataArray.length<4 && idx<response.data.data.length){
+              innerDataArray.push(response.data.data[idx]);
+              idx+=1;
+            }
+            modifiedData.push(innerDataArray);
+            innerDataArray = [];
+            // idx = 0;
+          }
+
+          console.log(modifiedData);
+
+          setDailyUseMedicine(modifiedData);
           // console.log(DailyUseMedicine);
           setLoading(false);
         })
@@ -94,7 +110,7 @@ const HomeBodyComponent = () => {
 
       <Container fluid>
         <h1 className="MyHeading"> Daily Use </h1>
-
+            
           {loading ? (
           <div className="SpinnerDiv">
             <Spinner
@@ -104,27 +120,34 @@ const HomeBodyComponent = () => {
             />
           </div>
         ) : (
-          <Row className="m-3">
+          <Carousel indicators={false}>
+          
             {DailyUseMedicine.map((val) => {
               return (
-                <Col md={3} className="mt-3 mb-3">
-                  <DailyUseCardComponent
-                    Key={val._id}
-                    imgsrc={val.image_url}
-                    title={val.name}
-                    manufacturer={val.manufacturer}
-                    strength={val.strength}
-                    price={val.price}
-                    id={val._id}
-                  />
-                </Col>
-              );
+              <Carousel.Item>
+                <Row className="m-3">
+                  {val.map((data)=>{
+                    return (
+                      <Col md={3} className="mt-3 mb-3">
+                        <DailyUseCardComponent
+                          Key={data._id}
+                          imgsrc={data.image_url}
+                          title={data.name}
+                          manufacturer={data.manufacturer}
+                          strength={data.strength}
+                          price={data.price}
+                          id={data._id}
+                        />
+                      </Col>
+                    );
+                  })}
+                </Row>
+              </Carousel.Item>)
             })}
-          </Row>
-        )}
-
           
-
+          </Carousel>
+          
+        )}
       </Container>
     </>
   );
