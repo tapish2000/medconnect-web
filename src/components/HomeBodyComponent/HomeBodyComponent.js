@@ -56,7 +56,7 @@ const HomeBodyComponent = () => {
         <Carousel indicators={false}>
           <Carousel.Item>
             <Row className="m-3">
-              {TopBrands.map((val) => {
+              {TopBrands[0].map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
                     <BrandCardComponent
@@ -73,7 +73,7 @@ const HomeBodyComponent = () => {
           </Carousel.Item>
           <Carousel.Item>
             <Row className="m-3">
-              {TopBrands.map((val) => {
+              {TopBrands[1].map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
                     <BrandCardComponent
@@ -90,7 +90,7 @@ const HomeBodyComponent = () => {
           </Carousel.Item>
           <Carousel.Item>
             <Row className="m-3">
-              {TopBrands.map((val) => {
+              {TopBrands[2].map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
                     <BrandCardComponent

@@ -38,7 +38,7 @@ const AyurvedaBrandedComponent = () => {
         <Carousel indicators={false}>
           <Carousel.Item>
             <Row className="m-3">
-              {AyurvedaBrands.map((val) => {
+              {AyurvedaBrands[0].map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
                     <BrandCardComponent
@@ -55,7 +55,7 @@ const AyurvedaBrandedComponent = () => {
           </Carousel.Item>
           <Carousel.Item>
             <Row className="m-3">
-              {AyurvedaBrands.map((val) => {
+              {AyurvedaBrands[1].map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
                     <BrandCardComponent
@@ -72,7 +72,7 @@ const AyurvedaBrandedComponent = () => {
           </Carousel.Item>
           <Carousel.Item>
             <Row className="m-3">
-              {AyurvedaBrands.map((val) => {
+              {AyurvedaBrands[2].map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
                     <BrandCardComponent
