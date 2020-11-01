@@ -36,7 +36,7 @@ const AllopathicBrandedComponent = () => {
         <Carousel indicators={false}>
           <Carousel.Item>
             <Row className="m-3">
-              {AllopathicBrands.map((val) => {
+              {AllopathicBrands[0].map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
                     <BrandCardComponent
@@ -53,7 +53,7 @@ const AllopathicBrandedComponent = () => {
           </Carousel.Item>
           <Carousel.Item>
             <Row className="m-3">
-              {AllopathicBrands.map((val) => {
+              {AllopathicBrands[1].map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
                     <BrandCardComponent
@@ -70,7 +70,7 @@ const AllopathicBrandedComponent = () => {
           </Carousel.Item>
           <Carousel.Item>
             <Row className="m-3">
-              {AllopathicBrands.map((val) => {
+              {AllopathicBrands[2].map((val) => {
                 return (
                   <Col md={3} className="mt-3 mb-3">
                     <BrandCardComponent
