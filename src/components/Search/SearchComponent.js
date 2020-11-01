@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Form, Button} from 'react-bootstrap'
 import axios from 'axios'
 import ReactTags from 'react-tag-autocomplete'
+import ShowPage from '../ShopsList/ShowPage';
+import { Link } from 'react-router-dom';
 import './SearchComponent.css'
 
 class Search extends Component{
@@ -46,13 +48,14 @@ class Search extends Component{
             tags : this.state.tags,
             travelMode : "walking",
         })
-        axios.post('https://glacial-caverns-39108.herokuapp.com/search',params,{
+        axios.post('http://glacial-caverns-39108.herokuapp.com/search',params,{
             "headers": {
                 "content-type": "application/json",
             },
         }).then((res)=>{
             console.log(res);
-            
+            window.localStorage.setItem("searchedData", JSON.stringify(res.data.shops));
+            window.location.href = "/shoplist"
         })
         .catch((err)=>{
             console.log(err);
@@ -68,7 +71,7 @@ class Search extends Component{
                 suggestions={this.state.suggestions}
                 onDelete={this.onDelete.bind(this)}
                 onAddition={this.onAddition.bind(this)} />
-                <Button variant="outline-dark" onClick={this.onSearch} >Search</Button>
+                <Button variant="outline-dark" onClick={this.onSearch}>Search</Button>
             </Form>
         );
     }

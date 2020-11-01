@@ -8,7 +8,7 @@ function MedicineCardComponent(props) {
   console.log(props.location.pathname);
   return (
     <>
-      <Card.Link as={Link} to={`${props.location.pathname}/${props.id}`}>
+      <Card.Link as={Link} to={`/medicine/${props.id}`}>
         <Card className="MyCard" style={{ width: '100%', height: '100%' }}>
           <Card.Img className="MyImg" variant="top" src={props.imgsrc} />
           <Card.Body className="MyCardBody">

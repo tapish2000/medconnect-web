@@ -29,48 +29,19 @@ function App() {
           <Route exact path="/allopbrand" component={AllopathicBranded} />
           <Route
             exact
-            path="/allopbrand/:id"
+            path="/medicine/:id"
             component={() => (
               <MedicineDetailComponent showBtn={false} imgsrc="https://picsum.photos/200/300" />
             )}
           />
-          <Route
-            exact
-            path="/allopgen/:id"
-            component={() => (
-              <MedicineDetailComponent showBtn={false} imgsrc="https://picsum.photos/200/300" />
-            )}
-          />
-          
-
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/allopgen" component={AllopathicGeneric} />
           <Route exact path="/ayurbrand" component={AyurvedicBranded} />
           <Route exact path="/ayurgen" component={AyurvedicGeneric} />
           
-          <Route
-            exact
-            path="/ayurgen/:id"
-            component={() => (
-              <MedicineDetailComponent showBtn={false} imgsrc="https://picsum.photos/200/300" />
-            )}
-          />
-
-          <Route
-            exact
-            path="/ayurbrand/:id"
-            component={() => (
-              <MedicineDetailComponent showBtn={false} imgsrc="https://picsum.photos/200/300" />
-            )}
-          />
-
-
-          {/* <Route path="/medicinedetails">
-            <MedicineDetailComponent imgsrc="https://picsum.photos/200/300" />
-          </Route> */}
           <Route exact path="/current" component={CurrentBooking} />
           <Route exact path="/history" component={BookingHistory} />
-          <Route path="/shoplist" render={(props)=><ShowPage {...props} />} />
+          <Route path="/shoplist" component={ShowPage} />
           <Route path='/login' component={Login} />
           <Route exact path = "/stores">
             <MapBox />
