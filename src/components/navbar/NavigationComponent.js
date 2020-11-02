@@ -37,7 +37,7 @@ const Navigation =(props)=> {
 
 		return (
 			<Navbar collapseOnSelect sticky="top" bg="info" variant="dark" expand="lg">
-				<Navbar.Brand href="/">
+				<Navbar.Brand as={Link} to="/">
 					<img src={iconImage} alt="" width="30" height="30" className="d-inline-block align-top" style={{backgroundColor:"white"}} />
 					<h6>MedConnect</h6>
 				</Navbar.Brand>
