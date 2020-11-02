@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/medconnect-web/static/css/main.5b159610.chunk.css",
-    "main.js": "/medconnect-web/static/js/main.28bc98b8.chunk.js",
-    "main.js.map": "/medconnect-web/static/js/main.28bc98b8.chunk.js.map",
+    "main.css": "/medconnect-web/static/css/main.0d444f34.chunk.css",
+    "main.js": "/medconnect-web/static/js/main.04e19d70.chunk.js",
+    "main.js.map": "/medconnect-web/static/js/main.04e19d70.chunk.js.map",
     "runtime-main.js": "/medconnect-web/static/js/runtime-main.14d8c35b.js",
     "runtime-main.js.map": "/medconnect-web/static/js/runtime-main.14d8c35b.js.map",
     "static/css/2.31452f42.chunk.css": "/medconnect-web/static/css/2.31452f42.chunk.css",
     "static/js/2.6994d377.chunk.js": "/medconnect-web/static/js/2.6994d377.chunk.js",
     "static/js/2.6994d377.chunk.js.map": "/medconnect-web/static/js/2.6994d377.chunk.js.map",
     "index.html": "/medconnect-web/index.html",
-    "precache-manifest.5c7e5d8c62bf8b3715029e0e5ffba422.js": "/medconnect-web/precache-manifest.5c7e5d8c62bf8b3715029e0e5ffba422.js",
+    "precache-manifest.8bced7954a9b5763b59afdf6c1bf1ba3.js": "/medconnect-web/precache-manifest.8bced7954a9b5763b59afdf6c1bf1ba3.js",
     "service-worker.js": "/medconnect-web/service-worker.js",
     "static/css/2.31452f42.chunk.css.map": "/medconnect-web/static/css/2.31452f42.chunk.css.map",
-    "static/css/main.5b159610.chunk.css.map": "/medconnect-web/static/css/main.5b159610.chunk.css.map",
+    "static/css/main.0d444f34.chunk.css.map": "/medconnect-web/static/css/main.0d444f34.chunk.css.map",
     "static/js/2.6994d377.chunk.js.LICENSE.txt": "/medconnect-web/static/js/2.6994d377.chunk.js.LICENSE.txt",
     "static/media/logo.png": "/medconnect-web/static/media/logo.4f60305f.png"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.14d8c35b.js",
     "static/css/2.31452f42.chunk.css",
     "static/js/2.6994d377.chunk.js",
-    "static/css/main.5b159610.chunk.css",
-    "static/js/main.28bc98b8.chunk.js"
+    "static/css/main.0d444f34.chunk.css",
+    "static/js/main.04e19d70.chunk.js"
   ]
 }
