@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/medconnect-web/static/css/main.0d444f34.chunk.css",
-    "main.js": "/medconnect-web/static/js/main.28770dec.chunk.js",
-    "main.js.map": "/medconnect-web/static/js/main.28770dec.chunk.js.map",
+    "main.js": "/medconnect-web/static/js/main.7da6b1bf.chunk.js",
+    "main.js.map": "/medconnect-web/static/js/main.7da6b1bf.chunk.js.map",
     "runtime-main.js": "/medconnect-web/static/js/runtime-main.14d8c35b.js",
     "runtime-main.js.map": "/medconnect-web/static/js/runtime-main.14d8c35b.js.map",
     "static/css/2.31452f42.chunk.css": "/medconnect-web/static/css/2.31452f42.chunk.css",
     "static/js/2.914aa8d2.chunk.js": "/medconnect-web/static/js/2.914aa8d2.chunk.js",
     "static/js/2.914aa8d2.chunk.js.map": "/medconnect-web/static/js/2.914aa8d2.chunk.js.map",
     "index.html": "/medconnect-web/index.html",
-    "precache-manifest.de1cf9f8fe87213e26016a3e0124b092.js": "/medconnect-web/precache-manifest.de1cf9f8fe87213e26016a3e0124b092.js",
+    "precache-manifest.a6e66b04f3485761dbe0d1e82a0b99d7.js": "/medconnect-web/precache-manifest.a6e66b04f3485761dbe0d1e82a0b99d7.js",
     "service-worker.js": "/medconnect-web/service-worker.js",
     "static/css/2.31452f42.chunk.css.map": "/medconnect-web/static/css/2.31452f42.chunk.css.map",
     "static/css/main.0d444f34.chunk.css.map": "/medconnect-web/static/css/main.0d444f34.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.31452f42.chunk.css",
     "static/js/2.914aa8d2.chunk.js",
     "static/css/main.0d444f34.chunk.css",
-    "static/js/main.28770dec.chunk.js"
+    "static/js/main.7da6b1bf.chunk.js"
   ]
 }
