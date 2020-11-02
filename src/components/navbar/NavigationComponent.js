@@ -27,15 +27,15 @@ const Navigation =(props)=> {
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="mr-auto">
-						<Nav.Link href="/">Home</Nav.Link>
-						<Nav.Link href="/stores">Stores</Nav.Link>
+						<Nav.Link as={Link} to="/">Home</Nav.Link>
+						<Nav.Link as={Link} to="/stores">Stores</Nav.Link>
 						<NavDropdown title="Allopathic Products" id="basic-nav-dropdown">
-							<NavDropdown.Item href="/allopgen">Generic</NavDropdown.Item>
-							<NavDropdown.Item href="/allopbrand">Branded</NavDropdown.Item>
+							<NavDropdown.Item as={Link} to="/allopgen">Generic</NavDropdown.Item>
+							<NavDropdown.Item as={Link} to="/allopbrand">Branded</NavDropdown.Item>
 						</NavDropdown>
 						<NavDropdown title="Ayurvedic Products" id="basic-nav-dropdown">
-							<NavDropdown.Item href="/ayurgen">Generic</NavDropdown.Item>
-							<NavDropdown.Item href="/ayurbrand">Branded</NavDropdown.Item>
+							<NavDropdown.Item as={Link} to="/ayurgen">Generic</NavDropdown.Item>
+							<NavDropdown.Item as={Link} to="/ayurbrand">Branded</NavDropdown.Item>
 						</NavDropdown>
 					</Nav>
 					
@@ -67,9 +67,9 @@ const Navigation =(props)=> {
                          </Dropdown.Toggle>
 
                         <Dropdown.Menu className="dm">
-                            <Dropdown.Item href="#/action-1">Edit Profile</Dropdown.Item>
-                            <Dropdown.Item href="/current">Current Bookings</Dropdown.Item>
-                            <Dropdown.Item href="/history">Booking History</Dropdown.Item>
+                            <Dropdown.Item as={Link} to="#">Edit Profile</Dropdown.Item>
+                            <Dropdown.Item as={Link} to="/current">Current Bookings</Dropdown.Item>
+                            <Dropdown.Item as={Link} to="/history">Booking History</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     </Nav>
