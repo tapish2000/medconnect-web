@@ -13,7 +13,7 @@ class ShopPage extends Component{
         this.state = {
             ShopList : [],
             MedicineList : [],
-            loading:true
+            loading:false
         }
     }
 
@@ -51,6 +51,7 @@ class ShopPage extends Component{
     }
 
     addToCartHandler=(shop)=>{
+        console.log(shop);
         this.props.onAddToCart(shop);
     }
     render() {
@@ -97,9 +98,9 @@ class ShopPage extends Component{
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddToCart: async ({medicines,shop_name}) => {
-            const medicineList=medicines.map((medicine)=>{
-                return {...medicine,shop_id:"5f47e5ea174464ed81cc5100",shopName:shop_name};
+        onAddToCart: async ({searchedMedicines,name,_id}) => {
+            const medicineList=searchedMedicines.map((medicine)=>{
+                return {...medicine,shop_id:_id,shopName:name};
             })
             dispatch({type: "ADD_ITEM_TO_CART", medicineList,});
 

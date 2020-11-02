@@ -48,14 +48,14 @@ class Search extends Component{
             tags : this.state.tags,
             travelMode : "walking",
         })
-        axios.post('http://glacial-caverns-39108.herokuapp.com/search',params,{
+        axios.post('http://localhost:5000/search',params,{
             "headers": {
                 "content-type": "application/json",
             },
         }).then((res)=>{
             console.log(res);
             window.localStorage.setItem("searchedData", JSON.stringify(res.data.shops));
-            window.location.href = "/shoplist"
+            //window.location.href = "/shoplist"
         })
         .catch((err)=>{
             console.log(err);
