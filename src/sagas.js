@@ -1,10 +1,17 @@
 import { put, takeLatest, all,call,take } from 'redux-saga/effects';
 import axios from 'axios';
+import {reactLocalStorage} from 'reactjs-localstorage';
 
 function* fetchCartItemsAmount() {
-  const json = yield fetch('https://glacial-caverns-39108.herokuapp.com/user/cart/amount/5f4a95114a72100017272afe')
-        .then(response => response.json(), );    
-  yield put({ type: "CART_AMOUNT_RECEIVED", amount: json.amount, });
+    if(reactLocalStorage.get("isLoggedIn")=="true"){
+    const id= reactLocalStorage.get("id");
+    const json = yield fetch('https://glacial-caverns-39108.herokuapp.com/user/cart/amount/'+id)
+            .then(response => response.json(), );    
+    yield put({ type: "CART_AMOUNT_RECEIVED", amount: json.amount, });
+    }
+    else{
+        yield put({ type: "CART_AMOUNT_RECEIVED", amount: 0, });
+    }
 }
 function* fetchCartItemsAmountWatcher() {
      yield takeLatest('GET_CART_AMOUNT', fetchCartItemsAmount)
@@ -17,15 +24,13 @@ function* AddItemToCart(data) {
     data.forEach((med)=>{
         itemsInCart.push({medicine:med._id,shop:med.shop_id,quantity:med.quantity,});
     })
-    console.log(itemsInCart)
-    let status=200;
     let lengthOfCart=0;
-    yield axios.post("https://glacial-caverns-39108.herokuapp.com/user/cart/add/5f4a95114a72100017272afe",{medicineList:itemsInCart}).then((response)=>{
+    const id= reactLocalStorage.get("id");
+    yield axios.post("https://glacial-caverns-39108.herokuapp.com/user/cart/add/"+id,{medicineList:itemsInCart}).then((response)=>{
         console.log(response)
         lengthOfCart=response.data.amount;
          
     }).catch((err)=>{
-        status=404;
         console.log(err);
     })
 

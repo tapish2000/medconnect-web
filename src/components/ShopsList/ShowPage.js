@@ -1,10 +1,12 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import axios from 'axios';
+import {withRouter} from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 import {Container,Carousel,Col,Row, Card, Button} from 'react-bootstrap'
 import ShopCardComponent from './ShopCardComponent';
 import ShopCards from './ShopCards';
+import {reactLocalStorage} from 'reactjs-localstorage';
 
 class ShopPage extends Component{
     constructor(props){
@@ -50,9 +52,14 @@ class ShopPage extends Component{
         });
     }
 
-    addToCartHandler=(shop)=>{
+    addToCartHandler=async (shop)=>{
         console.log(shop);
-        this.props.onAddToCart(shop);
+        const isLoggedIn= await reactLocalStorage.get("isLoggedIn");
+        if(isLoggedIn=="true")
+            this.props.onAddToCart(shop);
+        else
+            this.props.history.push("/login");
+
     }
     render() {
         return(
@@ -117,4 +124,4 @@ const mapDispatchToProps = dispatch => {
     }
 };
 
-export default connect(null, mapDispatchToProps)(ShopPage);
+export default connect(null, mapDispatchToProps)(withRouter(ShopPage));

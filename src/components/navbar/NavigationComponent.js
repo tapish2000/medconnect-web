@@ -29,6 +29,7 @@ const Navigation =(props)=> {
 		reactLocalStorage.set('isLoggedIn',"false");
 		reactLocalStorage.set('id','');
 		setisLoggedIn("false");
+		props.getCartAmount();
 
 	}
 
@@ -66,7 +67,7 @@ const Navigation =(props)=> {
 								/>
 							</div>):
 							<>
-							<h6 className="cartHeading">{props.cartAmount}</h6>
+							<h6 className="cartHeading">{(reactLocalStorage.get("isLoggedIn")=="true")?props.cartAmount:0}</h6>
 							<IconContext.Provider value={{ style: { verticalAlign: 'middle',color:"white",height:'30px',width:'30px' } }}>
 								<FaIcons.FaCartPlus />
                             </IconContext.Provider>
@@ -113,7 +114,6 @@ const mapDispatchToProps = dispatch => {
     return {
         getCartAmount: () => {
             dispatch({type: "GET_CART_AMOUNT",});
-
         }
     }
 };
