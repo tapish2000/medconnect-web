@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect ,useState} from 'react';
 import {connect} from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -11,12 +11,28 @@ import * as FaIcons from 'react-icons/fa';
 import iconImage from "./logo.png"
 import { IconContext } from "react-icons";
 import { Link } from 'react-router-dom';
+import {reactLocalStorage} from 'reactjs-localstorage';
+
 
 const Navigation =(props)=> {
 	
+	// console.log(props);
 	useEffect(()=>{
 		props.getCartAmount();
-	},[])
+	},[]);
+
+	const [isLoggedIn,setisLoggedIn] = useState(reactLocalStorage.get('isLoggedIn'))
+
+	function eventHandler(e){
+		console.log("inside logout");
+		// e.preventDefault();
+		reactLocalStorage.set('isLoggedIn',"false");
+		reactLocalStorage.set('id','');
+		setisLoggedIn("false");
+
+	}
+
+	
 
 		return (
 			<Navbar collapseOnSelect sticky="top" bg="info" variant="dark" expand="lg">
@@ -59,19 +75,27 @@ const Navigation =(props)=> {
 					</Nav.Link>
 
                     <Nav>
-                    <Dropdown>
-                         <Dropdown.Toggle variant="none" id="dropdown-basic" >
-                         <h3><IconContext.Provider value={{ color: "white"}}>
-                           <FaIcons.FaUserCircle />
-                        </IconContext.Provider></h3>
-                         </Dropdown.Toggle>
-
-                        <Dropdown.Menu className="dm">
-                            <Dropdown.Item as={Link} to="#">Edit Profile</Dropdown.Item>
-                            <Dropdown.Item as={Link} to="/current">Current Bookings</Dropdown.Item>
-                            <Dropdown.Item as={Link} to="/history">Booking History</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
+						<Dropdown>
+							<Dropdown.Toggle variant="none" id="dropdown-basic" >
+							<h3><IconContext.Provider value={{ color: "white"}}>
+							<FaIcons.FaUserCircle />
+							</IconContext.Provider></h3>
+							</Dropdown.Toggle>
+								{
+									(isLoggedIn === null || isLoggedIn === undefined || isLoggedIn === "false" || isLoggedIn.length === 0) ?(
+										<Dropdown.Menu className="dm">
+											<Dropdown.Item href="/login">Login</Dropdown.Item>
+										</Dropdown.Menu>
+									):(
+										<Dropdown.Menu className="dm">
+											<Dropdown.Item as={Link} to="#/action-1">Edit Profile</Dropdown.Item>
+											<Dropdown.Item as={Link} to="/current">Current Bookings</Dropdown.Item>
+											<Dropdown.Item as={Link} to="/history">Booking History</Dropdown.Item>
+											<Dropdown.Item as={Link} to="/"><div onClick={eventHandler}>Logout</div></Dropdown.Item>
+										</Dropdown.Menu>
+									 )
+								} 
+						</Dropdown>
                     </Nav>
 				</Navbar.Collapse>
 			</Navbar>

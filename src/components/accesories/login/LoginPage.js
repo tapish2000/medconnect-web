@@ -24,9 +24,9 @@ class LoginPage extends React.Component {
 
     getBoolean = (isCustomer)=>{
         if(isCustomer === "Yes"){
-            return true;
+            return "true";
         }
-        return false;
+        return "false";
     }
     
 
@@ -54,22 +54,32 @@ class LoginPage extends React.Component {
                 "password":password,
                 "isCustomer":this.getBoolean(isCustomer)
             })
-            console.log(res);
+            
             if(res.data['error']!==null && res.data['error']!==undefined){
-                
+                await reactLocalStorage.set('isLoggedIn',"false");
+                await reactLocalStorage.set('id','');
                 this.setState({isError:res.data['error']});
                 console.log(this.state.isError);
+                
                 return ;
             }else{
+                
+                await reactLocalStorage.set('isLoggedIn',"true");
+                await reactLocalStorage.set('id',res.data._id);
+                
+                
                 this.props.history.push('/');
+                window.location.reload();
                 return;
             }
 
 
             
         }catch(err){
+            await reactLocalStorage.set('isLoggedIn',"false");
+            await reactLocalStorage.set('id','');
             console.log("error happened inside catch block");
-            this.setState({isError:"something wrong happened"});
+            this.setState({isError:"Invalid credentials"});
         }
     }
 
@@ -161,7 +171,7 @@ class LoginPage extends React.Component {
                                     
                                     <div className="form-group submitBtn">
                                         <label htmlFor="remember-me" className="text-info"><span>Remember me</span> <span><input id="remember-me" name="rememberMe" type="checkbox" checked={this.state.rememberMe} onChange = {this.handleChange} /></span></label><br/>
-                                        <input type="submit" name="submit" className="btn btn-info btn-md submitBtn1" value="submit"/>
+                                        <input type="submit" name="submit" className="btn btn-info btn-md submitBtn1" value="Submit"/>
                                     </div>
                                     {/* <div id="register-link" className="text-right">
                                         <a href="#" className="text-info">Register here</a>
