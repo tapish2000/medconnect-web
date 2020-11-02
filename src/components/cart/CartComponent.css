@@ -2,3 +2,13 @@
     max-width: 30vw;
     max-height: 30%;
 }
+
+
+.RemoveButton-Cart{
+    color:#17a2b8;
+    cursor: pointer;
+}
+
+.RemoveButton-Cart:hover{
+    text-decoration: underline;
+}

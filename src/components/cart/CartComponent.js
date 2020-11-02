@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import Loading from "../Loading/Loading"
 import {Spinner} from 'react-bootstrap';
 import "./CartComponent.css"
 import {connect} from 'react-redux';
@@ -126,21 +127,16 @@ render() {
         'amount': <strong>₹ {(row.quantity * row.medicine.price)}</strong>,
         'button':
         
-        <a href="#" onClick={()=>this.removeItemHandler(row)}>Remove</a>
+        <span onClick={()=>this.removeItemHandler(row)} className="RemoveButton-Cart">Remove</span>
         }
       )
       
     });
 
     return (
-      (this.state.loading)?(<div className="SpinnerDiv">
-      <Spinner
-        animation="border"
-        variant="info"
-        style={{ margin: '5% auto' }}
-      />
-    </div>):
-    (<MDBRow className="my-2" center>
+     <>
+     <Loading show={this.state.loading}/>
+    <MDBRow className="my-2" center>
       <MDBCard className="w-100">
         <MDBCardBody>
           <MDBTable className="product-table">
@@ -157,7 +153,8 @@ render() {
           </div>
         </MDBCardBody>
       </MDBCard>
-    </MDBRow>)
+    </MDBRow>
+    </>
     );
   }
 }

@@ -8,6 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Search from '../Search/SearchComponent';
 import './NavigationComponent.css';
 import * as FaIcons from 'react-icons/fa';
+import iconImage from "./logo.png"
 import { IconContext } from "react-icons";
 import { Link } from 'react-router-dom';
 
@@ -20,7 +21,7 @@ const Navigation =(props)=> {
 		return (
 			<Navbar collapseOnSelect sticky="top" bg="info" variant="dark" expand="lg">
 				<Navbar.Brand href="/">
-					<img src="./assets/logo.png" alt="" width="30" height="30" className="d-inline-block align-top" style={{backgroundColor:"white"}} />
+					<img src={iconImage} alt="" width="30" height="30" className="d-inline-block align-top" style={{backgroundColor:"white"}} />
 					<h6>MedConnect</h6>
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
