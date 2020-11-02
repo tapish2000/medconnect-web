@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import {withRouter} from "react-router-dom";
 import Loading from "../Loading/Loading"
 import {Spinner} from 'react-bootstrap';
 import "./CartComponent.css"
+import {reactLocalStorage} from 'reactjs-localstorage';
 import {connect} from 'react-redux';
 import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn } from "mdbreact";
 
@@ -44,13 +46,20 @@ class CartComponent extends Component {
   }
 
   componentDidMount(){
-    axios.get('https://glacial-caverns-39108.herokuapp.com/user/cart/view/5f4a95114a72100017272afe')
-    .then((response)=>{
-      console.log(response)
-      this.setState({data:response.data.cart,loading:false});
-    }).catch((err)=>{
-      console.log(err);
-    })
+    console.log(reactLocalStorage.get("isLoggedIn"));
+    if(reactLocalStorage.get("isLoggedIn")=="true")
+    {      
+      const id=reactLocalStorage.get("id");
+    axios.get('https://glacial-caverns-39108.herokuapp.com/user/cart/view/'+id)
+        .then((response)=>{
+          console.log(response)
+          this.setState({data:response.data.cart,loading:false});
+        }).catch((err)=>{
+          console.log(err);
+        })}
+  else{
+        this.props.history.push("/login");
+  }
   }
 
 
@@ -59,41 +68,57 @@ totalSum = (val) => {
 }
 
 onQuantityChanged=async (e,item)=>{
-  console.log(e.target.value);
-  //make api call
-  this.setState({loading:true})
-  await axios.post("https://glacial-caverns-39108.herokuapp.com/user/cart/changeQuantity/5f4a95114a72100017272afe",{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity},newQuantity:e.target.value}).then((response)=>{
+
+  let newQuantity=e.target.value;
+  if(reactLocalStorage.get("isLoggedIn")=="true")
+    {      
+      const id=await reactLocalStorage.get("id");
+      
+      //make api call
+      this.setState({loading:true})
+      await axios.post("https://glacial-caverns-39108.herokuapp.com/user/cart/changeQuantity/"+id,{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity},newQuantity,}).then((response)=>{
+            console.log(response)
+        }).catch((err)=>{
+            console.log(err);
+        })
+      await axios.get('https://glacial-caverns-39108.herokuapp.com/user/cart/view/'+id)
+      .then((response)=>{
         console.log(response)
-    }).catch((err)=>{
+        this.setState({data:response.data.cart,loading:false});
+      }).catch((err)=>{
         console.log(err);
-    })
-  await axios.get('https://glacial-caverns-39108.herokuapp.com/user/cart/view/5f4a95114a72100017272afe')
-  .then((response)=>{
-    console.log(response)
-    this.setState({data:response.data.cart,loading:false});
-  }).catch((err)=>{
-    console.log(err);
-  })
+      })
+    }
+  else{
+        this.props.history.push("/login");
+  }
+
+ 
 
 }
 
 removeItemHandler= async (item)=>{
   //make api call
+  if(reactLocalStorage.get("isLoggedIn")=="true"){
+    const id=await reactLocalStorage.get("id");
   console.log(item,"REMOVE")
   this.setState({loading:true})
-  await axios.post("https://glacial-caverns-39108.herokuapp.com/user/cart/removeMedicine/5f4a95114a72100017272afe",{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity}}).then((response)=>{
+  await axios.post("https://glacial-caverns-39108.herokuapp.com/user/cart/removeMedicine/"+id,{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity}}).then((response)=>{
         console.log(response)
         this.props.onMedicineRemoved();
     }).catch((err)=>{
         console.log(err);
     })
-  await axios.get('https://glacial-caverns-39108.herokuapp.com/user/cart/view/5f4a95114a72100017272afe')
+  await axios.get('https://glacial-caverns-39108.herokuapp.com/user/cart/view/'+id)
   .then((response)=>{
     console.log(response)
     this.setState({data:response.data.cart,loading:false});
   }).catch((err)=>{
     console.log(err);
   })
+}else{
+  this.props.history.push("/login");
+}
 }
 
 render() {
@@ -180,4 +205,4 @@ const mapDispatchToProps = dispatch => {
 
 
 
-export default connect(null,mapDispatchToProps)(CartComponent);
+export default connect(null,mapDispatchToProps)(withRouter(CartComponent));

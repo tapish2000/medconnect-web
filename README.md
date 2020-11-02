@@ -2,7 +2,8 @@
 
 A noble way of showing up medicines at community level which supports both generic and branded in both allopathic and ayurvedic medicines and making searches and recommendations easier from home.
 
-Visite here - [https://tapish2000.github.io/medconnect-web/#/](https://tapish2000.github.io/medconnect-web/#/)
+Visit here - [https://tapish2000.github.io/medconnect-web](https://tapish2000.github.io/medconnect-web)   
+Link to App - [https://github.com/shobhi1310/MedConnect](https://github.com/shobhi1310/MedConnect)
 
 ## Features (R-1)
  - 2 broad categories of medicines - allopathic and ayurvedic
@@ -41,7 +42,7 @@ Visite here - [https://tapish2000.github.io/medconnect-web/#/](https://tapish200
 - Community forum and dashboards for posting daily news feed related to health
 - Security vulnerability will be removed in terms of password encryption, cookie storage, etc.
 
-## request Changes
+## Request Changes
  1. Create an appropriate issue
  2. Issue should have
     - Description
@@ -49,13 +50,13 @@ Visite here - [https://tapish2000.github.io/medconnect-web/#/](https://tapish200
     - Idea (in-case of any enhancement or new feature)
 ## Installation
  1. Fork and clone the repo.
- 2. run `git clone <your_forked_repo>`
- 3. run `cd medconnect-web`
- 4. run `npm install`
- 5. run `npm start`
- 6. go to `localhost:3000` at your browser
+ 2. Run `git clone <your_forked_repo>`
+ 3. Run `cd medconnect-web`
+ 4. Run `npm install`
+ 5. Run `npm start`
+ 6. Go to `localhost:3000` at your browser
 ## Contribution
- 1. fetch upstream and make your master same as that of acctual repsoitory master
- 2. run `git checkout -b <branch_name>`
- 3. make appropriate changes and commit them using `git add .` and `git commit`
- 4. Push it to your branch and make a PR.
+ 1. Fetch upstream and make your master same as that of acctual repsoitory master
+ 2. Run `git checkout -b <branch_name>`
+ 3. Make appropriate changes and commit them using `git add .` and `git commit`
+ 4. Push it to your branch and make a Pull Request.
