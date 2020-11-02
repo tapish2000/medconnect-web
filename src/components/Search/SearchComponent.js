@@ -52,7 +52,7 @@ class Search extends Component{
             tags : this.state.tags,
             travelMode : "walking",
         })
-        axios.post('http://localhost:5000/search',params,{
+        axios.post('http://glacial-caverns-39108.herokuapp.com/search',params,{
             "headers": {
                 "content-type": "application/json",
             },

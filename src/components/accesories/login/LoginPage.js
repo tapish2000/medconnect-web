@@ -49,7 +49,7 @@ class LoginPage extends React.Component {
             await reactLocalStorage.set("isCustomer",this.isValidToSave(rememberMe,isCustomer));
             await reactLocalStorage.set("rememberMe",rememberMe);
             
-            let res = await axios.post('http://glacial-caverns-39108.herokuapp.com/user/login',{
+            let res = await axios.post('https://glacial-caverns-39108.herokuapp.com/user/login',{
                 "email":email,
                 "password":password,
                 "isCustomer":this.getBoolean(isCustomer)
@@ -154,7 +154,7 @@ class LoginPage extends React.Component {
                                         <label htmlFor="password" className="text-info">password:</label><br/>
                                         <input type="password" name="password" id="password" className="form-control" value = {this.state.password} onChange = {this.handleChange} required/>
                                     </div>
-                                    <div className = "btn1">
+                                    <div className = "form-group btn1">
                                         <div className="dropdown" required>
                                             <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
                                                 Are You a customer?
