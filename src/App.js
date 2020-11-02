@@ -41,8 +41,8 @@ function App() {
           
           <Route exact path="/current" component={CurrentBooking} />
           <Route exact path="/history" component={BookingHistory} />
-          <Route path="/shoplist" component={ShowPage} />
-          <Route path='/login' component={Login} />
+          <Route exact path="/shoplist" component={ShowPage} />
+          <Route exact path='/login' component={Login} />
           <Route exact path = "/stores">
             <MapBox />
           </Route>
