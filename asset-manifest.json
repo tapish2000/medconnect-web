@@ -1,25 +1,26 @@
 {
   "files": {
-    "main.css": "/medconnect-web/static/css/main.fbb0de8a.chunk.css",
-    "main.js": "/medconnect-web/static/js/main.a2f3b4f3.chunk.js",
-    "main.js.map": "/medconnect-web/static/js/main.a2f3b4f3.chunk.js.map",
+    "main.css": "/medconnect-web/static/css/main.ae5c81c4.chunk.css",
+    "main.js": "/medconnect-web/static/js/main.0c5fbfeb.chunk.js",
+    "main.js.map": "/medconnect-web/static/js/main.0c5fbfeb.chunk.js.map",
     "runtime-main.js": "/medconnect-web/static/js/runtime-main.14d8c35b.js",
     "runtime-main.js.map": "/medconnect-web/static/js/runtime-main.14d8c35b.js.map",
     "static/css/2.31452f42.chunk.css": "/medconnect-web/static/css/2.31452f42.chunk.css",
-    "static/js/2.f0a31781.chunk.js": "/medconnect-web/static/js/2.f0a31781.chunk.js",
-    "static/js/2.f0a31781.chunk.js.map": "/medconnect-web/static/js/2.f0a31781.chunk.js.map",
+    "static/js/2.261c8941.chunk.js": "/medconnect-web/static/js/2.261c8941.chunk.js",
+    "static/js/2.261c8941.chunk.js.map": "/medconnect-web/static/js/2.261c8941.chunk.js.map",
     "index.html": "/medconnect-web/index.html",
-    "precache-manifest.19e527d51fd767b93ddbb6e0cca5cf9d.js": "/medconnect-web/precache-manifest.19e527d51fd767b93ddbb6e0cca5cf9d.js",
+    "precache-manifest.20b8896e8694aaf7d4b00b2dda53cae5.js": "/medconnect-web/precache-manifest.20b8896e8694aaf7d4b00b2dda53cae5.js",
     "service-worker.js": "/medconnect-web/service-worker.js",
     "static/css/2.31452f42.chunk.css.map": "/medconnect-web/static/css/2.31452f42.chunk.css.map",
-    "static/css/main.fbb0de8a.chunk.css.map": "/medconnect-web/static/css/main.fbb0de8a.chunk.css.map",
-    "static/js/2.f0a31781.chunk.js.LICENSE.txt": "/medconnect-web/static/js/2.f0a31781.chunk.js.LICENSE.txt"
+    "static/css/main.ae5c81c4.chunk.css.map": "/medconnect-web/static/css/main.ae5c81c4.chunk.css.map",
+    "static/js/2.261c8941.chunk.js.LICENSE.txt": "/medconnect-web/static/js/2.261c8941.chunk.js.LICENSE.txt",
+    "static/media/logo.png": "/medconnect-web/static/media/logo.4f60305f.png"
   },
   "entrypoints": [
     "static/js/runtime-main.14d8c35b.js",
     "static/css/2.31452f42.chunk.css",
-    "static/js/2.f0a31781.chunk.js",
-    "static/css/main.fbb0de8a.chunk.css",
-    "static/js/main.a2f3b4f3.chunk.js"
+    "static/js/2.261c8941.chunk.js",
+    "static/css/main.ae5c81c4.chunk.css",
+    "static/js/main.0c5fbfeb.chunk.js"
   ]
 }
