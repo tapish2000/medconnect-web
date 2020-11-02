@@ -73,7 +73,6 @@ class Search extends Component{
             <Loading show={this.state.loading} />
             <Form inline className="Search-Form">
                 <ReactTags 
-                
                 placeholderText="Type Medicine Here..."
                 ref={this.reactTags}
                 tags={this.state.tags}
