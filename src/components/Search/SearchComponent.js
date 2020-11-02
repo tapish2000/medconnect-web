@@ -47,8 +47,8 @@ class Search extends Component{
         event.preventDefault();
         console.log("I was clicked");
         const params = JSON.stringify({
-            latitude : "23.672884",
-            longitude : "86.156107",
+            latitude : "29.364138",
+            longitude : "76.972546",
             tags : this.state.tags,
             travelMode : "walking",
         })
