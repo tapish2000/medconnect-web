@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2b183883fe99c6a4dbe2f8a21abcabda",
+    "revision": "836e1ba436a2768018c3f43762d3587f",
     "url": "/medconnect-web/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/medconnect-web/static/css/2.31452f42.chunk.css"
   },
   {
-    "revision": "27dd41b48b58901c2d7f",
-    "url": "/medconnect-web/static/css/main.0d444f34.chunk.css"
+    "revision": "c129d191368796fcb8a5",
+    "url": "/medconnect-web/static/css/main.5b159610.chunk.css"
   },
   {
     "revision": "a3a0cfbfd7177fde52e7",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/medconnect-web/static/js/2.6994d377.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "27dd41b48b58901c2d7f",
-    "url": "/medconnect-web/static/js/main.f2aa80ce.chunk.js"
+    "revision": "c129d191368796fcb8a5",
+    "url": "/medconnect-web/static/js/main.28bc98b8.chunk.js"
   },
   {
     "revision": "8df4d84fd93c06f90bed",
