@@ -1,0 +1,50 @@
+.root-CalendarCarousel {
+  transform: ease-in 0.3s;
+}
+
+.root-CalendarCarousel .carousel-control-prev-icon {
+  background-image: url('Vector 1.png');
+  height: 100px;
+  width: 30px;
+}
+
+.root-CalendarCarousel .carousel-control-prev {
+  width: auto;
+  color: #fff;
+  opacity: 1;
+  height: 100px;
+  margin: auto;
+  margin-left: 2%;
+}
+
+.root-CalendarCarousel .carousel-control-next-icon {
+  background-image: url('Vector 2.png');
+  height: 100px;
+  width: 30px;
+}
+
+.root-CalendarCarousel .carousel-control-next {
+  width: auto;
+  color: #fff;
+  opacity: 1;
+  height: 100px;
+  margin: auto;
+  margin-right: 2%;
+}
+
+.root-CalendarCarousel .carousel-control-next-icon:hover {
+  height: 108px;
+}
+
+.root-CalendarCarousel .carousel-control-prev-icon:hover {
+  height: 108px;
+}
+
+@media (min-width: 1750px) {
+  .root-CalendarCarousel .carousel-control-prev {
+    margin-top: 415px;
+  }
+  .root-CalendarCarousel .carousel-control-next {
+    margin-top: 415px;
+  }
+}

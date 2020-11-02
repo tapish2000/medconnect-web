@@ -9,6 +9,7 @@ import AyurvedaBrands from './AyurvedaBrands';
 import Carousel from 'react-bootstrap/Carousel';
 import Spinner from 'react-bootstrap/Spinner';
 import './AyurvedaBrandedComponent.css';
+import '../carousel/CarouselComponent.css';
 
 const AyurvedaBrandedComponent = () => {
 
@@ -32,7 +33,7 @@ const AyurvedaBrandedComponent = () => {
 
   return (
     <>
-      <Container fluid>
+      <Container fluid className="root-CalendarCarousel">
         <h1 className="MyHeading"> Ayurveda Top Brands </h1>
         <Carousel indicators={false}>
           <Carousel.Item>
