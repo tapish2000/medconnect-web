@@ -54,25 +54,33 @@ function CurrentBooking(props) {
             />
           </div>
         ) : (
-          <div>
-            {currentBookings.map((val) => {
-                
-                val.medicine_id.strength=checkStrength(val.medicine_id.strength);
+          <>
+          {currentBookings.length == 0 ?
+            (
+              <h1>No Current Bookings Recently</h1>
+            ) : (
+                  <div>
+                {currentBookings.map((val) => {
+                    
+                    val.medicine_id.strength=checkStrength(val.medicine_id.strength);
 
-              return (
-                <div className="row">
-                    <div className="col-sm">
-                        <BookingsCard 
-                            medName={val.medicine_id.name}
-                            shopName={val.shop_id.name} 
-                            weight={val.medicine_id.strength}
-                            shopAddress={val.shop_id.address}
-                            deadline={val.time_range} />
+                  return (
+                    <div className="row">
+                        <div className="col-sm">
+                            <BookingsCard 
+                                medName={val.medicine_id.name}
+                                shopName={val.shop_id.name} 
+                                weight={val.medicine_id.strength}
+                                shopAddress={val.shop_id.address}
+                                deadline={val.time_range} />
+                        </div>
                     </div>
+                    );
+                  })}
                 </div>
-              );
-            })}
-          </div>
+              )
+           };
+          </>
         )}
         </>
     );
