@@ -8,8 +8,8 @@ import MedicineCardComponent from '../cards/MedicineCardComponent';
 import BrandCardComponent from '../cards/BrandCardComponent';
 import AllopathicBrands from './AllopathicBrands';
 import Carousel from 'react-bootstrap/Carousel';
-import CardGroup from 'react-bootstrap/CardGroup';
 import Spinner from 'react-bootstrap/Spinner';
+import '../carousel/CarouselComponent.css';
 
 const AllopathicBrandedComponent = () => {
   const [AllopathicMedicines, setAllopathicMedicines] = useState([]);
@@ -31,7 +31,7 @@ const AllopathicBrandedComponent = () => {
 
   return (
     <>
-      <Container fluid>
+      <Container fluid className="root-CalendarCarousel">
         <h1 className="MyHeading"> Allopathic Top Brands </h1>
         <Carousel indicators={false}>
           <Carousel.Item>
