@@ -52,7 +52,7 @@ class Search extends Component{
             tags : this.state.tags,
             travelMode : "walking",
         })
-        axios.post('http://glacial-caverns-39108.herokuapp.com/search',params,{
+        axios.post('https://glacial-caverns-39108.herokuapp.com/search',params,{
             "headers": {
                 "content-type": "application/json",
             },
@@ -73,7 +73,6 @@ class Search extends Component{
             <Loading show={this.state.loading} />
             <Form inline className="Search-Form">
                 <ReactTags 
-                
                 placeholderText="Type Medicine Here..."
                 ref={this.reactTags}
                 tags={this.state.tags}
