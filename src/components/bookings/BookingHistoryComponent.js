@@ -54,23 +54,30 @@ function BookingHistory(props) {
             />
           </div>
         ) : (
-          <div>
-            {pastBookings.map((val) => {
-            
-              val.medicine_id.strength=checkStrength(val.medicine_id.strength);
-              return (
-                <div className="row">
-                    <div className="col-sm">
-                        <BookingsCard 
-                            medName={val.medicine_id.name}
-                            shopName={val.medicine_id.name} 
-                            weight={val.medicine_id.strength}
-                            shopAddress={val.shop_id.address} />
+          <>
+          {pastBookings.length == 0 ? 
+            (
+              <h1>No Bookings Confirmed Yet</h1>
+            ) : (
+              <div>
+                {pastBookings.map((val) => {
+                
+                  val.medicine_id.strength=checkStrength(val.medicine_id.strength);
+                  return (
+                    <div className="row">
+                        <div className="col-sm">
+                            <BookingsCard 
+                                medName={val.medicine_id.name}
+                                shopName={val.shop_id.name} 
+                                weight={val.medicine_id.strength}
+                                shopAddress={val.shop_id.address} />
+                        </div>
                     </div>
-                </div>
-              );
-            })}
-          </div>
+                  );
+                })}
+              </div>
+            )}
+          </>
         )}
         </>
     );
