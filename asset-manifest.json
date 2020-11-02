@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/medconnect-web/static/css/main.fbb0de8a.chunk.css",
+    "main.js": "/medconnect-web/static/js/main.378f9878.chunk.js",
+    "main.js.map": "/medconnect-web/static/js/main.378f9878.chunk.js.map",
+    "runtime-main.js": "/medconnect-web/static/js/runtime-main.14d8c35b.js",
+    "runtime-main.js.map": "/medconnect-web/static/js/runtime-main.14d8c35b.js.map",
+    "static/css/2.31452f42.chunk.css": "/medconnect-web/static/css/2.31452f42.chunk.css",
+    "static/js/2.500ef2ca.chunk.js": "/medconnect-web/static/js/2.500ef2ca.chunk.js",
+    "static/js/2.500ef2ca.chunk.js.map": "/medconnect-web/static/js/2.500ef2ca.chunk.js.map",
+    "index.html": "/medconnect-web/index.html",
+    "precache-manifest.65e4940132d67693aad2485838afcae8.js": "/medconnect-web/precache-manifest.65e4940132d67693aad2485838afcae8.js",
+    "service-worker.js": "/medconnect-web/service-worker.js",
+    "static/css/2.31452f42.chunk.css.map": "/medconnect-web/static/css/2.31452f42.chunk.css.map",
+    "static/css/main.fbb0de8a.chunk.css.map": "/medconnect-web/static/css/main.fbb0de8a.chunk.css.map",
+    "static/js/2.500ef2ca.chunk.js.LICENSE.txt": "/medconnect-web/static/js/2.500ef2ca.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.14d8c35b.js",
+    "static/css/2.31452f42.chunk.css",
+    "static/js/2.500ef2ca.chunk.js",
+    "static/css/main.fbb0de8a.chunk.css",
+    "static/js/main.378f9878.chunk.js"
+  ]
+}
