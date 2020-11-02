@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/medconnect-web/precache-manifest.f040afbae6ddd1617c285566d6c26940.js"
+  "/medconnect-web/precache-manifest.19e527d51fd767b93ddbb6e0cca5cf9d.js"
 );
 
 self.addEventListener('message', (event) => {
