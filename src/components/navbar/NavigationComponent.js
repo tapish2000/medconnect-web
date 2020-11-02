@@ -84,7 +84,7 @@ const Navigation =(props)=> {
 								{
 									(isLoggedIn === null || isLoggedIn === undefined || isLoggedIn === "false" || isLoggedIn.length === 0) ?(
 										<Dropdown.Menu className="dm">
-											<Dropdown.Item href="/login">Login</Dropdown.Item>
+											<Dropdown.Item as={Link} to = "/login">Login</Dropdown.Item>
 										</Dropdown.Menu>
 									):(
 										<Dropdown.Menu className="dm">

@@ -14,7 +14,7 @@ function CurrentBooking(props) {
 
     var checkStrength = (strength)=>{
         if(strength.length === 0){
-            return "No Strength";
+            return "Not Applicable";
         }
         return strength;
     }
