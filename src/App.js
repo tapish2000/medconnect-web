@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Route, Switch, HashRouter } from 'react-router-dom';
 import Home from './components/Home/HomePageComponent';
 import Navigation from '../src/components/navbar/NavigationComponent';
 import Footer from './components/footer/FooterComponent';
@@ -20,7 +20,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
     <div className="App"> 
       <Navigation />
      
@@ -59,7 +59,7 @@ function App() {
       
       <Footer />
     </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

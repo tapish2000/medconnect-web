@@ -13,7 +13,7 @@ class ShopPage extends Component{
         this.state = {
             ShopList : [],
             MedicineList : [],
-            loading:true
+            loading:false
         }
     }
 
@@ -51,6 +51,7 @@ class ShopPage extends Component{
     }
 
     addToCartHandler=(shop)=>{
+        console.log(shop);
         this.props.onAddToCart(shop);
     }
     render() {
@@ -76,7 +77,16 @@ class ShopPage extends Component{
                                     <Row className="m-3">
                                     {shop.searchedMedicines.map((val) => {
                                         return (
-                                            <ShopCards medicineId={val.medicine} />
+                                            <Col md={3} className="mt-3 mb-3">
+                                                <ShopCardComponent
+                                                Key={val._id}
+                                                imgsrc={val.image_url}
+                                                title={val.name}
+                                                price={val.price}
+                                                link="/medicinedetails"
+                                                id=""
+                                                />
+                                            </Col>
                                         );
                                     })}
                                     </Row>
@@ -97,9 +107,9 @@ class ShopPage extends Component{
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddToCart: async ({medicines,shop_name}) => {
-            const medicineList=medicines.map((medicine)=>{
-                return {...medicine,shop_id:"5f47e5ea174464ed81cc5100",shopName:shop_name};
+        onAddToCart: async ({searchedMedicines,name,_id}) => {
+            const medicineList=searchedMedicines.map((medicine)=>{
+                return {...medicine,shop_id:_id,shopName:name,quantity:1};
             })
             dispatch({type: "ADD_ITEM_TO_CART", medicineList,});
 

@@ -10,6 +10,7 @@
     /* shared font styles */
     font-size: 1em;
     line-height: 1.2;
+    min-width: 20vw;
   
     /* clicking anywhere will focus the input */
     cursor: text;

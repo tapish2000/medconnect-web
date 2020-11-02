@@ -13,7 +13,7 @@ import * as serviceWorker from './serviceWorker';
 const sagaMiddleware=createSagaMiddleware();
 
 
-const store= createStore(reducer,applyMiddleware(sagaMiddleware,logger));
+const store= createStore(reducer,applyMiddleware(sagaMiddleware));
 
 
 sagaMiddleware.run(sagas);

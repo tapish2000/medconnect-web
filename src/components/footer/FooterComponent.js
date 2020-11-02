@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 import './FooterComponent.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,20 +18,20 @@ class Footer extends Component {
 						<div className="col-md-2"><h5>Quick Links</h5></div>
 						<div className="col-md col-4">
 							<div className="row">
-								<div className="col-12"><a className="text-light" href="/">Home</a></div>
-								<div className="col-12"><a className="text-light" href="/stores">Store</a></div>
+								<div className="col-12"><Link to={"/"} style={{color:"white",textDecoration:"none"}}>Home</Link></div>
+								<div className="col-12"><Link to={"/stores"} style={{color:"white",textDecoration:"none"}}>Store</Link></div>
 							</div>
 						</div>
 						<div className="col-md col-4">
 							<div className="row">
-								<div className="col-12"><a className="text-light" href="/allopgen">Generic Allopathic Products</a></div>
-								<div className="col-12"><a className="text-light" href="/allopbrand">Branded Allopathic Products</a></div>
+								<div className="col-12"><Link to={"/allopgen"} style={{color:"white",textDecoration:"none"}}>Generic Allopathic Products</Link></div>
+								<div className="col-12"><Link to={"/allopbrand"} style={{color:"white",textDecoration:"none"}}>Branded Allopathic Products</Link></div>
 							</div>
 						</div>
 						<div className="col-md col-4">
 						<div className="row">
-								<div className="col-12"><a className="text-light" href="/ayurgen">Generic Ayurvedic Products</a></div>
-								<div className="col-12"><a className="text-light" href="/ayurbrand">Branded Ayurvedic Products</a></div>
+								<div className="col-12"><Link to={"/ayurgen"} style={{color:"white",textDecoration:"none"}}>Generic Ayurvedic Products</Link></div>
+								<div className="col-12"><Link to={"/ayurbrand"} style={{color:"white",textDecoration:"none"}}>Branded Ayurvedic Products</Link></div>
 							</div>
 						</div>
 					</div>

@@ -1,6 +1,6 @@
 #login .container #login-row #login-column #login-box {
-    margin-top: 5%;
-    margin-bottom: 20%;
+    margin-top: 20%;
+    margin-bottom: 40%;
     max-width: 600px;
     height: 40vh;
     border-radius: 10px;
@@ -12,4 +12,28 @@ padding: 20px;
 }
 #login .container #login-row #login-column #login-box #login-form #register-link {
 margin-top: -85px;
+}
+
+.alertDesign{
+    margin-top: 5%;
+}
+
+.btn1{
+    float: left;
+    margin-top: 8%;
+}
+
+.val1{
+    margin-top: 7%;
+}
+
+.submitBtn{
+    float: right;
+    margin-top: 9%;
+
+}
+
+.submitBtn1{
+    margin-top: 7.5%;
+    margin-bottom: 7.5%;
 }

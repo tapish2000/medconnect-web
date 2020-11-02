@@ -10,7 +10,7 @@ class LoginPage extends React.Component {
     state = {
         email:'',
         password:'',
-        isCustomer:true,
+        isCustomer:'',
         rememberMe:false,
         isError:''
     }
@@ -21,15 +21,29 @@ class LoginPage extends React.Component {
         }
         return '';
     }
+
+    getBoolean = (isCustomer)=>{
+        if(isCustomer === "Yes"){
+            return true;
+        }
+        return false;
+    }
     
 
     handleFormSubmit = async (e)=>{
 
         e.preventDefault();
 
+
         try{
             
             const {email,password,isCustomer,rememberMe} = this.state;
+
+            if(isCustomer.length === 0){
+                this.setState({isError:"Are u a customer?"})
+                return;
+            }
+
             await reactLocalStorage.set('email',this.isValidToSave(rememberMe,email));
             await reactLocalStorage.set('password',this.isValidToSave(rememberMe,password));
             await reactLocalStorage.set("isCustomer",this.isValidToSave(rememberMe,isCustomer));
@@ -38,9 +52,9 @@ class LoginPage extends React.Component {
             let res = await axios.post('http://glacial-caverns-39108.herokuapp.com/user/login',{
                 "email":email,
                 "password":password,
-                "isCustomer":isCustomer
+                "isCustomer":this.getBoolean(isCustomer)
             })
-            // console.log(res.data['error']);
+            console.log(res);
             if(res.data['error']!==null && res.data['error']!==undefined){
                 
                 this.setState({isError:res.data['error']});
@@ -82,13 +96,15 @@ class LoginPage extends React.Component {
         return '';
     }
 
+
+
     eventHandler=(e)=>{
         e.preventDefault();
         let value = e.target.textContent;
         if(value === "Yes"){
-            this.setState({'isCustomer':true});
+            this.setState({'isCustomer':"Yes"});
         }else{
-            this.setState({'isCustomer':false});
+            this.setState({'isCustomer':"No"});
         }
     }
 
@@ -111,14 +127,11 @@ class LoginPage extends React.Component {
     render = ()=>{
         return(
             <div id="login">
-                
-                    
-               
                 <div className="container">
                     <div id="login-row" className="row justify-content-center align-items-center">
                         <div id="login-column" className="col-md-6">
                             {
-                                (this.state.isError!==undefined && this.state.isError!==null&&this.state.isError.length>0) ? (<div className="alert alert-danger" role="alert" onMouseEnter = {this.changeErrorState}>{this.state.isError}</div>):(null)
+                                (this.state.isError!==undefined && this.state.isError!==null&&this.state.isError.length>0) ? (<div className="alert alert-danger alertDesign" role="alert" onMouseEnter = {this.changeErrorState} >{this.state.isError}</div>):(null)
                             }
                             <div id="login-box" className="col-md-12">
                                 <form id="login-form" className="form" onSubmit = {this.handleFormSubmit}>
@@ -131,23 +144,28 @@ class LoginPage extends React.Component {
                                         <label htmlFor="password" className="text-info">password:</label><br/>
                                         <input type="password" name="password" id="password" className="form-control" value = {this.state.password} onChange = {this.handleChange} required/>
                                     </div>
-                                    <div className="dropdown">
-                                        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Are You a customer?
-                                        </button>
-                                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a className="dropdown-item" href="#" onClick = {this.eventHandler} >Yes</a>
-                                            <a className="dropdown-item" href="#" onClick = {this.eventHandler}>No</a>
+                                    <div className = "btn1">
+                                        <div className="dropdown" required>
+                                            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                                Are You a customer?
+                                            </button>
+                                            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton" required>
+                                                <a className="dropdown-item" href="#" onClick = {this.eventHandler} >Yes</a>
+                                                <a className="dropdown-item" href="#" onClick = {this.eventHandler}>No</a>
+                                            </div>
+                                        </div>
+                                        <div className="val1">
+                                            {(this.state.isCustomer!==null && this.state.isCustomer!==undefined&&this.state.isCustomer.length>0) ? (<div>{this.state.isCustomer}</div>):(null)}
                                         </div>
                                     </div>
                                     
-                                    <div className="form-group">
+                                    <div className="form-group submitBtn">
                                         <label htmlFor="remember-me" className="text-info"><span>Remember me</span> <span><input id="remember-me" name="rememberMe" type="checkbox" checked={this.state.rememberMe} onChange = {this.handleChange} /></span></label><br/>
-                                        <input type="submit" name="submit" className="btn btn-info btn-md" value="submit"/>
+                                        <input type="submit" name="submit" className="btn btn-info btn-md submitBtn1" value="submit"/>
                                     </div>
-                                    <div id="register-link" className="text-right">
+                                    {/* <div id="register-link" className="text-right">
                                         <a href="#" className="text-info">Register here</a>
-                                    </div>
+                                    </div> */}
                                 </form>
                             </div>
                         </div>

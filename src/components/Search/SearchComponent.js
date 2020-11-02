@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Form, Button} from 'react-bootstrap'
+import {withRouter} from 'react-router-dom'
 import axios from 'axios'
+import Loading from '../Loading/Loading'
 import ReactTags from 'react-tag-autocomplete'
 import ShowPage from '../ShopsList/ShowPage';
 import { Link } from 'react-router-dom';
@@ -13,6 +15,7 @@ class Search extends Component{
         this.state = {
             tags: [],
             suggestions: [],
+            loading:false,
         }
         
         this.reactTags = React.createRef()
@@ -40,6 +43,7 @@ class Search extends Component{
         })
     }
     onSearch = (event) => {
+        this.setState({loading:true})
         event.preventDefault();
         console.log("I was clicked");
         const params = JSON.stringify({
@@ -48,14 +52,16 @@ class Search extends Component{
             tags : this.state.tags,
             travelMode : "walking",
         })
-        axios.post('http://glacial-caverns-39108.herokuapp.com/search',params,{
+        axios.post('http://localhost:5000/search',params,{
             "headers": {
                 "content-type": "application/json",
             },
         }).then((res)=>{
             console.log(res);
             window.localStorage.setItem("searchedData", JSON.stringify(res.data.shops));
-            window.location.href = "/shoplist"
+            //window.location.href = "/shoplist"
+            this.setState({loading:false})
+            this.props.history.push("/shoplist");
         })
         .catch((err)=>{
             console.log(err);
@@ -63,8 +69,11 @@ class Search extends Component{
     }
     render() {
         return (
-            <Form inline>
+            <>
+            <Loading show={this.state.loading} />
+            <Form inline className="Search-Form">
                 <ReactTags 
+                
                 placeholderText="Type Medicine Here..."
                 ref={this.reactTags}
                 tags={this.state.tags}
@@ -73,8 +82,9 @@ class Search extends Component{
                 onAddition={this.onAddition.bind(this)} />
                 <Button variant="outline-dark" onClick={this.onSearch}>Search</Button>
             </Form>
+            </>
         );
     }
 }
 
-export default Search
+export default withRouter(Search);

@@ -1,0 +1,42 @@
+.spinner-c-overlay {
+    background-color:rgba(0,0,0,.6);  
+    width:100%;
+    height:100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+  }
+  .spinner-c-overlay h1{
+    font-size: 190%;
+    background: linear-gradient(
+      90deg,
+      rgb(0, 185, 214),
+      rgb(3, 167, 177),
+      rgb(3, 163, 137)
+    );
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+  }
+
+  @keyframes simpfadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes simpfadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
