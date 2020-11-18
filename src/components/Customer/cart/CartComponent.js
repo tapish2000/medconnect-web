@@ -6,6 +6,7 @@ import {Button, Spinner,Modal} from 'react-bootstrap';
 import "./CartComponent.css"
 import {reactLocalStorage} from 'reactjs-localstorage';
 import {connect} from 'react-redux';
+import Button from 'react-bootstrap/Button'
 import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn } from "mdbreact";
 
 class CartComponent extends Component {
@@ -45,8 +46,12 @@ class CartComponent extends Component {
             field: 'amount'
           },
           {
-            label: '',
-            field: 'button'
+            label: <strong>Action</strong>,
+            field: 'button1'
+          },
+          {
+            label: <strong>Prescription</strong>,
+            field: 'button2'
           }
       ],
       sum: 0
@@ -142,7 +147,7 @@ render() {
         
       return rows.push(
         {
-        'img': <img src={row.medicine.image_url} alt="" className="img-fluid z-depth-0 image-cart" />,
+        'img': <img src={row.medicine.image_url} alt="" className="img-fluid z-depth-0 image-cart" style={{width:"150px"}} />,
         'name': [<h5 className="mt-3"><strong>{row.medicine.name}</strong></h5>, <p className="text-muted">{row.shop.name}</p>],
         'price': `₹ ${row.medicine.price}`,
         'qty':
@@ -158,9 +163,13 @@ render() {
             </select>
         </>,
         'amount': <strong>₹ {(row.quantity * row.medicine.price)}</strong>,
-        'button':
-        
-        <span onClick={()=>this.removeItemHandler(row)} className="RemoveButton-Cart">Remove</span>
+        'button1':<span onClick={()=>this.removeItemHandler(row)} className="RemoveButton-Cart">Remove</span>,
+        'button2': (row.medicine.prescription) ? (
+          <>
+            <Button type="file" variant="outline-warning">Upload</Button>
+            <input type="file" style={{display:'none'}} /> 
+          </>
+        ) : ''
         }
       )
       
