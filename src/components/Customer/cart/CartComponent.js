@@ -84,13 +84,13 @@ onQuantityChanged=async (e,item)=>{
       
       //make api call
       this.setState({loading:true})
-      await axios.post("http://localhost:5000/user/cart/changeQuantity/"+id,{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity},newQuantity,}).then((response)=>{
+      await axios.post("https://glacial-caverns-39108.herokuapp.com/user/cart/changeQuantity/"+id,{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity},newQuantity,}).then((response)=>{
             console.log(response)
             this.props.onMedicineChanged();
         }).catch((err)=>{
             console.log(err);
         })
-      await axios.get('http://localhost:5000/user/cart/view/'+id)
+      await axios.get('https://glacial-caverns-39108.herokuapp.com/user/cart/view/'+id)
       .then((response)=>{
         console.log(response)
         this.setState({data:response.data.cart,loading:false});
@@ -112,7 +112,7 @@ removeItemHandler= async (item)=>{
     const id=await reactLocalStorage.get("id");
   console.log(item,"REMOVE")
   this.setState({loading:true})
-  await axios.post("http://localhost:5000/user/cart/removeMedicine/"+id,{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity}}).then((response)=>{
+  await axios.post("https://glacial-caverns-39108.herokuapp.com/user/cart/removeMedicine/"+id,{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity}}).then((response)=>{
         console.log(response)
         this.props.onMedicineRemoved();
     }).catch((err)=>{
