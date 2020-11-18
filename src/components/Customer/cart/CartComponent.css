@@ -12,3 +12,8 @@
 .RemoveButton-Cart:hover{
     text-decoration: underline;
 }
+
+.confirmBookingModal .modal-header{
+   
+    color: #17a2b8;
+}

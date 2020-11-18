@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import {withRouter} from "react-router-dom";
+import {withRouter,Link} from "react-router-dom";
 import Loading from "../Loading/Loading"
-import {Spinner} from 'react-bootstrap';
+import {Button, Spinner,Modal} from 'react-bootstrap';
 import "./CartComponent.css"
 import {reactLocalStorage} from 'reactjs-localstorage';
 import {connect} from 'react-redux';
@@ -10,10 +10,18 @@ import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTa
 
 class CartComponent extends Component {
 
+
+   handleClose = () => this.setState({showModal:false});
+   handleShow = () => this.setState({showModal:true});
+   goAheadHandler=()=>{
+     this.props.history.push('/SuccessfulBooking')
+   }
+
   constructor(props){
     super(props);
     this.state={
         data:[],
+        showModal:false,
         loading:true,
         columns: [
           {
@@ -173,12 +181,29 @@ render() {
           <strong>Total Amount: {sum.toFixed(2)}</strong>
               </div>
               <div className="col-sm">
-                  <a className="btn btn-outline-primary" role="button" href="#">Book Now</a>
+                  <Button variant="info" size="lg" onClick={this.handleShow}>Book Now</Button>
+            
+                 
               </div>
           </div>
         </MDBCardBody>
       </MDBCard>
     </MDBRow>
+
+    <Modal show={this.state.showModal} className="confirmBookingModal" onHide={this.handleClose}>
+        <Modal.Header closeButton >
+          <Modal.Title>Confirm Booking</Modal.Title>
+        </Modal.Header>
+        
+        <Modal.Footer>
+          <Button variant="danger" onClick={this.handleClose}>
+            Close
+          </Button>
+          <Button variant="info" onClick={this.goAheadHandler}>
+            Go Ahead
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Customer/Home/HomePageComponent';
+
 import Navigation from './components/Customer/navbar/NavigationComponent';
 import Footer from './components/Customer/footer/FooterComponent';
 import AllopathicBranded from './components/Customer/AllopathicBranded/AllopathicBrandedComponent';
@@ -15,6 +16,7 @@ import Cart from './components/Customer/cart/CartComponent';
 import MapBox from './components/Customer/mapBox/mapBox';
 import DailyUseCardComponent from './components/Customer/cards/DailyUseCardComponent';
 import Login from './components/Customer/accesories/login/LoginPage'
+import BookingSuccessful from './components/Customer/BookingSuccessful/BookingSuccessful';
 
 function Customer() {
   return (    
@@ -31,6 +33,7 @@ function Customer() {
               <MedicineDetailComponent showBtn={false} imgsrc="https://picsum.photos/200/300" />
             )}
           />
+          <Route exact path="/SuccessfulBooking" component={BookingSuccessful}/>
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/allopgen" component={AllopathicGeneric} />
           <Route exact path="/ayurbrand" component={AyurvedicBranded} />
