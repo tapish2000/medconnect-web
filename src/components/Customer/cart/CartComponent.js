@@ -84,12 +84,13 @@ onQuantityChanged=async (e,item)=>{
       
       //make api call
       this.setState({loading:true})
-      await axios.post("https://glacial-caverns-39108.herokuapp.com/user/cart/changeQuantity/"+id,{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity},newQuantity,}).then((response)=>{
+      await axios.post("http://localhost:5000/user/cart/changeQuantity/"+id,{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity},newQuantity,}).then((response)=>{
             console.log(response)
+            this.props.onMedicineChanged();
         }).catch((err)=>{
             console.log(err);
         })
-      await axios.get('https://glacial-caverns-39108.herokuapp.com/user/cart/view/'+id)
+      await axios.get('http://localhost:5000/user/cart/view/'+id)
       .then((response)=>{
         console.log(response)
         this.setState({data:response.data.cart,loading:false});
@@ -111,7 +112,7 @@ removeItemHandler= async (item)=>{
     const id=await reactLocalStorage.get("id");
   console.log(item,"REMOVE")
   this.setState({loading:true})
-  await axios.post("https://glacial-caverns-39108.herokuapp.com/user/cart/removeMedicine/"+id,{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity}}).then((response)=>{
+  await axios.post("http://localhost:5000/user/cart/removeMedicine/"+id,{medicineItem:{medicine:item.medicine._id,shop:item.shop._id,_id:item._id,quantity:item.quantity}}).then((response)=>{
         console.log(response)
         this.props.onMedicineRemoved();
     }).catch((err)=>{
@@ -139,6 +140,7 @@ render() {
 
     data.map(row => {
         sum+=(row.quantity * row.medicine.price);
+        console.log(row.quantity); 
         
       return rows.push(
         {
@@ -153,11 +155,17 @@ render() {
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
+                <option value="4">4</option>
                 <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
                 <option value="10">10</option>
+               
             </select>
         </>,
-        'amount': <strong>₹ {(row.quantity * row.medicine.price)}</strong>,
+        'amount': <strong>₹ {(row.quantity * row.medicine.price).toFixed(2)}</strong>,
         'button':
         
         <span onClick={()=>this.removeItemHandler(row)} className="RemoveButton-Cart">Remove</span>
@@ -224,6 +232,9 @@ render() {
 const mapDispatchToProps = dispatch => {
   return {
       onMedicineRemoved: ()=>{
+        dispatch({type: "GET_CART_AMOUNT"})},
+      
+      onMedicineChanged: ()=>{
         dispatch({type: "GET_CART_AMOUNT"})},
       }
   }

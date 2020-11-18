@@ -5,7 +5,7 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 function* fetchCartItemsAmount() {
     if(reactLocalStorage.get("isLoggedIn")=="true"){
     const id= reactLocalStorage.get("id");
-    const json = yield fetch('https://glacial-caverns-39108.herokuapp.com/user/cart/amount/'+id)
+    const json = yield fetch('http://localhost:5000/user/cart/amount/'+id)
             .then(response => response.json(), );    
     yield put({ type: "CART_AMOUNT_RECEIVED", amount: json.amount, });
     }
@@ -26,7 +26,7 @@ function* AddItemToCart(data) {
     })
     let lengthOfCart=0;
     const id= reactLocalStorage.get("id");
-    yield axios.post("https://glacial-caverns-39108.herokuapp.com/user/cart/add/"+id,{medicineList:itemsInCart}).then((response)=>{
+    yield axios.post("http://localhost:5000/user/cart/add/"+id,{medicineList:itemsInCart}).then((response)=>{
         console.log(response)
         lengthOfCart=response.data.amount;
          
