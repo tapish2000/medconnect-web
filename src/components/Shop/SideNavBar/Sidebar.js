@@ -29,23 +29,23 @@ function Sidebar() {
 	return (
 		<div>
 			<div id="sidebar" className="sidebar" onMouseOver={toggleSidebar} onMouseOut={toggleSidebar}>
-				<a href="/shop">
+				<a href="#/shop">
 					<img src={iconImage} alt="" width="30" height="30" className="logo" />
 					<span className="company">MedConnect</span>
 				</a>
-				<a href="/shop">
+				<a href="#/shop/dashboard">
 						<MdIcons.MdDashboard className="material-icons" />
 						<span class="icon-text">Dashboard</span>
 				</a>
-				<a href="/shop">
+				<a href="#/shop/inventory">
 					<FaIcons.FaBoxes className="material-icons" />
 					<span class="icon-text">Inventory</span>
 				</a>
-				<a href="/shop">
+				<a href="#/shop">
 					<FaIcons.FaCashRegister className="material-icons" />
 					<span class="icon-text">Bookings</span>
 				</a>
-				<a href="/shop">
+				<a href="#/shop">
 					<MdIcons.MdPerson className="material-icons" />
 					<span class="icon-text">Profile</span>
 				</a>

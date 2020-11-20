@@ -6,7 +6,6 @@ import {Button, Spinner,Modal} from 'react-bootstrap';
 import "./CartComponent.css"
 import {reactLocalStorage} from 'reactjs-localstorage';
 import {connect} from 'react-redux';
-import Button from 'react-bootstrap/Button'
 import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn } from "mdbreact";
 
 class CartComponent extends Component {

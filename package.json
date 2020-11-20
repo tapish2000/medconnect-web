@@ -13,11 +13,14 @@
     "axios": "^0.21.0",
     "bootstrap": "^4.5.2",
     "gh-pages": "^3.1.0",
+    "gridjs": "^3.0.2",
+    "gridjs-react": "^3.0.2",
     "mapbox-gl": "^1.12.0",
     "mdbreact": "^4.27.0",
     "moment": "^2.29.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
+    "react-circular-progressbar": "^2.0.3",
     "react-dom": "^16.13.1",
     "react-geolocated": "^3.1.0",
     "react-icons": "^3.11.0",
@@ -29,7 +32,8 @@
     "reactjs-localstorage": "^1.0.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^1.1.3"
+    "redux-saga": "^1.1.3",
+    "zingchart-react": "^3.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
