@@ -28,7 +28,7 @@ Link to App - [https://github.com/shobhi1310/MedConnect](https://github.com/shob
 - Visit the site at this [link](https://tapish2000.github.io/medconnect-web/#/)
 - In the top right corner, click on the user’s icon and select login if first time logging-in
 - For testing purposes use credentials
-   - Username: `tapishojha200@gmail.com`
+   - Username: `tapishojha2000@gmail.com`
    - Password: `taps123`
 - For searching medicines, enter medicine names for example Wikoryl, Propygenta in the search bar and select the tags generated and click the Search button
 - For booking any medicine from those click on the book medicine button

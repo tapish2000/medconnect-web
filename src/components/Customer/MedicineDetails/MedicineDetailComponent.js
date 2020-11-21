@@ -5,8 +5,10 @@ import MedicineInfoComponent from '../cards/medicineInfoComponent';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Spinner from 'react-bootstrap/Spinner';
+import iconImage from './defaultUser.png'
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import {reactLocalStorage} from 'reactjs-localstorage';
 
 function MedicineDetails(props) {
   // console.log(props);
@@ -16,7 +18,36 @@ function MedicineDetails(props) {
 
   const [MedicineData, setMedicineData] = useState({});
   const [loading, setLoading] = useState(true);
+  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
+  const [isLoggedIn,setisLoggedIn] = useState(reactLocalStorage.get('isLoggedIn'));
+  const [userID,setUserID] = useState(reactLocalStorage.get('id'));
+  
+  const fn1=()=>{
+    document.getElementById("hide").style.display = "block";
+  }
 
+  const handleSubmit=(event)=>{
+    event.preventDefault();
+    var body={
+      user_id: userID,
+      comment: comment
+    }
+    axios({
+      method: 'post',
+      url: 'https://glacial-caverns-39108.herokuapp.com/medicine/comment/' + `${MedicineData._id}`,
+      data: body
+    })
+    .then(function (response) {
+        // console.log(response.data);
+        setComments(response.data);
+        setComment("");
+    })
+    .catch(function (error) {
+        console.log(error);
+        setComment("");
+    });
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
     console.log(process.env.REACT_APP_BASE_URL);
@@ -26,6 +57,7 @@ function MedicineDetails(props) {
       .then((response) => {
         console.log(response.data);
         setMedicineData(response.data);
+        setComments(response.data.comments);
         setLoading(false);
       })
       .catch((err) => {
@@ -192,6 +224,44 @@ function MedicineDetails(props) {
               </div>
             </Card.Body>
           </Card>
+          <div className="container">
+            <h2 className="py-2">Discussions</h2>
+            {(comments.length==0)?
+            <div class="jumbotron jumbotron-fluid">
+              <div class="container">
+                <h1 class="display-4">No comment!</h1>
+                <p class="lead">Be the first commenter.</p>
+              </div>
+            </div>
+            :
+            comments.map((comment)=>{
+              return(
+              <div className="media my-3">
+                <img src={iconImage} width="54" class="mr-3" alt="..."></img>
+                <div class="media-body">
+                  <p>{comment.user.name}</p>
+                  <p class="font-weight-bold my-0">{comment.comment}</p>
+                </div>
+              </div>
+              )
+            })
+            }
+          </div>
+          <div class="container my-5">
+            <h2 class="py-2">Post a comment</h2>
+            <form onSubmit={handleSubmit}>
+                <div class="form-group">
+                    <label for="desc">Write here</label>
+                    <input type="text" class="form-control" value={comment} onChange={(event)=>setComment(event.target.value)} id="comment" name="comment" required/>
+                </div>
+                {(isLoggedIn)?<button type="submit" class="btn btn-info">Comment</button>:''}
+            </form>
+            {(!isLoggedIn)?<>
+            <button onClick={fn1} class="btn btn-info">Comment</button>
+            <div id="hide" class="alert alert-warning" role="alert" style={{display:"none"}}>
+              Login first!
+            </div></>:''}
+          </div>
         </>
       )}
     </>

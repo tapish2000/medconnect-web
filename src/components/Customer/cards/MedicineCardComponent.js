@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import Card from 'react-bootstrap/Card';
+import { Card, Badge } from 'react-bootstrap';
 import './CardsComponent.css';
 
 function MedicineCardComponent(props) {
@@ -12,7 +12,9 @@ function MedicineCardComponent(props) {
         <Card className="MyCard" style={{ width: '100%', height: '100%' }}>
           <Card.Img className="MyImg" variant="top" src={props.imgsrc} />
           <Card.Body className="MyCardBody">
-            <Card.Title>{props.title} </Card.Title>
+            <Card.Title>{props.title}{' '} 
+            </Card.Title>
+            {(props.prsc)?(<Badge variant="info">* Prescription required</Badge>):''}
             <Card.Text>{props.strength} </Card.Text>
             <Card.Text>{props.manufacturer}</Card.Text>
             <Card.Text>₹ {props.price}</Card.Text>

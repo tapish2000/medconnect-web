@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+.successImageDiv{
+    width: 100%;
+    height: 50%;
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background: white;
+    border: 1px solid rgba(0,0,0,.125); */
+}
+
+.successImageDiv img{
+    width: 12%;
+    height: 12%;
+}
+
+.successImageDiv h1{
+   margin-top: 2%;
+   font-family: 'ABeeZee', sans-serif;
+   color: 		#787878;
+   text-shadow: 0px 0px 3px rgba(120,120,120,0.8);
+}
+
+.yourItemsDiv{
+    width: 100%;
+    height: 50%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+
+.yourItemsDiv h1{
+  
+   font-family: 'ABeeZee', sans-serif;
+   color: 		black;
+   text-shadow: 0px 0px 3px rgba(120,120,120,0.8);
+}

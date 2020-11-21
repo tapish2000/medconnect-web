@@ -51,6 +51,7 @@ const AyurvedaGenericComponent = () => {
                     strength={val.strength}
                     price={val.price}
                     id={val._id}
+                    prsc={val.prescription}
                   />
                 </Col>
               );
