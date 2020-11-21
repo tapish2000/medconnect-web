@@ -8,7 +8,7 @@ function App() {
     <HashRouter>
       <div className="App"> 
         <Switch>
-          {/* <Route path="/shop" component={Shop} /> */}
+          <Route path="/shop" component={Shop} />
           <Route path="/" component={Customer} />
         </Switch>
       </div>

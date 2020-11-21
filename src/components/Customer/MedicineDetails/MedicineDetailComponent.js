@@ -11,6 +11,9 @@ import { withRouter } from 'react-router-dom';
 function MedicineDetails(props) {
   // console.log(props);
   // console.log(e);
+
+  const [quantity, setQuantity] = useState(1);
+
   const [MedicineData, setMedicineData] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -29,6 +32,17 @@ function MedicineDetails(props) {
         console.log(err);
       });
   }, []);
+
+  const increment = () => {
+    setQuantity(quantity+1);
+  }
+
+  const decrement = () => {
+    if (quantity !== 1) {
+      setQuantity(quantity-1);
+    }
+  }
+
   return (
     <>
       {loading ? (
@@ -72,13 +86,76 @@ function MedicineDetails(props) {
                       />
                     </div>
                     <div className="row">
-                      <select className="form-control" id="quantity">
-                        <option>Quantity: 1</option>
-                        <option>Quantity: 2</option>
-                        <option>Quantity: 3</option>
-                        <option>Quantity: 5</option>
-                        <option>Quantity: 10</option>
-                      </select>
+                      <div className="col-sm-4 quantity-input">
+                        <button className="quantity-input__modifier quantity-input__modifier--left" onClick={decrement}>
+                          &mdash;
+                        </button>
+                        <input className="quantity-input__screen" type="text" value={quantity} readonly />
+                        <button className="quantity-input__modifier quantity-input__modifier--right" onClick={increment}>
+                          &#xff0b;
+                        </button>  
+                      </div>  
+                      <div className="col-sm">
+                        <button className="btn btn-info" type="button" data-toggle="modal" data-target="#selectshop">Select Shop</button>
+                        
+                        {/* Modal Start */}
+                        <div className="modal fade" id="selectshop" tabindex="-1" role="dialog" aria-labelledby="selectShop" aria-hidden="true">
+                          <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                              <ul className="nav nav-tabs md-tabs tabs-2 darken-3" role="tablist">
+                                <li className="nav-item">
+                                  <a className="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i className="fas fa-user mr-1"></i>
+                                    Select Shop</a>
+                                </li>
+                                <li className="nav-item">
+                                  <a className="nav-link" data-toggle="tab" href="#panel8" role="tab"><i className="fas fa-user-plus mr-1"></i>
+                                    Search Shops</a>
+                                </li>
+                              </ul>
+                              <div className="tab-content">
+                                <div className="tab-pane fade in show active" id="panel7" role="tabpanel">
+                                  {/* Body */}                                  
+                                  <div className="modal-body mb-1">
+                                    <form>
+                                      <label>Nearest Shops</label>
+                                      <select multiple className="form-control">
+                                        <option>Mr. Miraali</option>
+                                        <option>Shubhankar parts</option>
+                                        <option>Chhenu Ki Dukan</option>
+                                        <option>Blah1</option>
+                                        <option>Blah2</option>
+                                      </select>
+                                    </form>
+                                  </div>
+                                  {/* Footer- */}                                    
+                                  <div className="modal-footer">
+                                    <button type="submit" className="btn btn-outline-info" data-dismiss="modal">Save</button>
+                                    <button type="button" className="btn btn-outline-info" data-dismiss="modal">Close</button>
+                                  </div>
+
+                                </div>
+                                
+                                <div className="tab-pane fade" id="panel8" role="tabpanel">
+
+                                  {/* Body */}                                  
+                                  <div className="modal-body">
+                                    <form>
+                                      <input className="form-control" type="text" placeholder="Search Shops Here..." />
+                                    </form>
+                                  </div>
+                                  {/* Footer- */}                                    
+                                  <div className="modal-footer">
+                                    <button type="submit" className="btn btn-outline-info" data-dismiss="modal">Save</button>
+                                    <button type="button" className="btn btn-outline-info" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        {/* Modal End */}
+
+                      </div>
                     </div>
                   </div>
                 </div>

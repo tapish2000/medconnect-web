@@ -19,15 +19,15 @@ class Search extends Component{
         }
         
         this.reactTags = React.createRef()
-        }
+    }
         
-        onDelete (i) {
+    onDelete (i) {
         const tags = this.state.tags.slice(0)
         tags.splice(i, 1)
         this.setState({ tags })
-        }
+    }
         
-        onAddition (tag) {
+    onAddition (tag) {
         const tags = [].concat(this.state.tags, tag)
         this.setState({ tags })
     }

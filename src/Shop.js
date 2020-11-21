@@ -1,12 +1,14 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import SideNavBar from './components/Shop/SideNavBar/Sidebar';
 
 function Shop() {
   return (    
     <div>
-        <Switch>
-            
-        </Switch>
+      <SideNavBar />
+      <Switch>
+          
+      </Switch>
     </div>
   );
 }

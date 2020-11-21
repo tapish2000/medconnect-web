@@ -29,13 +29,65 @@
   padding-bottom: 1em;
 }
 
-#quantity {
-  margin-top: 1%;
-  margin-bottom: 1%;
-}
-
 #card-head {
   text-align: left;
   margin-left: 3%;
   padding-bottom: 2%;
 }
+
+.quantity-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 3px;
+}
+
+.quantity-input:focus {
+  background: red;
+}
+
+.quantity-input__modifier, .quantity-input__screen {
+  user-select: none;
+  outline: none;
+}
+
+.quantity-input__modifier {
+  padding: .7rem;
+  width: 5rem;
+  font-size: 1rem;
+  
+  background: #f3f3f3;
+  color: #888;
+  border: 0 solid #dbdbdb;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(#fff, .6);
+  
+  cursor: pointer;
+}
+
+.quantity-input__modifier:hover {
+  background: darken(#f3f3f3, 10%);
+    color: darken(#888, 20%)
+}
+
+.quantity-input__modifier--left {
+  border-radius: 3px 0 0 3px;
+}
+
+.quantity-input__modifier--right {
+  border-radius: 0 3px 3px 0;
+}
+
+.quantity-input__screen {
+  width: 7rem;
+  padding: .7rem;
+  font-size: 1rem;
+  
+  border: 0;
+  border-top: 0 solid #dbdbdb;
+  border-bottom: 0 solid #dbdbdb;
+  text-align: center;
+}
+
