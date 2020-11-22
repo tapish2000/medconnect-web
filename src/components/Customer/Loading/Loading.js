@@ -15,7 +15,7 @@ const Loading = ({show}) => {
     <div className="spinner-c-overlay" style={{ animation: `${show ? "simpfadeIn 2s" : "simpfadeOut 1s"}`}} onAnimationEnd={onAnimationEnd}>
     <div className="row h-100">
       <div className="col-sm-12 my-auto">
-        <div className="p-5 mx-auto">
+        <div className="p-5 mx-auto" style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center"}}>
           <Spinner
             style={{ width: '5vmax', height: '5vmax' }}
             className="loadingSpinner my-auto"
