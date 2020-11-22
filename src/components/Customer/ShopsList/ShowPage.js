@@ -79,8 +79,7 @@ class ShopPage extends Component{
                             <Card.Body>
                                 <Card.Title>{shop.name}</Card.Title>
                                 <Card.Subtitle className="text-muted">You are just this far: {shop.travelDistance} km</Card.Subtitle>
-                                <Carousel indicators={false}>
-                                <Carousel.Item>
+                                
                                     <Row className="m-3">
                                     {shop.searchedMedicines.map((val) => {
                                         return (
@@ -97,8 +96,7 @@ class ShopPage extends Component{
                                         );
                                     })}
                                     </Row>
-                                </Carousel.Item>
-                                </Carousel>
+                                
                                 <Button variant="warning" onClick={()=>this.addToCartHandler(shop)}>Add to Cart</Button>
                             </Card.Body>
                         </Card>
