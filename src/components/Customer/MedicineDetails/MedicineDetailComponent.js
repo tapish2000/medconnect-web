@@ -226,7 +226,7 @@ function MedicineDetails(props) {
           </Card>
           <div className="container">
             <h2 className="py-2">Discussions</h2>
-            {(comments.length==0)?
+            {(comments!== undefined && comments!== null && comments.length==0)?
             <div class="jumbotron jumbotron-fluid">
               <div class="container">
                 <h1 class="display-4">No comment!</h1>

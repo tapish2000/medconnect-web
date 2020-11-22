@@ -44,7 +44,8 @@ function Customer() {
           <Route exact path="/shoplist" component={ShowPage} />
           <Route exact path='/login' component={Login} />
           <Route exact path = "/stores">
-            <MapBox />
+            <MapBox />import Chart from './components/Chart';
+
           </Route>
 
           <Route
