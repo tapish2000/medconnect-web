@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "zingchart/es6";
 import ZingChart from "zingchart-react";
 import './Graph.css'
-import BarGraphForStockData from './BarGraphForData' // this data means buffer stock and remaining stock of every medicine
+import BarGraphForStockData from './BarGraphForData' // this data means Dead stock and remaining stock of every medicine
 
 class BarGraphForStock extends Component {
   constructor(props) {
@@ -13,10 +13,10 @@ class BarGraphForStock extends Component {
             {
                 "type":"bar3d",
                 title: {
-                  text: "In Hand Stock / Buffer Stock per Month"
+                  text: "In Hand Stock / Dead Stock per Month"
                 },
                 subtitle: {
-                  text: "Displays inHand(remaining) stocks as well as buffer stock of a particular month"
+                  text: "Displays inHand(remaining) stocks as well as Dead stock of a particular month"
                 },
                 "series":[
                     {
@@ -26,7 +26,7 @@ class BarGraphForStock extends Component {
                     },
                     {
                        "bar-width": "50%",
-                      "values":BarGraphForStockData.bufferStock, 
+                      "values":BarGraphForStockData.deadStock, 
                       'background-color': "#ab0066 #ff0078"
                     }
                 ],
@@ -73,7 +73,7 @@ class BarGraphForStock extends Component {
                 "line-width":"100%",
                 "alpha":0.3,
                 "plot-label":{
-                    "text":"Yellow shows inHand stock<br>Pink shows Buffer stock",
+                    "text":"Yellow shows inHand stock<br>Pink shows Dead stock",
                     "decimals":2,
                     "multiple":true,
                     "placement":"node-top",
