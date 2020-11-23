@@ -4,3 +4,14 @@
     display: flex;
     justify-content: space-around;
   }
+
+
+  
+.block {
+    color: #FFF;
+    font-family: Moderat Trial, sans-serif;
+    font-weight: bold;
+    font-size: 3em;
+    background-color: black;
+    text-align: center;
+}
