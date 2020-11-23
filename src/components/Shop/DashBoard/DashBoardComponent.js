@@ -1,6 +1,7 @@
 import React from 'react';
 import BarGraphForProfit from './BarGraphForProfit';
 import BarGraphForStock from './BarGraphForStock'
+import SafetyStockTable from './SafetyStockTable'
 import './DashBoardComponent.css'
 
 class DashBoard extends React.Component{
@@ -24,10 +25,16 @@ class DashBoard extends React.Component{
             <div className = "BarGraph">
                 <div>
                    <BarGraphForProfit />
+                   <div id = "table">
+                      <SafetyStockTable />
+                   </div>
                 </div>
                 <div>
                    <BarGraphForStock />
                 </div>
+
+                
+                
               
             </div>
           </>
