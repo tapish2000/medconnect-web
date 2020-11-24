@@ -12,6 +12,11 @@ class BarGraphForStock extends Component {
         "graphset":[
             {
                 "type":"bar3d",
+                '3d-aspect': {
+                  true3d: false,
+                  angle:60,
+                  zoom:0.5
+                },
                 title: {
                   text: "In Hand Stock / Dead Stock per Month"
                 },
@@ -20,7 +25,7 @@ class BarGraphForStock extends Component {
                 },
                 "series":[
                     {
-                        
+                      "bar-width": "50%",
                         "values":BarGraphForStockData.remainingStock,
                         'background-color': "#e6df17"
                     },

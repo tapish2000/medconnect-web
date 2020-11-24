@@ -12,6 +12,11 @@ class BarGraphForProfit extends Component {
         "graphset":[
             {
                 "type":"bar3d",
+                '3d-aspect': {
+                  true3d: false,
+                  angle:60,
+                  zoom:0.5
+                },
                 title: {
                   text: "Profit/Loss vs Month"
                 },
@@ -24,6 +29,7 @@ class BarGraphForProfit extends Component {
                         "values":this.getProfit(BarGraphForProfitData.profit)
                     },
                     {
+                      "bar-width": "50%",
                       "values":this.getLoss(BarGraphForProfitData.profit) //values for buffer stock
                     }
                     
@@ -60,7 +66,7 @@ class BarGraphForProfit extends Component {
                   text: "Profit / Loss (Rs)"
                 },
                 item: {
-                  'font-size': 8
+                  'font-size': 7
                 },
                 
               },
