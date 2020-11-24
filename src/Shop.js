@@ -4,6 +4,7 @@ import SideNavBar from './components/Shop/SideNavBar/Sidebar';
 import MedicineInventory from './components/Shop/MedicineInventory/MedicineInventoryComponent';
 import ShopSignUp from './components/Shop/SignUp/ShopSignUp';
 import HomePageComponent from './components/Shop/Home/HomePageComponent';
+import Footer from './components/Shop/footer/FooterComponent'
 
 function Shop() {
   return (    
@@ -14,6 +15,7 @@ function Shop() {
           <Route path="/shop/signup" component={ShopSignUp} />
           <Route path="/shop/homepage" component={HomePageComponent} />
       </Switch>
+      <Footer />
     </div>
   );
 }
