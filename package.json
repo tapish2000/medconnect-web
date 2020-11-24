@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.2",
+    "datatables.net": "^1.10.22",
     "gh-pages": "^3.1.0",
     "mapbox-gl": "^1.12.0",
     "mdbreact": "^4.27.0",
