@@ -7,6 +7,7 @@ function* fetchCartItemsAmount() {
     const id= reactLocalStorage.get("id");
     const json = yield fetch('https://glacial-caverns-39108.herokuapp.com/user/cart/amount/'+id)
             .then(response => response.json(), );    
+     console.log(json.amount);
     yield put({ type: "CART_AMOUNT_RECEIVED", amount: json.amount, });
     }
     else{

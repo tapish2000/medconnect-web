@@ -1,56 +1,56 @@
 .BarGraph {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    
-  }
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  
+}
 
 
 .designProgressBar{
-  margin-top: 10vh;
-  width: 25vw;
-  margin-right: 13vw;
-  margin-bottom: 15vh;
+margin-top: 10vh;
+width: 25vw;
+margin-right: 13vw;
+margin-bottom: 15vh;
 }
 
 .stock{
-  margin-left: 75px;
+margin-left: 75px;
 }
 
 
-  
+
 .block {
-    color: #FFF;
-    font-family: Moderat Trial, sans-serif;
-    font-weight: bold;
-    font-size: 3em;
-    background-color: rgb(54, 38, 38);
-    text-align: center;
+  color: #FFF;
+  font-family: Moderat Trial, sans-serif;
+  font-weight: bold;
+  font-size: 3em;
+  background-color: rgb(54, 38, 38);
+  text-align: center;
 }
 
 .dashBoardDesign{
-    /* margin: 75px; */
-    width: 100%;
-    /* background-size: cover; */
-    height: 100vh;
+  /* margin: 75px; */
+  width: 100%;
+  /* background-size: cover; */
+  height: 100vh;
 }
 
 .containerOfDashBoard{
-  width: 100%;
-  height: 100%;
-  margin-left:75px;
-  margin-right:5%;
-  max-width: 1960px;
-    
-  /* margin-left: 25%; */
-  /* margin-right:25%; */
+width: 100%;
+height: 100%;
+margin-left:75px;
+margin-right:5%;
+max-width: 1960px;
+  
+/* margin-left: 25%; */
+/* margin-right:25%; */
 }
 
 .rowOfDashBoard{
-  width: 100%;
-  height: 100%;
-  
+width: 100%;
+height: 100%;
+
 
 }
 
@@ -58,25 +58,25 @@
 
 
 .row2{
-  display: flex;
-  justify-content: center;
+display: flex;
+justify-content: center;
 }
 /* 
 body {
-    font-family: monospace;  
-  } */
+  font-family: monospace;  
+} */
 
 
+
+h1 {
+  text-align: center;
+}
+
+#table {
+  margin-top:58vh;
   
-  h1 {
-    text-align: center;
-  }
-  
-  #table {
-    margin-top:58vh;
-    
-  }
-  
-  .table-body {
-    color: #323333;
-  }
+}
+
+.table-body {
+  color: #323333;
+}

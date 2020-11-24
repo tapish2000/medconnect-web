@@ -1,0 +1,20 @@
+.main-footer {
+    padding-top: 1rem;
+    
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+.social-container .social {
+    color: white;
+    margin: 0 1rem;
+    transition: transform 250ms;
+    display: inline-block;
+}
+
+.d-flex {
+    padding-top: 2rem;
+}
