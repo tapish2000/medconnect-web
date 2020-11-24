@@ -12,7 +12,10 @@ class CartComponent extends Component {
 
 
    handleClose = () => this.setState({showModal:false});
-   handleShow = () => this.setState({showModal:true});
+   handleShow = () => {
+     this.verifyPrescriptionUploads();
+     this.setState({showModal:true})
+    };
    goAheadHandler=()=>{
      this.props.history.push('/SuccessfulBooking')
    }
@@ -21,8 +24,10 @@ class CartComponent extends Component {
     super(props);
     this.state={
         data:[],
+        uploadedFiles:{},
         showModal:false,
         loading:true,
+        canBook:false,
         columns: [
           {
             label: '',
@@ -131,9 +136,33 @@ removeItemHandler= async (item)=>{
 }
 }
 
+
+onPrescriptionUpload=(e,item)=>{
+  console.log(e.target.files)
+  let uploadedFiles={...this.state.uploadedFiles};
+  uploadedFiles[item._id]=e.target.files[0];
+  this.setState({uploadedFiles:uploadedFiles})
+}
+
+verifyPrescriptionUploads=()=>{
+  let flag=true;
+
+  for(let i=0;i<this.state.data.length;i++){
+    const item=this.state.data[i];
+    if(item.medicine.prescription){
+      if(!this.state.uploadedFiles[item._id]){
+        flag=false;
+        break;
+      }
+    }
+  }
+  this.setState({canBook:flag});
+  
+}
+
 render() {
 
-    console.log(this.state.data)
+   
     let sum=0;
 
     const rows = [];
@@ -141,7 +170,7 @@ render() {
 
     data.map(row => {
         sum+=(row.quantity * row.medicine.price);
-        console.log(row.quantity); 
+        
         
       return rows.push(
         {
@@ -169,10 +198,11 @@ render() {
         'amount': <strong>₹ {(row.quantity * row.medicine.price)}</strong>,
         'button1':<span onClick={()=>this.removeItemHandler(row)} className="RemoveButton-Cart">Remove</span>,
         'button2': (row.medicine.prescription) ? (
-          <>
-            <Button type="file" variant="outline-warning">Upload</Button>
-            <input type="file" style={{display:'none'}} /> 
-          </>
+          <div>
+            <input type="file" style={{display:'none'}} id="prescription" onChange={(e)=>this.onPrescriptionUpload(e,row)}/> 
+            <Button type="file" htmlFor="prescription" as={"label"} variant="outline-warning">Upload</Button>
+            <p className="fileName-Cart">{this.state.uploadedFiles[row._id]?this.state.uploadedFiles[row._id].name:""}</p>
+          </div>
         ) : ''
         }
       )
@@ -207,12 +237,24 @@ render() {
         <Modal.Header closeButton >
           <Modal.Title>Confirm Booking</Modal.Title>
         </Modal.Header>
+
+        <Modal.Body>
+          {
+            (!this.state.canBook)?(<p className="prescription-failure-cart">Please Upload all prescriptions to continue.</p>):
+            (
+            <>
+            <p className="prescription-success-cart">All prescriptions have been uploaded.</p>
+            <p className="prescription-success-cart">Please go ahead with the booking.</p>
+            </>
+            )
+          }
+        </Modal.Body>
         
         <Modal.Footer>
           <Button variant="danger" onClick={this.handleClose}>
             Close
           </Button>
-          <Button variant="info" onClick={this.goAheadHandler}>
+          <Button variant="info" onClick={this.goAheadHandler} disabled={!this.state.canBook}>
             Go Ahead
           </Button>
         </Modal.Footer>
