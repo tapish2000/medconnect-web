@@ -8,6 +8,7 @@ import ShopSignUp from './components/Shop/SignUp/ShopSignUp';
 import HomePageComponent from './components/Shop/Home/HomePageComponent';
 import Footer from './components/Shop/footer/FooterComponent'
 
+
 function Shop() {
   return (    
     <div>

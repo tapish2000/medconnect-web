@@ -413,5 +413,3 @@
     opacity: 1;
     transform: scale(.875) perspective(512px) translate3d(0, -32px, 64px);
   }
-
-   /* labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], */
