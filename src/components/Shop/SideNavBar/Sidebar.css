@@ -15,6 +15,11 @@ body {
     padding-top: 20px;
     white-space: nowrap;
   }
+
+  .sidebar:hover {
+    width: 250px;
+    transition: 0.5s;
+  }
   
   .sidebar a {
     padding: 8px 8px 8px 32px;

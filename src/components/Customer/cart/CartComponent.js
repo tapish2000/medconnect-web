@@ -105,9 +105,6 @@ onQuantityChanged=async (e,item)=>{
   else{
         this.props.history.push("/login");
   }
-
- 
-
 }
 
 removeItemHandler= async (item)=>{
