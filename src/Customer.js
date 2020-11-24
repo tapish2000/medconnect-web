@@ -16,6 +16,7 @@ import Cart from './components/Customer/cart/CartComponent';
 import MapBox from './components/Customer/mapBox/mapBox';
 import DailyUseCardComponent from './components/Customer/cards/DailyUseCardComponent';
 import Login from './components/Customer/accesories/login/LoginPage'
+import CustomerSignUp from './components/Customer/accesories/SignUp/CustomerSignUp';
 import BookingSuccessful from './components/Customer/BookingSuccessful/BookingSuccessful';
 
 function Customer() {
@@ -43,6 +44,7 @@ function Customer() {
           <Route exact path="/history" component={BookingHistory} />
           <Route exact path="/shoplist" component={ShowPage} />
           <Route exact path='/login' component={Login} />
+          <Route exact path="/signup" component={CustomerSignUp} />
           <Route exact path = "/stores">
             <MapBox />
           </Route>

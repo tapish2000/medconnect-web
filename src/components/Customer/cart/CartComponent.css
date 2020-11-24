@@ -17,3 +17,16 @@
    
     color: #17a2b8;
 }
+
+.fileName-Cart{
+    color: #17a2b8;
+    font-size: 0.9vw;
+}
+
+.prescription-failure-cart{
+    color:red;
+}
+
+.prescription-success-cart{
+    color: #5cb85c ;
+}

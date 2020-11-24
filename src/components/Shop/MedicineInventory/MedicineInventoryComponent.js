@@ -1,6 +1,5 @@
 import React from 'react';
-import MedicineList from './MedicineList';
-import MedicineInventoryCard from './MedicineInventoryCard';
+import {Data} from './Data';
 
 const MedicineInventory = () => {
     return (
@@ -174,36 +173,7 @@ const MedicineInventory = () => {
 
                                 <div class="row">
                                     <div class="col">
-                                        <table class="table table-striped table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Details</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            {MedicineList.map((val) => {
-                                                return (
-                                                
-                                                    <MedicineInventoryCard
-                                                        Key={val.id}
-                                                        sn={val.sn}
-                                                        med_name={val.med_name}
-                                                        price={val.price}
-                                                        manufacturer={val.manufacturer}
-                                                        type={val.type}
-                                                        add_date={val.add_date}
-                                                        manu_date={val.manu_date}
-                                                        expi_date={val.expi_date}
-                                                        ac_stock={val.ac_stock}
-                                                        curr_stock={val.curr_stock}
-                                                        sold_stock={val.sold_stock}
-                                                        img_src={val.img_src}
-                                                    />
-                                                );
-                                            })}
-                                            </tbody>
-                                        </table>
+                                        <Data />
                                     </div>
                                 </div>
                             </div>
