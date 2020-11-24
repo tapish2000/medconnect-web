@@ -12,7 +12,9 @@ let data = {
         ["Azee 400 Tablet",16,18],
         ["Azee 300 Tablet",10,13],
         ["Azee 500 Tablet",18,19]
-    ]
+    ],
+    onGoingOrders:75,
+    confirmedOrders:72
 
 }
 

@@ -6,6 +6,14 @@
   }
 
 
+.designProgressBar{
+  margin-top: 60vh;
+  width: 25vw;
+  margin-right: 13vw;
+  margin-bottom: 15vh;
+}
+
+
   
 .block {
     color: #FFF;

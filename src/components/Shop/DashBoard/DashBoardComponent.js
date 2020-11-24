@@ -2,6 +2,7 @@ import React from 'react';
 import BarGraphForProfit from './BarGraphForProfit';
 import BarGraphForStock from './BarGraphForStock'
 import SafetyStockTable from './SafetyStockTable'
+import ProgressBar from './ProgressBar';
 import './DashBoardComponent.css'
 
 class DashBoard extends React.Component{
@@ -31,11 +32,10 @@ class DashBoard extends React.Component{
                 </div>
                 <div>
                    <BarGraphForStock />
+                   <div className = "designProgressBar">
+                      <ProgressBar />
+                   </div>
                 </div>
-
-                
-                
-              
             </div>
           </>
         )
