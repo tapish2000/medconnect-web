@@ -26,9 +26,21 @@ function Sidebar() {
 		}
 	}
 
+	/*
+		Below changes has been made by Sameed in order to remove the ambiguous behaviour of the side navbar.
+	*/
+
+	const closeSidebar=()=>{
+		document.getElementById("sidebar").style.width = "75px";				
+	}
+
+	const openSidebar=()=>{
+		document.getElementById("sidebar").style.width = "250px";			
+	}
+
 	return (
 		<div>
-			<div id="sidebar" className="sidebar" onMouseOver={toggleSidebar} onMouseOut={toggleSidebar}>
+			<div id="sidebar" className="sidebar"  onMouseOver={openSidebar} onMouseOut={closeSidebar}>
 				<a href="#/shop">
 					<img src={iconImage} alt="" width="30" height="30" className="logo" />
 					<span className="company">MedConnect</span>
@@ -41,10 +53,15 @@ function Sidebar() {
 					<FaIcons.FaBoxes className="material-icons" />
 					<span class="icon-text">Inventory</span>
 				</a>
-				<a href="#/shop">
+				<a href="#/shop/CurrentBookings">
 					<FaIcons.FaCashRegister className="material-icons" />
-					<span class="icon-text">Bookings</span>
+					<span class="icon-text">Current Bookings</span>
 				</a>
+				<a href="#/shop/BookingHistory">
+					<FaIcons.FaHistory className="material-icons" />
+					<span class="icon-text">Booking History</span>
+				</a>
+				
 				<a href="#/shop">
 					<MdIcons.MdPerson className="material-icons" />
 					<span class="icon-text">Profile</span>
