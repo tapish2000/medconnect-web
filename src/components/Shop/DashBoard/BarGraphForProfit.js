@@ -15,7 +15,7 @@ class BarGraphForProfit extends Component {
                 '3d-aspect': {
                   true3d: false,
                   angle:60,
-                  zoom:0.5
+                  zoom:0.3
                 },
                 title: {
                   text: "Profit/Loss vs Month"
@@ -133,7 +133,7 @@ class BarGraphForProfit extends Component {
             <div className="crazy__overlay cover"></div>
             <div className="crazy__info cover">
                 <div className="designBarGraph">
-                    <ZingChart id = "myChart" ref={this.chart} data={this.state.config} style={{overflow:"inherit"}} />
+                    <ZingChart id = "myChart" ref={this.chart} data={this.state.config} style={{overflow:"inherit",height:"100%"}} />
                 </div> 
             </div>
         </div>
