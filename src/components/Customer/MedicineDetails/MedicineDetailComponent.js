@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {connect} from 'react-redux';
 import Card from 'react-bootstrap/Card';
 import './MedicineDetailsComponent.css';
 import MedicineInfoComponent from '../cards/medicineInfoComponent';
@@ -14,6 +15,10 @@ function MedicineDetails(props) {
   // console.log(props);
   // console.log(e);
 
+  const [finalShop, setFinalShop] = useState({});
+  const [searchedShopList, setSearchedShopList] = useState([]);
+  const [searchShop, setSearchShop] = useState("");
+  const [shopList, setShopList] = useState([]);
   const [quantity, setQuantity] = useState(1);
   var [selectedShop, setSelectedShop] = useState("");
   const [MedicineData, setMedicineData] = useState({});
@@ -25,6 +30,30 @@ function MedicineDetails(props) {
 
   const fn1=()=>{
     document.getElementById("hide").style.display = "block";
+  }
+
+  const handleSearchShop = (val) => {
+    var params = {
+      med_id: MedicineData._id
+    }
+    // console.log(val);
+    setSearchShop(val);
+    if (val != "") {
+      axios({
+        method: "post",
+        url: 'https://glacial-caverns-39108.herokuapp.com/shop/fetch/' + `${val}`,
+        data: params
+      })
+      .then(function (response) {
+        console.log(response.data);
+        setSearchedShopList(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    } else {
+      setSearchedShopList([]);
+    }
   }
 
   const handleSubmit=(event)=>{
@@ -76,17 +105,39 @@ function MedicineDetails(props) {
   }
 
   const shopSelected = () => {
-    var sel = document.getElementById("select-shop");
+    var sel = document.getElementById("select-shop1");
     // console.log(selectedShop);
     try {
-      selectedShop = sel.options[sel.selectedIndex].text;
+      selectedShop = sel.options[sel.selectedIndex].value;
       setSelectedShop(selectedShop);
       // console.log(selectedShop);
       var show = document.getElementById("show-shop");
-      show.value = selectedShop;
+      show.value = shopList[selectedShop].name;
 
       var addToCart = document.getElementById("cart-add");
       addToCart.className = "btn btn-info";
+
+      setFinalShop(shopList[selectedShop]);
+    } catch(err) {
+      console.log(err);
+      window.alert("Shop Not Selected!")
+    }
+  }
+
+  const shopSearchedSelected = () => {
+    var sel = document.getElementById("select-shop2");
+    // console.log(selectedShop);
+    try {
+      selectedShop = sel.options[sel.selectedIndex].value;
+      setSelectedShop(selectedShop);
+      // console.log(selectedShop);
+      var show = document.getElementById("show-shop");
+      show.value = searchedShopList[selectedShop].name;
+
+      var addToCart = document.getElementById("cart-add");
+      addToCart.className = "btn btn-info";
+
+      setFinalShop(searchedShopList[selectedShop]);
     } catch(err) {
       console.log(err);
       window.alert("Shop Not Selected!")
@@ -109,12 +160,23 @@ function MedicineDetails(props) {
             "content-type": "application/json",
         },
     }).then((res)=>{
-        console.log(res.data.shops);
+        var shops = res.data.shops;
+        console.log(shops);
+        setShopList(shops);
     })
     .catch((err)=>{
         console.log(err);
     })
     console.log(medicine);
+  }
+
+  const addToCartHandler = () => {
+    console.log(finalShop);
+    const isLoggedIn = reactLocalStorage.get("isLoggedIn");
+    if(isLoggedIn=="true")
+        props.onAddToCart(finalShop);
+    else
+        props.history.push("/login");
   }
 
   return (
@@ -167,7 +229,7 @@ function MedicineDetails(props) {
                         <input className="quantity-input__screen" type="text" value={quantity} readonly />
                         <button className="quantity-input__modifier quantity-input__modifier--right" onClick={increment}>
                           &#xff0b;
-                        </button>  
+                        </button>
                       </div>
                       <div className="col-sm-4 text-right my-auto">
                         <div className="row">
@@ -193,13 +255,15 @@ function MedicineDetails(props) {
                                     {/* Body */}                                  
                                     <div className="modal-body mb-1">
                                       <form>
-                                        <label>Nearest Shops</label>
-                                        <select id="select-shop" multiple className="form-control">
-                                          <option>Mr. Miraali</option>
-                                          <option>Shubhankar parts</option>
-                                          <option>Chhenu Ki Dukan</option>
-                                          <option>Blah1</option>
-                                          <option>Blah2</option>
+                                        <label style={{justifyContent: "left"}}>Nearest Shops</label>
+                                        <select id="select-shop1" multiple className="form-control">
+                                          {shopList.map((shop, index) => {
+                                            return (
+                                              <>
+                                                <option value={index}>{shop.name}</option>
+                                              </>
+                                            );
+                                          })}
                                         </select>
                                       </form>
                                     </div>
@@ -216,12 +280,19 @@ function MedicineDetails(props) {
                                     {/* Body */}                                  
                                     <div className="modal-body">
                                       <form>
-                                        <input className="form-control" type="text" placeholder="Search Shops Here..." />
+                                        <input onChange={(event)=>handleSearchShop(event.target.value)} value={searchShop} className="form-control" type="text" placeholder="Search Shops Here..." />
+                                        <select id="select-shop2" className="form-control" multiple>
+                                        {searchedShopList.map((shop, index) => {
+                                          return (
+                                            <option value={index}>{shop.name}</option>
+                                          );
+                                        })}
+                                      </select>
                                       </form>
                                     </div>
                                     {/* Footer- */}                                    
                                     <div className="modal-footer">
-                                      <button type="submit" className="btn btn-outline-info" data-dismiss="modal">Save</button>
+                                      <button type="submit" className="btn btn-outline-info" data-dismiss="modal" onClick={shopSearchedSelected}>Save</button>
                                       <button type="button" className="btn btn-outline-info" data-dismiss="modal">Close</button>
                                     </div>
                                   </div>
@@ -239,9 +310,9 @@ function MedicineDetails(props) {
                       <div className="col-sm-4 my-auto">
                         <a
                         id="cart-add"
-                        href="#"
                         role="button"
                         className="btn btn-info disabled"
+                        onClick={addToCartHandler}
                         >
                         Add to Cart
                         </a>
@@ -267,7 +338,7 @@ function MedicineDetails(props) {
                       </Card.Body>
                     </Card>
                   </div>
-                  {props.showBtn ? 
+                  {/* {props.showBtn ? 
                     <div className="col-sm text-right my-auto">
                         <a
                         href="#"
@@ -277,7 +348,7 @@ function MedicineDetails(props) {
                         Add to Cart
                         </a>
                     </div> : null
-                    }
+                    } */}
                 </div>
               </div>
             </Card.Body>
@@ -326,4 +397,16 @@ function MedicineDetails(props) {
   );
 }
 
-export default withRouter(MedicineDetails);
+const mapDispatchToProps = dispatch => {
+  return {
+      onAddToCart: ({searchedMedicines,name,_id}) => {
+          const medicineList=searchedMedicines.map((medicine)=>{
+              return {...medicine,shop_id:_id,shopName:name,quantity:1};
+          })
+          dispatch({type: "ADD_ITEM_TO_CART", medicineList,});
+
+      }
+  }
+};
+
+export default connect(null, mapDispatchToProps)(withRouter(MedicineDetails));

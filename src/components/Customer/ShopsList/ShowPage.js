@@ -59,7 +59,6 @@ class ShopPage extends Component{
             this.props.onAddToCart(shop);
         else
             this.props.history.push("/login");
-
     }
     render() {
         return(
