@@ -91,3 +91,10 @@
   text-align: center;
 }
 
+#show-shop {
+  font-size: x-small;
+  width: fit-content;
+  border: none;
+  height:"5px";
+  
+}

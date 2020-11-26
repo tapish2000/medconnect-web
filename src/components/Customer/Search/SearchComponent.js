@@ -20,20 +20,35 @@ class Search extends Component{
         
         this.reactTags = React.createRef()
     }
+
+    // shouldComponentUpdate=()=>{
+    //     console.log(this.state.tags)
+    // }
         
-    onDelete (i) {
+    onDelete =(i)=>{
         const tags = this.state.tags.slice(0)
         tags.splice(i, 1)
         this.setState({ tags })
+        console.log(this.state.tags);
     }
         
-    onAddition (tag) {
-        const tags = [].concat(this.state.tags, tag)
+    onAddition =(tag)=> {
+        console.log(tag)
+        let tags = [];
+        
+        for(var i=0;i<this.state.tags.length;i++){
+            tags.push(this.state.tags[i]);
+        }
+        tags.push(tag);
+
         this.setState({ tags })
+        console.log(this.state.tags)
+        
     }
-    componentDidMount(){
+    componentDidMount=()=>{
         axios.get('https://glacial-caverns-39108.herokuapp.com/medicine/tags')
         .then((res)=>{
+            console.log(res);
             this.setState({
                 suggestions : res.data
             })
@@ -42,15 +57,17 @@ class Search extends Component{
             console.log(err);
         })
     }
+    
     onSearch = (event) => {
         this.setState({loading:true})
+        // window.location.reload();
         event.preventDefault();
-        console.log("I was clicked");
+        console.log(this.state.tags);
         const params = JSON.stringify({
             latitude : "29.364138",
             longitude : "76.972546",
             tags : this.state.tags,
-            travelMode : "walking",
+            travelMode : "walking"
         })
         axios.post('https://glacial-caverns-39108.herokuapp.com/search',params,{
             "headers": {
@@ -62,12 +79,13 @@ class Search extends Component{
             //window.location.href = "/shoplist"
             this.setState({loading:false})
             this.props.history.push("/shoplist");
+            window.location.reload();
         })
         .catch((err)=>{
             console.log(err);
         })
     }
-    render() {
+    render=()=>{
         return (
             <>
             <Loading show={this.state.loading} />
@@ -77,8 +95,8 @@ class Search extends Component{
                 ref={this.reactTags}
                 tags={this.state.tags}
                 suggestions={this.state.suggestions}
-                onDelete={this.onDelete.bind(this)}
-                onAddition={this.onAddition.bind(this)} />
+                onDelete={this.onDelete}
+                onAddition={this.onAddition} />
                 <Button variant="outline-dark" onClick={this.onSearch}>Search</Button>
             </Form>
             </>
