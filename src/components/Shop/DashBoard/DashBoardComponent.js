@@ -31,40 +31,42 @@ class DashBoard extends React.Component{
               <div>
                 <h1 className = "block">DashBoard</h1>
               </div>
+
+              
+
               <div className = "dashBoardDesign">
-            
-            <Container className = "containerOfDashBoard" >
-                <Row className = "rowOfDashBoard">
-                  <div className = "BarGraph">
-                    <Col>
-                      <div>
-                        <BarGraphForProfit />
+                <Container className = "containerOfDashBoard" >
+                    <Row className = "rowOfDashBoard">
+                      <div className = "BarGraph">
+                        <Col>
+                          <div>
+                            <BarGraphForProfit />
+                          </div>
+                        </Col>
+                        <Col>
+                          <div>
+                            <BarGraphForStock />
+                          </div>
+                        </Col>
+                    </div>
+                      
+                      
+                    </Row>
+                    <Row className="rowOfDashBoard">
+                      <div className = "row2">
+                        <Col className="stock">
+                          <div>
+                              <SafetyStockTable />
+                          </div>  
+                        </Col>
+                        <Col>
+                          <div>
+                              <PieChart />
+                          </div>
+                        </Col>
                       </div>
-                    </Col>
-                    <Col>
-                      <div>
-                        <BarGraphForStock />
-                      </div>
-                    </Col>
-                </div>
-                  
-                  
-                </Row>
-                <Row className="rowOfDashBoard">
-                  <div className = "row2">
-                    <Col className="stock">
-                      <div>
-                          <SafetyStockTable />
-                      </div>  
-                    </Col>
-                    <Col>
-                      <div>
-                          <PieChart />
-                      </div>
-                    </Col>
-                  </div>
-                </Row>
-            </Container>
+                    </Row>
+                </Container>
           </div>
           </div>
 

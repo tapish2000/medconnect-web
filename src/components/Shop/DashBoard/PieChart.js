@@ -33,12 +33,12 @@ class PieChart extends Component {
 
   render() {
     return (
-        <div className="crazy3">
+        <div className="crazy3" style={{height:"64vh",width:"44vw",marginLeft:"9%"}}>
             <div className="crazy3__bg"></div>
             <div className="crazy3__overlay cover"></div>
             <div className="crazy3__info cover">
                 <div className="designPieChart">
-                    <ZingChart id = "myChart2" ref={this.chart} data={this.state.config} style={{overflow:"inherit",height:"100%"}} />
+                    <ZingChart id = "myChart3" ref={this.chart} data={this.state.config} style={{overflow:"inherit"}} />
                 </div> 
             </div>
         </div>
