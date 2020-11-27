@@ -4,6 +4,7 @@ import {withRouter,Link} from "react-router-dom";
 import Loading from "../Loading/Loading"
 import {Button, Spinner,Modal} from 'react-bootstrap';
 import "./CartComponent.css"
+import Slider from '@material-ui/core/Slider';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import {connect} from 'react-redux';
 import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn } from "mdbreact";
@@ -25,6 +26,7 @@ class CartComponent extends Component {
     this.state={
         data:[],
         uploadedFiles:{},
+        timeRange:30,
         showModal:false,
         loading:true,
         canBook:false,
@@ -160,6 +162,11 @@ verifyPrescriptionUploads=()=>{
   
 }
 
+onTimeChangeHandler=(e,value)=>{
+    //console.log(value);
+    this.setState({timeRange:value});
+}
+
 render() {
 
    
@@ -248,6 +255,18 @@ render() {
             </>
             )
           }
+          <Slider
+            defaultValue={30}
+            // getAriaValueText={}
+            aria-labelledby="discrete-slider"
+            valueLabelDisplay="auto"
+            color="primary"
+            step={10}
+            marks
+            min={10}
+            onChangeCommitted={this.onTimeChangeHandler}
+            max={110}
+          />
         </Modal.Body>
         
         <Modal.Footer>
