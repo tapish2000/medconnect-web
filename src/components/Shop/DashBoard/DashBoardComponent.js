@@ -18,7 +18,7 @@ const DashBoard = ()=>{
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/shop/dashboard/5fc0f8a79323b00f8e4c9bbc')
+      .get('https://glacial-caverns-39108.herokuapp.com/shop/dashboard/:shopID')
       .then((response) => {
         console.log(response.data);
         setGraphData(response.data);
