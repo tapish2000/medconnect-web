@@ -58,13 +58,8 @@ class DashBoard extends React.Component{
                       </div>  
                     </Col>
                     <Col>
-<<<<<<< HEAD
                       <div>
                           <PieChart />
-=======
-                      <div className = "designProgressBar">
-                          <ProgressBar />
->>>>>>> dee69a8567ea3b1747c5d4f9ee965f985639e81b
                       </div>
                     </Col>
                   </div>

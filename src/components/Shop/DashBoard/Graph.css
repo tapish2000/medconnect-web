@@ -37,13 +37,8 @@
     right: 0;
     margin-left: 6%;
     margin-top: 30%;
-<<<<<<< HEAD
-    width: 92%;
-    height: 50%;
-=======
     width: 44vw;
     height: 64vh;
->>>>>>> dee69a8567ea3b1747c5d4f9ee965f985639e81b
     box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.375);
     border-radius: 2px;
     transform: perspective(512px) translate3d(0, 0, 0);
@@ -184,13 +179,8 @@
     margin-left: 6%;
     margin-top: 30%;
     margin-right: 3%;
-<<<<<<< HEAD
-    width: 92%;
-    height: 50%;
-=======
     width: 44vw;
     height: 64vh;
->>>>>>> dee69a8567ea3b1747c5d4f9ee965f985639e81b
     box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.375);
     border-radius: 2px;
     transform: perspective(512px) translate3d(0, 0, 0);
@@ -442,8 +432,8 @@
     margin-left: 6%;
     margin-top: 5%;
     margin-right: 3%;
-    width: 92%;
-    height: 60%;
+    width: 44vw;
+    height: 64vh;
     box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.375);
     border-radius: 2px;
     transform: perspective(512px) translate3d(0, 0, 0);
