@@ -68,7 +68,7 @@ class Search extends Component{
             latitude : "29.364138",
             longitude : "76.972546",
             tags : this.state.tags,
-            travelMode : "walking",
+            travelMode : "walking"
         })
         axios.post('https://glacial-caverns-39108.herokuapp.com/search',params,{
             "headers": {

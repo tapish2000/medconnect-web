@@ -7,6 +7,8 @@ import DashBoard from './components/Shop/DashBoard/DashBoardComponent'
 import ShopSignUp from './components/Shop/SignUp/ShopSignUp';
 import HomePageComponent from './components/Shop/Home/HomePageComponent';
 import Footer from './components/Shop/footer/FooterComponent'
+import CurrentBookings from './components/Shop/CurrentBookings/CurrentBookings';
+
 
 
 function Shop() {
@@ -19,6 +21,7 @@ function Shop() {
           <Route path="/shop/inventory" component={MedicineInventory} />
           <Route path="/shop/signup" component={ShopSignUp} />
           <Route path="/shop/homepage" component={HomePageComponent} />
+          <Route path="/shop/CurrentBookings" component={CurrentBookings} />
       </Switch>
       <Footer />
     </div>
