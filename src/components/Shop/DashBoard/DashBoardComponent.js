@@ -3,6 +3,7 @@ import BarGraphForProfit from './BarGraphForProfit';
 import BarGraphForStock from './BarGraphForStock'
 import SafetyStockTable from './SafetyStockTable'
 import ProgressBar from './ProgressBar';
+import PieChart from './PieChart';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container'
@@ -57,8 +58,8 @@ class DashBoard extends React.Component{
                       </div>  
                     </Col>
                     <Col>
-                      <div className = "designProgressBar">
-                          <ProgressBar />
+                      <div>
+                          <PieChart />
                       </div>
                     </Col>
                   </div>

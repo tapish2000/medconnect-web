@@ -13,9 +13,10 @@ let data = {
         ["Azee 300 Tablet",10,13],
         ["Azee 500 Tablet",18,19]
     ],
-    onGoingOrders:75,
-    confirmedOrders:72
-
+    waitingOrders:90,
+    deliveredOrders:69,
+    expiredOrders:34,
+    confirmedOrders:42
 }
 
 export default data;
