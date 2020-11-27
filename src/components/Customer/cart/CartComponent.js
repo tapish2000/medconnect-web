@@ -41,6 +41,7 @@ class CartComponent extends Component {
     super(props);
     this.state={
         data:[],
+        uploadedFilesForDisplaying:{},
         uploadedFiles:[],
         timeRange:30,
         showModal:false,
@@ -156,9 +157,12 @@ removeItemHandler= async (item)=>{
 
 
 onPrescriptionUpload=(e,item)=>{
-  console.log(item)
+  console.log(item,e.target.files[0])
   let formData = new FormData();
   formData.append("prsc",e.target.files[0],e.target.files[0].name);
+
+  const fileName=e.target.files[0].name;
+  console.log(fileName);
   axios({
     method: "post",
     url: "https://glacial-caverns-39108.herokuapp.com/images/upload",
@@ -171,7 +175,10 @@ onPrescriptionUpload=(e,item)=>{
     }
     let uploadedFiles = [...this.state.uploadedFiles]
     uploadedFiles.push(file)
-    this.setState({uploadedFiles})
+    let uploadedFilesForDisplaying={...this.state.uploadedFilesForDisplaying};
+    uploadedFilesForDisplaying[item._id]=fileName;
+    console.log("Here",uploadedFilesForDisplaying);
+    this.setState({uploadedFiles,uploadedFilesForDisplaying})
   }).catch((err)=>{
     console.log(err);
   })
@@ -218,7 +225,7 @@ render() {
     data.map(row => {
         sum+=(row.quantity * row.medicine.price);
         
-        
+        console.log(this.state.uploadedFilesForDisplaying[row._id]);
       return rows.push(
         {
         'img': <img src={row.medicine.image_url} alt="" className="img-fluid z-depth-0 image-cart" style={{width:"150px"}} />,
@@ -248,7 +255,7 @@ render() {
           <div>
             <input type="file" style={{display:'none'}} id="prescription" onChange={(e)=>this.onPrescriptionUpload(e,row)}/> 
             <Button type="file" htmlFor="prescription" as={"label"} variant="outline-warning">Upload</Button>
-            {/* <p className="fileName-Cart">{this.state.uploadedFiles[row._id]?this.state.uploadedFiles[row._id].name:""}</p> */}
+            <p className="fileName-Cart">{this.state.uploadedFilesForDisplaying[row._id]?this.state.uploadedFilesForDisplaying[row._id]:""}</p>
           </div>
         ) : ''
         }
