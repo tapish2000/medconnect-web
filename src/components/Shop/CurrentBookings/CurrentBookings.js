@@ -1,97 +1,28 @@
 import React,{useEffect,useState} from 'react';
+
 import "./CurrentBookings.css"
 import {Container,Row,Col} from 'react-bootstrap';
 import CurrentBookingsCard from './CurrentBookingsCard/CurrentBookingsCard';
+import Axios from 'axios';
+
 
 
 const CurrentBookings=()=>{
+    const [loading,setLoading]=useState(true);
+    const [waitingData,setWaitingData]=useState([]);
 
-    const [waitingData,setWaitingData]=useState([
-        {
-            _id:"1",
-            name:"Mir Sameed Ali",
-            contact:"7093744535",
-            items:[
-                {
-                    medicine:{
-                        name: "Wikoryl",
-                        manufacturer: "xyz Pharma",
-                        strength: "200mg",
-                        price:50.00,
-                    },
-                    quantity: 2
-                },
-                {
-                    medicine:{
-                        name: "Propygenta",
-                        manufacturer: "xyz Pharma",
-                        strength: "200mg",
-                        price:50.00,
-                    },
-                    quantity: 3
-                },
-            ],
-            status: "waiting",
-            totalAmount: 250.00,
-        },
-        {
-            _id:"2",
-            name:"Mir Osayd Ali",
-            contact:"7093744535",
-            items:[
-                {
-                    medicine:{
-                        name: "Wikoryl",
-                        manufacturer: "xyz Pharma",
-                        strength: "200mg",
-                        price:50.00,
-                    },
-                    quantity: 2
-                },
-                {
-                    medicine:{
-                        name: "Propygenta",
-                        manufacturer: "xyz Pharma",
-                        strength: "200mg",
-                        price:50.00,
-                    },
-                    quantity: 3
-                },
-            ],
-            status: "waiting",
-            totalAmount: 250.00,
-        }
-    ]);
+    const [confirmedData,setConfirmedData]=useState([]);
 
-    const [confirmedData,setConfirmedData]=useState([
-        {
-            _id:"3",
-            name:"Mir Zahed Ali",
-            contact:"7093744535",
-            items:[
-                {
-                    medicine:{
-                        name: "Wikoryl",
-                        manufacturer: "xyz Pharma",
-                        strength: "200mg",
-                        price:50.00,
-                    },
-                    quantity: 2
-                },
-                {
-                    medicine:{
-                        name: "Propygenta",
-                        manufacturer: "xyz Pharma",
-                        strength: "200mg",
-                        price:50.00,
-                    },
-                    quantity: 3
-                },
-            ],
-            status: "confirmed",
-            totalAmount: 250.00,
-        }
-    ]);
+
+    useEffect(()=>{
+        Axios.get("http://localhost:5000/booking/current/shop/5f47e5ea174464ed81cc5100").then((res)=>{
+            console.log(res.data.waitingBookings)
+            setConfirmedData(res.data.confirmedBookings);
+            setWaitingData(res.data.waitingBookings);
+        }).catch((err)=>{
+            console.log(err);
+        })
+    },[])
 
     const marksAsConfirmed=(booking)=>{
         const newWaitingList=waitingData.filter((waiting_booking)=>{
@@ -126,8 +57,7 @@ const CurrentBookings=()=>{
                                 waitingData.map((booking)=>{
                                     return (<CurrentBookingsCard key={booking._id} data={booking} waiting confirmHandler={()=>{marksAsConfirmed(booking)}}/>);
                                 })
-                            }                                                        
-                           
+                            }                                                                                   
                         </div>
                     </div>
                 </Col>

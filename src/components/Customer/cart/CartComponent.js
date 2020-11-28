@@ -26,7 +26,7 @@ class CartComponent extends Component {
      }
      axios({
        method : "post",
-       url : 'https://glacial-caverns-39108.herokuapp.com/booking/book_all',
+       url : 'http://localhost:5000/booking/book_all',
        data : params
      }).then((res)=>{
        if(res.data==="booking done"){
