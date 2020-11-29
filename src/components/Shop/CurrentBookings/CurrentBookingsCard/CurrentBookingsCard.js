@@ -15,7 +15,7 @@ function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
             <div className="card-body text-light">
                 <div className="row">
                     <div className="col-6 text-left">
-                        TOTAL: ₹{data.totalAmount}
+                        <p>Total: ₹{data.totalAmount}</p>                        
                     </div>
                
                     <div className="col-6 text-right">
@@ -24,6 +24,7 @@ function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
                         <p>{customerData.phone}</p>
                     </div>
                 </div> 
+                <p>Deadline: {moment(data.items[0].deadline).format("dddd, MMMM Do YYYY, h:mm:ss a")}</p>
                  
                 {/* <div className="hr-custom"/>    */}
                 <div style={{marginTop:"2%"}}>
