@@ -83,7 +83,7 @@ const CurrentBookings=()=>{
                 <Col>
                     <div className="waiting-bookings" >
                         <div className="heading-bookings"> 
-                            <h1 style={{color:"#E2BC32"}}>WAITING</h1>
+                            <h1 style={{color:"#eb5e28"}}>WAITING</h1>
                         </div>
                         <div className="list-bookings" >
                             {
@@ -102,7 +102,7 @@ const CurrentBookings=()=>{
                 <Col>
                     <div className="current-bookings">
                         <div className="heading-bookings"> 
-                            <h1 style={{color:"#30E162"}}>CONFIRMED</h1>
+                            <h1 style={{color:"#00a7e1"}}>CONFIRMED</h1>
                         </div>
                         <div className="list-bookings" >
                             {

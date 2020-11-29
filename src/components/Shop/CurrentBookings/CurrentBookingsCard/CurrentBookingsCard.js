@@ -10,8 +10,12 @@ function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
     const OpenPrescription=(fileName)=>{
         window.open("https://glacial-caverns-39108.herokuapp.com/images/"+fileName,"_blank")
     }
+    let backgroundColor="#ce6c3b";
+    if(!waiting){
+        backgroundColor="#00a7e1";
+    }
     return (
-        <div className="root-CurrentBookingsCard fade-in-fwd">
+        <div className="root-CurrentBookingsCard fade-in-fwd" style={{backgroundColor}}>
             <div className="card-body text-light">
                 <div className="row">
                     <div className="col-6 text-left">
