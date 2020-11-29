@@ -13,13 +13,12 @@ function Shop() {
   return (    
     <div>
       <SideNavBar />
-      <Switch>
-          <Route exact path="/shop/inventory" component={MedicineInventory} />
-          <Route exact path="/shop/dashboard" component={DashBoard} />
-          <Route path="/shop/inventory" component={MedicineInventory} />
-          <Route path="/shop/signup" component={ShopSignUp} />
-          <Route path="/shop/homepage" component={HomePageComponent} />
-      </Switch>
+        <Switch>
+            <Route exact path="/shop/inventory" component={MedicineInventory} />
+            <Route exact path="/shop/dashboard" component={DashBoard} />
+            <Route path="/shop/signup" component={ShopSignUp} />
+            <Route path="/shop/homepage" component={HomePageComponent} />
+        </Switch>
       <Footer />
     </div>
   );

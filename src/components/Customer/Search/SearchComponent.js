@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import {Form, Button} from 'react-bootstrap'
-import {withRouter} from 'react-router-dom'
-import axios from 'axios'
-import Loading from '../Loading/Loading'
-import ReactTags from 'react-tag-autocomplete'
-import ShowPage from '../ShopsList/ShowPage';
-import { Link } from 'react-router-dom';
+import {Form, Button} from 'react-bootstrap';
+import {withRouter} from 'react-router-dom';
+import axios from 'axios';
+import Loading from '../Loading/Loading';
+import ReactTags from 'react-tag-autocomplete';
 import './SearchComponent.css'
 
 class Search extends Component{
