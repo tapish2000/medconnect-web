@@ -167,6 +167,9 @@ class LoginPage extends React.Component {
                                         <div className="val1">
                                             {(this.state.isCustomer!==null && this.state.isCustomer!==undefined&&this.state.isCustomer.length>0) ? (<div>{this.state.isCustomer}</div>):(null)}
                                         </div>
+                                        <div>
+                                            <a href="medconnect-web#/signup">Create your MedConnect acccount</a>
+                                        </div>
                                     </div>
                                     
                                     <div className="form-group submitBtn">

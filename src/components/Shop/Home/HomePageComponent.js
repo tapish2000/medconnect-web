@@ -5,7 +5,7 @@ import './HomePageComponent.css';
 const HomePageComponent = () => {
     return (
         <>
-            <div className="container-fluid">
+            <div className="container-fluid homepage">
 
                 <div className="card">
                     <div className="card-body">
