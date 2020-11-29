@@ -4,8 +4,14 @@ const $=require('jquery');
 $.DataTable=require('datatables.net');
 
 export class Tbl extends Component {
-    componentDidMount(){
+
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
         this.$el=$(this.el)
+        console.log(this.props.data);
         this.$el.dataTable(
             {
                 data: this.props.data,
@@ -17,14 +23,15 @@ export class Tbl extends Component {
         )
     }
 
-    compoentWillUnmount(){
-        this.$el.DataTable.destroy(true);
-    }
+    // componentWillUnmount(){
+    //     this.$el.DataTable.destroy(true);
+    // }
+
     render(){
         return(
-            <div >
+            <div>
                 <table className="table table-borderless display" width="100%" ref={el => this.el = el}>
-                
+
                 </table>
             </div>
         );

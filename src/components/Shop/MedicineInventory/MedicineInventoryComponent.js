@@ -1,168 +1,119 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Data} from './Data';
+import Image from './img.png';
+import axios from 'axios';
 
-const MedicineInventory = () => {
+function MedicineInventory() {
+
+    // const [addedMedicine, setAddedMedicine] = useState({});
+
+    const addToInventory = () => {
+        var med_name = document.getElementById("med_name");
+        var qty = document.getElementById("qty");
+        var mfg_date = document.getElementById("mfg_date");
+        var add_date = document.getElementById("addition_date");
+        var wholesale_price = document.getElementById("wholesale");
+        const shopId = "5f47e5ea174464ed81cc5100";
+
+        var params = {
+            med_name: med_name.value,
+            qty: qty.value,
+            mfg_date: mfg_date.value,
+            add_date: add_date.value,
+            wholesale_price: parseFloat(wholesale_price.value)
+        }
+        console.log(params);
+        axios({
+            method: "post",
+            url: "https://glacial-caverns-39108.herokuapp.com/shop/inventory/" + shopId,
+            data: params
+        })
+        .then(function (response) {
+            console.log(response.data);
+            // setAddedMedicine(response.data);
+            window.location.reload();
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+
     return (
-        <>  <form>
-            <div class="container-fluid mt-2">
-                <div class="row" style={{marginLeft:"75px"}}>
-                    <div class="col-md-5">
+        <>  <form style={{paddingLeft:"75px"}}>
+            <div className="container-fluid mt-2">
+                <div className="row">
+                    <div className="col-md-5">
 
-                        <div class="card">
-                            <div class="card-body">
+                        <div className="card">
+                            <div className="card-body">
 
-                                <div class="row">
-                                    <div class="col">
+                                <div className="row">
+                                    <div className="col">
                                         <center>
                                             <h4>Medicine Details</h4>
                                         </center>
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col">
+                                <div className="row">
+                                    <div className="col">
                                         <center>
-                                            <img id="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQEPkPmuzKY59G6z5xgbLM2U3on2yXoGYRH5A&usqp=CAU" width="100px" />
+                                            <img id="imgs" src={Image} width="98%" height="30%" />
                                         </center>
                                     </div>
                                 </div>
 
                                 <hr />
 
-                                <div class="row">
-                                    <div class="col">
-                                        <label for="">Image Link:</label>
-                                        <div class="form-group">
-                                            <input id="img_link" name="img_link" type="text" class="form-control" placeholder="Image Link" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <label for="">Medicine ID</label>
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input id="med_id" name="med_id" type="text" class="form-control" placeholder="ID" />
-                                                <input type="button" class="btn btn-primary" value="Go" onclick="fill_input()" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
+                                <div className="row">
+                                    <div className="col">
                                         <label for="">Medicine Name</label>
-                                        <div class="form-group">
-                                            <input id="med_name" name="med_name" type="text" class="form-control" placeholder="Medicine Name" />
+                                        <div className="form-group">
+                                            <input id="med_name" type="text" className="form-control" placeholder="Medicine Name" />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="row">
-                                            <div class="col">
-                                                <label>Price (perunit)</label>
-                                                <div class="form-group">
-                                                    <input id="med_price" name="med_price" type="number" class="form-control" placeholder="Price(perunit)" />
-                                                </div>
-                                            </div>
+                                <div className="row">
+                                    <div className="col-sm-6">
+                                        <label>Quantity</label>
+                                        <div className="form-group">
+                                            <input id="qty" type="number" className="form-control" placeholder="Quantity" />
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="row">
-                                            <div class="col">
-                                                <label for="">Manufacturer</label>
-                                                <div class="form-group">
-                                                    <select name="manu_name" id="manu_name" class="form-control">
-
-                                                        <option value="manu1">Manufacturer1</option>
-                                                        <option value="manu2">Manufacturer2</option>
-                                                        <option value="manu3">Manufacturer3</option>
-                                                        <option value="manu3">Unknown</option>
-
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="">Medicine Type</label>
-                                        <div class="form-group">
-                                            <select name="brand_name" id="brand_name" class="form-control">
-                                                <option value="manu1">Branded</option>
-                                                <option value="manu2">Generic</option>
-                                            </select>
+                                    <div className="col-sm-6">
+                                        <label>Wholesale Price</label>
+                                        <div className="form-group">
+                                            <input id="wholesale" type="number" className="form-control" placeholder="Wholesale Price" />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4">
+                                <div className="row">
+                                    <div className="col-sm-6">
                                         <label for="">Addition Date</label>
-                                        <div class="form-group">
-                                            <input id="addition_date" name="addition_date" type="date" class="form-control" placeholder="Publisher Date" />
+                                        <div className="form-group">
+                                            <input id="addition_date" name="addition_date" type="date" className="form-control" placeholder="Publisher Date" />
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <label for="">Manufacture Date</label>
-                                        <div class="form-group">
-                                            <input id="manu_date" name="manu_date" type="date" class="form-control" placeholder="Publisher Date" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="">Expiry Date</label>
-                                        <div class="form-group">
-                                            <input id="expi_date" name="expi_date" type="date" class="form-control" placeholder="Publisher Date" />
+                                    <div className="col-sm-6">
+                                        <label for="">Manufacturing Date</label>
+                                        <div className="form-group">
+                                            <input id="mfg_date" name="mfg_date" type="date" className="form-control" placeholder="Publisher Date" />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label for="">Actual Stock</label>
-                                        <div class="form-group">
-                                            <input id="actual_stock" name="actual_stock" type="number" class="form-control" placeholder="Actual Stock" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="">Current Stock</label>
-                                        <div class="form-group">
-                                            <input id="current_stock" name="current_stock" type="number" class="form-control" placeholder="Current Stock" readonly="true" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="">Sold Stock</label>
-                                        <div class="form-group">
-                                            <input id="sold_med" name="sold_med" type="number" class="form-control" placeholder="Sold Stock" readonly="true" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <label for="">Medicine Description</label>
-                                        <div class="form-group">
-                                            <textarea class="form-control" name="med_description" id="med_description" cols="30" rows="2"
-                                                placeholder="Medicine Description"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-4">
-                                        <input name="role" type="submit" class="btn btn-success btn-block btn-lg" value="Add" />
-                                    </div>
-                                    <div class="col-4">
-                                        <input name="role" type="submit" class="btn btn-warning btn-block btn-lg" value="Update" />
-                                    </div>
-                                    <div class="col-4">
-                                        <input name="role" type="submit" class="btn btn-danger btn-block btn-lg" value="Delete" />
-                                    </div>
+                                <div className="row">
+                                    <input name="role" type="button" className="btn btn-success btn-block btn-lg" value="Add Medicine" onClick={addToInventory} />
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-7">
-                        <div class="card">
-                            <div class="card-body">
+                    <div className="col-md-7">
+                        <div className="card">
+                            <div className="card-body">
 
-                                <div class="row">
-                                    <div class="col">
+                                <div className="row">
+                                    <div className="col">
                                         <center>
                                             <h4>Medicine Inventory</h4>
                                         </center>
@@ -171,8 +122,8 @@ const MedicineInventory = () => {
 
                                 <hr />
 
-                                <div class="row">
-                                    <div class="col">
+                                <div className="row">
+                                    <div className="col">
                                         <Data />
                                     </div>
                                 </div>

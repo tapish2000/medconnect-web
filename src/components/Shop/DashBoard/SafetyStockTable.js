@@ -5,9 +5,6 @@ import SafetyStockTableData from './BarGraphForData'
 import './Graph.css'
 
 
-
-
-
 function SafetyStockTable(props) {
     
     const [data, setData] = useState(SafetyStockTableData.safetyStock);
