@@ -95,8 +95,8 @@ render() {
      <Loading show={this.state.loading}/>
      <div className="successImageDiv">
          <img src={success}/>
-         <h1>Congrats!</h1>
-         <h1>Booking Confirmed</h1>
+         <h1>Thank You for using MedConnect!</h1>
+         <h1>You'll receive a mail when the shop confirms your order.</h1>
      </div>
      <div className="yourItemsDiv">
          
