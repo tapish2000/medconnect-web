@@ -1,8 +1,4 @@
 .homepage{
-<<<<<<< HEAD
-    font-family: Inter,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
-    padding-left: 100px;
-=======
     padding-left: 60px;
 }
 
@@ -21,7 +17,6 @@
 .MyHeading2{
     border: 3px solid blue;
     border-radius: 24px;
->>>>>>> e8595890adc14bab500d97f5d5fa878c25b971d2
 }
 
 .pimg1{
