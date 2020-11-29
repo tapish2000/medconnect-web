@@ -4,6 +4,7 @@ import {withRouter,Link} from "react-router-dom";
 import Loading from "../Loading/Loading"
 import {Button, Spinner,Modal} from 'react-bootstrap';
 import "./CartComponent.css"
+import Slider from '@material-ui/core/Slider';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import {connect} from 'react-redux';
 import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn } from "mdbreact";
@@ -17,14 +18,32 @@ class CartComponent extends Component {
      this.setState({showModal:true})
     };
    goAheadHandler=()=>{
-     this.props.history.push('/SuccessfulBooking')
+     let params = {
+       customer_id : reactLocalStorage.get("id"),
+       data : this.state.data,
+       timeRange : this.state.timeRange,
+       uploadedFiles : this.state.uploadedFiles,
+     }
+     axios({
+       method : "post",
+       url : 'http://localhost:5000/booking/book_all',
+       data : params
+     }).then((res)=>{
+       if(res.data==="booking done"){
+          this.props.history.push('/SuccessfulBooking')
+       }
+     }).catch((err)=>{
+       console.log(err);
+     })
    }
 
   constructor(props){
     super(props);
     this.state={
         data:[],
-        uploadedFiles:{},
+        uploadedFilesForDisplaying:{},
+        uploadedFiles:[],
+        timeRange:30,
         showModal:false,
         loading:true,
         canBook:false,
@@ -138,10 +157,31 @@ removeItemHandler= async (item)=>{
 
 
 onPrescriptionUpload=(e,item)=>{
-  console.log(e.target.files)
-  let uploadedFiles={...this.state.uploadedFiles};
-  uploadedFiles[item._id]=e.target.files[0];
-  this.setState({uploadedFiles:uploadedFiles})
+  console.log(item,e.target.files[0])
+  let formData = new FormData();
+  formData.append("prsc",e.target.files[0],e.target.files[0].name);
+
+  const fileName=e.target.files[0].name;
+  console.log(fileName);
+  axios({
+    method: "post",
+    url: "https://glacial-caverns-39108.herokuapp.com/images/upload",
+    data: formData,
+    headers: {'Content-Type':'multipart/form-data'}
+  }).then((res)=>{
+    let file = {
+      med_id : item.medicine._id,
+      pr_url : res.data
+    }
+    let uploadedFiles = [...this.state.uploadedFiles]
+    uploadedFiles.push(file)
+    let uploadedFilesForDisplaying={...this.state.uploadedFilesForDisplaying};
+    uploadedFilesForDisplaying[item._id]=fileName;
+    console.log("Here",uploadedFilesForDisplaying);
+    this.setState({uploadedFiles,uploadedFilesForDisplaying})
+  }).catch((err)=>{
+    console.log(err);
+  })
 }
 
 verifyPrescriptionUploads=()=>{
@@ -149,8 +189,19 @@ verifyPrescriptionUploads=()=>{
 
   for(let i=0;i<this.state.data.length;i++){
     const item=this.state.data[i];
+    console.log(item);
     if(item.medicine.prescription){
-      if(!this.state.uploadedFiles[item._id]){
+      // let find = this.state.uploadedFiles.find(el=>el.med_id===item.medicine._id);
+      let j = 0
+      for(;j<this.state.uploadedFiles.length;j++){
+      //   console.log(this.state.uploadedFiles[j]);
+        // console.log(item.medicine._id);
+        if(this.state.uploadedFiles[j].med_id===item.medicine._id){
+          break;
+        }
+      }
+      // // console.log(find);
+      if(j==this.state.uploadedFiles.length){
         flag=false;
         break;
       }
@@ -160,9 +211,12 @@ verifyPrescriptionUploads=()=>{
   
 }
 
-render() {
+onTimeChangeHandler=(e,value)=>{
+    //console.log(value);
+    this.setState({timeRange:value});
+}
 
-   
+render() {   
     let sum=0;
 
     const rows = [];
@@ -171,7 +225,7 @@ render() {
     data.map(row => {
         sum+=(row.quantity * row.medicine.price);
         
-        
+        console.log(this.state.uploadedFilesForDisplaying[row._id]);
       return rows.push(
         {
         'img': <img src={row.medicine.image_url} alt="" className="img-fluid z-depth-0 image-cart" style={{width:"150px"}} />,
@@ -201,12 +255,11 @@ render() {
           <div>
             <input type="file" style={{display:'none'}} id="prescription" onChange={(e)=>this.onPrescriptionUpload(e,row)}/> 
             <Button type="file" htmlFor="prescription" as={"label"} variant="outline-warning">Upload</Button>
-            <p className="fileName-Cart">{this.state.uploadedFiles[row._id]?this.state.uploadedFiles[row._id].name:""}</p>
+            <p className="fileName-Cart">{this.state.uploadedFilesForDisplaying[row._id]?this.state.uploadedFilesForDisplaying[row._id]:""}</p>
           </div>
         ) : ''
         }
-      )
-      
+      )      
     });
 
     return (
@@ -248,6 +301,18 @@ render() {
             </>
             )
           }
+          <Slider
+            defaultValue={30}
+            // getAriaValueText={}
+            aria-labelledby="discrete-slider"
+            valueLabelDisplay="auto"
+            color="primary"
+            step={10}
+            marks
+            min={10}
+            onChangeCommitted={this.onTimeChangeHandler}
+            max={110}
+          />
         </Modal.Body>
         
         <Modal.Footer>
