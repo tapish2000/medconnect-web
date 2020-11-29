@@ -26,7 +26,7 @@ class DashBoard extends React.Component{
           
               
           // </div>
-          <div>
+          <div style={{marginBottom : "600px"}}>
               <div>
                 <h1 className = "block">DashBoard</h1>
               </div>

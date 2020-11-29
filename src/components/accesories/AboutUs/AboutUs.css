@@ -1,0 +1,13 @@
+.aboutus{
+    background: #ffffff;
+}
+.MyHeading2{
+    border: 3px solid blue;
+    border-radius: 24px;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}

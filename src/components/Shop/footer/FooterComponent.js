@@ -12,7 +12,7 @@ import {
 class Footer extends Component {
 	render() {
 		return (
-			<div className="main-footer bg-info" style={{marginLeft:"75px",marginTop:"40%",width:"102%"}}>
+			<div className="main-footer bg-info" style={{paddingLeft:"75px",marginTop:"1%",width:"100%"}}>
 				<div className="container-fluid text-light">
 					<div className="d-flex justify-content-around">
 						<div className="col-md-2"><h5>Quick Links</h5></div>

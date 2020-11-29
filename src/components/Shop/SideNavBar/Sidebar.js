@@ -30,7 +30,7 @@ function Sidebar() {
 					<span class="icon-text">Booking History</span>
 				</a>
 				
-				<a href="#/shop">
+				<a href="#/shop/profile">
 					<MdIcons.MdPerson className="material-icons" />
 					<span class="icon-text">Profile</span>
 				</a>
