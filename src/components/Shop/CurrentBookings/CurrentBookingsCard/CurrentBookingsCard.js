@@ -5,6 +5,11 @@ import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 import moment from 'moment';
 
 function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
+    const customerData=data.items[0].customer_id;
+
+    const OpenPrescription=(fileName)=>{
+        window.open("https://glacial-caverns-39108.herokuapp.com/images/"+fileName,"_blank")
+    }
     return (
         <div className="root-CurrentBookingsCard fade-in-fwd">
             <div className="card-body text-light">
@@ -14,9 +19,9 @@ function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
                     </div>
                
                     <div className="col-6 text-right">
-                        <p> {data.name}</p>
+                        <p> {customerData.name}</p>
                        
-                        <p>{data.contact}</p>
+                        <p>{customerData.phone}</p>
                     </div>
                 </div> 
                  
@@ -26,7 +31,8 @@ function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
                     <MDBTableHead>
                         <tr>
                         <th>Medicine</th>
-                        <th>Quantity</th>          
+                        <th>Quantity</th>
+                        <th>Prescription</th>            
                         </tr>
                     </MDBTableHead>
                     <MDBTableBody>
@@ -34,8 +40,9 @@ function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
                             data.items.map((item)=>{
                                 return (
                                     <tr>
-                                        <td>{item.medicine.name} (₹{item.medicine.price})</td>
-                                        <td>{item.quantity}</td>
+                                        <td>{item.medicine_id.name} (₹{item.medicine_id.price})</td>
+                                        <td>{item.booking_amount}</td>
+                                        <td>{item.prescription_url?<Button variant="outline-light" onClick={()=>OpenPrescription(item.prescription_url)} size="sm">View</Button>:"NA"}</td>
                                     </tr>
                                 )
                             })
@@ -45,7 +52,7 @@ function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
                 </div> 
                 <div className="row">
                     <div className="col-6">
-                        <Button variant="light" style={{fontSize:"17px"}}>View Prescriptions</Button>
+                        
                     </div>
                     <div className="col-6 text-right">
                         {(waiting)?
