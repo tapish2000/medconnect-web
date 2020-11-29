@@ -19,7 +19,7 @@ import Login from './components/Customer/accesories/login/LoginPage'
 import CustomerSignUp from './components/Customer/accesories/SignUp/CustomerSignUp';
 import BookingSuccessful from './components/Customer/BookingSuccessful/BookingSuccessful';
 import AboutUs from './components/accesories/AboutUs/AboutUs';
-import CustomerProfile from './components/Customer/accesories/Proflle/CustomerProfile';
+import CustomerProfile from './components/Customer/accesories/Profile/CustomerProfile';
 
 function Customer() {
   return (    
