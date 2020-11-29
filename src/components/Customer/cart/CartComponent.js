@@ -103,9 +103,9 @@ totalSum = (val) => {
     this.state.sum += Number(val);
 }
 
-onQuantityChanged=async (e,item)=>{
+onQuantityChanged=async (change,item)=>{
 
-  let newQuantity=e.target.value;
+  let newQuantity=item.quantity+change;
   if(reactLocalStorage.get("isLoggedIn")=="true")
     {      
       const id=await reactLocalStorage.get("id");
@@ -233,7 +233,7 @@ render() {
         'price': `₹ ${row.medicine.price}`,
         'qty':
         <>
-            <select defaultValue={row.quantity} className="mdb-select md-form" style={{ width: "100px" }}
+            {/* <select defaultValue={row.quantity} className="mdb-select md-form" style={{ width: "100px" }}
              onChange={(e)=>this.onQuantityChanged(e,row)}
              >
                 <option value="1">1</option>
@@ -247,9 +247,18 @@ render() {
                 <option value="9">9</option>
                 <option value="10">10</option>
                
-            </select>
+            </select> */}
+            <div className="col-sm-4 quantity-input">
+                        <button className="quantity-input__modifier quantity-input__modifier--left" disabled={row.quantity<=1} onClick={()=>{this.onQuantityChanged(-1,row)}}>
+                          &mdash;
+                        </button>
+                        <input className="quantity-input__screen" type="text" value={row.quantity} readonly />
+                        <button className="quantity-input__modifier quantity-input__modifier--right" onClick={()=>{this.onQuantityChanged(1,row)}}>
+                          &#xff0b;
+                        </button>
+                      </div>
         </>,
-        'amount': <strong>₹ {(row.quantity * row.medicine.price)}</strong>,
+        'amount': <strong>₹ {(row.quantity * row.medicine.price).toFixed(2)}</strong>,
         'button1':<span onClick={()=>this.removeItemHandler(row)} className="RemoveButton-Cart">Remove</span>,
         'button2': (row.medicine.prescription) ? (
           <div>
