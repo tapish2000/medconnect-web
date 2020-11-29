@@ -8,6 +8,7 @@ import ShopSignUp from './components/Shop/SignUp/ShopSignUp';
 import HomePageComponent from './components/Shop/Home/HomePageComponent';
 import Footer from './components/Shop/footer/FooterComponent'
 import CurrentBookings from './components/Shop/CurrentBookings/CurrentBookings';
+import ShopOwnerProfile from './components/Shop/Profile/ShopOwnerProfile';
 
 
 function Shop() {
@@ -21,6 +22,7 @@ function Shop() {
           <Route path="/shop/signup" component={ShopSignUp} />
           <Route path="/shop/homepage" component={HomePageComponent} />
           <Route path="/shop/CurrentBookings" component={CurrentBookings} />
+          <Route path="/shop/profile" component={ShopOwnerProfile} />
       </Switch>
       <Footer />
     </div>

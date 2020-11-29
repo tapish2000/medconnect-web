@@ -18,6 +18,8 @@ import DailyUseCardComponent from './components/Customer/cards/DailyUseCardCompo
 import Login from './components/Customer/accesories/login/LoginPage'
 import CustomerSignUp from './components/Customer/accesories/SignUp/CustomerSignUp';
 import BookingSuccessful from './components/Customer/BookingSuccessful/BookingSuccessful';
+import CustomerProfile from './components/Customer/accesories/Profile/CustomerProfile';
+import AboutUs from './components/accesories/AboutUs/AboutUs';
 
 function Customer() {
   return (    
@@ -45,6 +47,8 @@ function Customer() {
           <Route exact path="/shoplist" component={ShowPage} />
           <Route exact path='/login' component={Login} />
           <Route exact path="/signup" component={CustomerSignUp} />
+          <Route exact path="/profile" component={CustomerProfile} />
+          <Route exact path="/aboutus" component={AboutUs} />
           <Route exact path = "/stores">
             <MapBox />
           </Route>

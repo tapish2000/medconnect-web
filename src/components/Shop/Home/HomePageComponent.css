@@ -1,18 +1,6 @@
-.MyHeading{
-    margin-top: 10px;
-    padding: 30px 0;
-    text-align: center;
-    font-family: 'Raleway', sans-serif;
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    background-color: #fff;
-    font-size: 1.5rem;
-  }
-.MyHeading2{
-    border: 3px solid blue;
-    border-radius: 24px;
+.homepage{
+    font-family: Inter,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    padding-left: 100px;
 }
 
 .pimg1{
@@ -22,61 +10,6 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 
-    background-image: url('Home.png');
-    min-height: 600px;
-}
-
-
-
-
-
-
-body{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-}
-
-.login{
-    transition: all 4s ease-in-out;
-}
-
-.login h1{
-    color: black;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-.login input[type="text"], .login input[type="password"], .login input[type="email"]{
-    height: 45px;
-    width: 200px;
-    background: transparent;
-    outline: none;
-    border: 2px solid #3498db;
-    color: black;
-    font-size: 15px;
-    text-align: center;
-    border-radius: 24px;
-    transition: 0.25s;
-}
-.login input[type="text"]:hover, .login input[type="password"]:hover, .login input[type="email"]:hover{
-    width: 280px;
-    border-color: #2ecc71;
-}
-
-.login input[type="submit"]{
-    background: transparent;
-    outline: none;
-    color: black;
-    padding: 10px;
-    border: 2px solid #2ecc71;
-    border-radius: 24px;
-    text-align: center;
-    transition: 0.25s;
-    font-size: 15px;
-}
-
-.login input[type="submit"]:hover{
-    background: #2ecc71;
-    cursor: pointer;
+    background-image: url('https://w9d3e5t9.stackpathcdn.com/wp-content/uploads/bfi_thumb/Pharmacy-Banner01-392p0cj8seca7ymq2p47ii.jpg');
+    min-height: 550px;
 }
