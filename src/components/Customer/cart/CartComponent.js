@@ -18,6 +18,7 @@ class CartComponent extends Component {
      this.setState({showModal:true})
     };
    goAheadHandler=()=>{
+     this.setState({loading:true});
      let params = {
        customer_id : reactLocalStorage.get("id"),
        data : this.state.data,
@@ -26,7 +27,7 @@ class CartComponent extends Component {
      }
      axios({
        method : "post",
-       url : 'http://localhost:5000/booking/book_all',
+       url : 'https://glacial-caverns-39108.herokuapp.com/booking/book_all',
        data : params
      }).then((res)=>{
        if(res.data==="booking done"){
@@ -307,10 +308,8 @@ render() {
             <>
             <p className="prescription-success-cart">All prescriptions have been uploaded.</p>
             <p className="prescription-success-cart">Please go ahead with the booking.</p>
-            </>
-            )
-          }
-          <Slider
+            <p className="prescription-success-cart">Select below the time you need for collecting medicines:</p>
+            <Slider
             defaultValue={30}
             // getAriaValueText={}
             aria-labelledby="discrete-slider"
@@ -322,6 +321,10 @@ render() {
             onChangeCommitted={this.onTimeChangeHandler}
             max={110}
           />
+            </>
+            )
+          }
+          
         </Modal.Body>
         
         <Modal.Footer>

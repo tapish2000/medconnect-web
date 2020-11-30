@@ -17,10 +17,11 @@ function Shop() {
       <Switch>
           <Route exact path="/shop/inventory" component={MedicineInventory} />
           <Route exact path="/shop/dashboard" component={DashBoard} />
-          <Route path="/shop/profile" component={ShopOwnerProfile} />
-          <Route path="/shop/signup" component={ShopSignUp} />
+          <Route exact path="/shop/profile" component={ShopOwnerProfile} />
+          <Route exact path="/shop/signup" component={ShopSignUp} />
+          <Route exact path="/shop/CurrentBookings" component={CurrentBookings} />
           <Route path="/shop" component={HomePageComponent} />
-          <Route path="/shop/CurrentBookings" component={CurrentBookings} />
+          
       </Switch>
       <Footer />
     </div>

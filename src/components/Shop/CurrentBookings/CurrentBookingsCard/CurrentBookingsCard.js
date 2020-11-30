@@ -4,7 +4,7 @@ import {Button} from "react-bootstrap"
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 import moment from 'moment';
 
-function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
+function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler,rejectHandler}) {
     const customerData=data.items[0].customer_id;
 
     const OpenPrescription=(fileName)=>{
@@ -57,7 +57,10 @@ function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
                 </div> 
                 <div className="row">
                     <div className="col-6">
-                        
+                         {(waiting)?
+                        (<Button variant="light" style={{color:"#343a40",fontSize:"17px"}} onClick={rejectHandler}>Reject</Button>)
+                        :
+                        null}
                     </div>
                     <div className="col-6 text-right">
                         {(waiting)?

@@ -16,7 +16,7 @@ const CurrentBookings=()=>{
 
 
     useEffect(()=>{
-        Axios.get("http://localhost:5000/booking/current/shop/5f47e5ea174464ed81cc5100").then((res)=>{
+        Axios.get("https://glacial-caverns-39108.herokuapp.com/booking/current/shop/5f47e5ea174464ed81cc5100").then((res)=>{
             console.log(res.data)
             setConfirmedData(res.data.confirmedBookings);
             setWaitingData(res.data.waitingBookings);
@@ -34,7 +34,7 @@ const CurrentBookings=()=>{
         bookingCreationTime:booking.items[0].bookingCreationTime
        })
 
-         Axios.post("http://localhost:5000/booking/confirm",
+         Axios.post("https://glacial-caverns-39108.herokuapp.com/booking/confirm",
         {shop_id:"5f47e5ea174464ed81cc5100",
          customer_id:booking.items[0].customer_id._id,
          bookingCreationTime:booking.items[0].bookingCreationTime
@@ -57,7 +57,7 @@ const CurrentBookings=()=>{
         bookingCreationTime:booking.items[0].bookingCreationTime
        })
 
-         Axios.post("http://localhost:5000/booking/delivered",
+         Axios.post("https://glacial-caverns-39108.herokuapp.com/booking/delivered",
         {shop_id:"5f47e5ea174464ed81cc5100",
          customer_id:booking.items[0].customer_id._id,
          bookingCreationTime:booking.items[0].bookingCreationTime
@@ -67,6 +67,28 @@ const CurrentBookings=()=>{
             setWaitingData(res.data.waitingBookings);
             setLoading(false);
                 
+        }).catch((err)=>{
+            console.log(err);
+        })
+        
+    }
+
+    const rejectBooking= (booking)=>{
+        setLoading(true);
+        console.log({shop_id:"5f47e5ea174464ed81cc5100",
+        customer_id:booking.items[0].customer_id._id,
+        bookingCreationTime:booking.items[0].bookingCreationTime
+       })
+
+         Axios.post("https://glacial-caverns-39108.herokuapp.com/booking/reject",
+        {shop_id:"5f47e5ea174464ed81cc5100",
+         customer_id:booking.items[0].customer_id._id,
+         bookingCreationTime:booking.items[0].bookingCreationTime
+        }).then((res)=>{
+            console.log(res.data)
+            setConfirmedData(res.data.confirmedBookings);
+            setWaitingData(res.data.waitingBookings);
+            setLoading(false);                
         }).catch((err)=>{
             console.log(err);
         })
@@ -92,7 +114,7 @@ const CurrentBookings=()=>{
                                 <Spinner animation="border" size="lg" variant="info" />
                                 </div>):
                                     (waitingData.map((booking)=>{
-                                        return (<CurrentBookingsCard key={booking.items[0].bookingCreationTime} data={booking} waiting confirmHandler={()=>{marksAsConfirmed(booking)}}/>);
+                                        return (<CurrentBookingsCard key={booking.items[0].bookingCreationTime} data={booking} waiting confirmHandler={()=>{marksAsConfirmed(booking)}} rejectHandler={()=>{rejectBooking(booking)}}/>);
                                     }))
                                 
                             }                                                                                   
