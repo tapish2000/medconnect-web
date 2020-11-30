@@ -1,14 +1,21 @@
-import React from 'react';
+import React,{useState} from 'react';
 import "./CurrentBookingsCard.css"
-import {Button} from "react-bootstrap"
+import {Button, Modal} from "react-bootstrap"
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 import moment from 'moment';
 
 function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
+    const [show, setShow] = useState(false);
+    const [name, setName] = useState("");
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     const customerData=data.items[0].customer_id;
 
     const OpenPrescription=(fileName)=>{
-        window.open("https://glacial-caverns-39108.herokuapp.com/images/"+fileName,"_blank")
+        handleShow();
+        setName(fileName);
+        // window.open("https://glacial-caverns-39108.herokuapp.com/images/"+fileName,"_blank")
     }
     return (
         <div className="root-CurrentBookingsCard fade-in-fwd">
@@ -43,6 +50,14 @@ function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
                                         <td>{item.medicine_id.name} (₹{item.medicine_id.price})</td>
                                         <td>{item.booking_amount}</td>
                                         <td>{item.prescription_url?<Button variant="outline-light" onClick={()=>OpenPrescription(item.prescription_url)} size="sm">View</Button>:"NA"}</td>
+                                        <Modal show={show} onHide={handleClose}>
+                                            <Modal.Header closeButton>
+                                            <Modal.Title>Prescription</Modal.Title>
+                                            </Modal.Header>
+                                            <Modal.Body>
+                                                <img src={"https://glacial-caverns-39108.herokuapp.com/images/"+`${name}`} width="100%"></img>
+                                            </Modal.Body>
+                                        </Modal>
                                     </tr>
                                 )
                             })

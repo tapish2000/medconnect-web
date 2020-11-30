@@ -14,11 +14,11 @@ function Shop() {
     <div>
       <SideNavBar />
       <Switch>
+          <Route exact path="/shop" component={HomePageComponent} />
           <Route exact path="/shop/inventory" component={MedicineInventory} />
           <Route exact path="/shop/dashboard" component={DashBoard} />
           <Route path="/shop/profile" component={ShopOwnerProfile} />
           <Route path="/shop/signup" component={ShopSignUp} />
-          <Route path="/shop" component={HomePageComponent} />
           <Route path="/shop/CurrentBookings" component={CurrentBookings} />
       </Switch>
       <Footer />
