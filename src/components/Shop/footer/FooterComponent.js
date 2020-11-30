@@ -18,7 +18,7 @@ class Footer extends Component {
 						<div className="col-md-2"><h5>Quick Links</h5></div>
 						<div className="col-md col-4">
 							<div className="row">
-								<div className="col-12"><Link to={"#"} style={{color:"white",textDecoration:"none"}}>Dashbpard</Link></div>
+								<div className="col-12"><Link to={"#"} style={{color:"white",textDecoration:"none"}}>Dashboard</Link></div>
 								<div className="col-12"><Link to={"#"} style={{color:"white",textDecoration:"none"}}>Inventory</Link></div>
 							</div>
 						</div>
