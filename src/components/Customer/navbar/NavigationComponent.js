@@ -32,9 +32,6 @@ const Navigation =(props)=> {
 		props.getCartAmount();
 
 	}
-
-	
-
 		return (
 			<Navbar collapseOnSelect sticky="top" bg="info" variant="dark" expand="lg">
 				<Navbar.Brand as={Link} to="/">

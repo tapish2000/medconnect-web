@@ -173,11 +173,12 @@ class LoginPage extends React.Component {
                                 <label className="form-check-label" for="remember-me">Remember Me</label>
                             </div>
                             <div className="row">
-                                <div className="col-md">
+                                <div className="col-md-5">
                                     <button type="submit" className="btn btn-info">Sign In</button>
                                 </div>
                                 <div className="col-md">
-                                    <div>Not Registerd?<a href="/signup"> Register Here</a></div>
+                                    <div>Not a Registerd Customer?<a href="#/signup"> Register Here</a></div>
+                                    <div>Not a Registerd Shop?<a href="#/shop/signup"> Register Here</a></div>
                                 </div>
                             </div>
                         </form>

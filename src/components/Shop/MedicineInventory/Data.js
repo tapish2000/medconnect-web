@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Grid } from 'gridjs-react';
 import MedicineList from './MedicineList';
 import axios from 'axios';
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 const $=require('jquery');
 $.DataTable=require('datatables.net');
@@ -28,7 +29,7 @@ export class Data extends Component {
     }
 
     componentWillMount() {
-        const shopId = "5f47e5ea174464ed81cc5100";
+        const shopId = reactLocalStorage.get('id');
         axios.get('https://glacial-caverns-39108.herokuapp.com/shop/medicinelist/' + shopId)
         .then((response) => {
             console.log(response.data.medicines);
