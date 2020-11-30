@@ -12,12 +12,19 @@
     width: 100%;
 }
 
+.designPieChart{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
 .designTable{
     display: flex;
     justify-content: center;
     /* height: 25%; */
-    width: 44%;
-    margin-left: 20%;
+    width: 90%;
+    /* margin-left: 20%; */
 }
 
 
@@ -288,30 +295,33 @@
     transform: scale(.875) perspective(512px) translate3d(0, -32px, 64px);
   }
 
-  .crazy2 {
+  
+
+
+  .crazy3 {
     position: absolute;
     overflow: hidden;
-    top: 70;
+    top: -35px;
     bottom: 0;
-    left: 0;
+    left: -55px;
     right: 0;
-    margin-left: 6%;
+    /* margin-left: 9%; */
     margin-top: 5%;
     margin-right: 3%;
-    width: 44%;
-    height: 50%;
+    width: 44vw;
+    height: 64vh;
     box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.375);
     border-radius: 2px;
     transform: perspective(512px) translate3d(0, 0, 0);
     transform-style: preserve-3d;
     transition: all .4s cubic-bezier(.125, .625, .125, .875);
   }
-  .crazy2:hover {
+  .crazy3:hover {
     transform: scale(1.05);
     box-shadow: 4px 4px 24px 0px rgba(0,0,0,0.25);
     border-radius: 4px;
   }
-  .crazy2__bg {
+  .crazy3__bg {
     position: relative;
     width: 100%;
     height: 100%;
@@ -322,22 +332,22 @@
     z-index: -2;
   }
 
-  .crazy2__overlay {
+  .crazy3__overlay {
   
     transition: all .4s cubic-bezier(.125, .625, .125, .875);
     opacity: 0;
     z-index: -1;
   }
-  .crazy2:hover .crazy2__overlay {
+  .crazy3:hover .crazy3__overlay {
     opacity: .625;
   }
-  .crazy2__info {
+  .crazy3__info {
     transform: perspective(512px) translate3d(0, 0, 0);
     transform-style: preserve-3d;
     transition: all .4s cubic-bezier(.125, .625, .125, .875);
     z-index: 1;
   }
-  .crazy2__title, .crazy2__cta {
+  .crazy3__title, .crazy3__cta {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -347,7 +357,7 @@
     transform: scale(.875) perspective(512px) translate3d(0, 64px, 64px);
     transition: all .4s cubic-bezier(.125, .625, .125, .875);
   }
-  .crazy2__title {
+  .crazy3__title {
     top: 0;
     width: 256px;
     height: 48px;
@@ -358,7 +368,7 @@
     line-height: 48px;
     text-align: center;
   }
-  .crazy2__cta {
+  .crazy3__cta {
     top: 160px;
     width: 96px;
     height: 32px;
@@ -370,8 +380,8 @@
     box-shadow: none;
     cursor: pointer;
   }
-  .crazy2__cta::before,
-  .crazy2__cta::after {
+  .crazy3__cta::before,
+  .crazy3__cta::after {
     content: '';
     position: absolute;
     top: 0;
@@ -385,31 +395,31 @@
     transition: all .4s cubic-bezier(.125, .625, .125, .875);
     z-index: -1;
   }
-  .crazy2__cta::before {
+  .crazy3__cta::before {
     background: #fff;
     border: 2px solid transparent;
     transform: scale(1.125);
   }
-  .crazy2__cta::after {
+  .crazy3__cta::after {
     background: none;
     border: 2px solid #fff;
     transform: scale(.875);
   }
-  .crazy2__cta:hover::before {
+  .crazy3__cta:hover::before {
     border-radius: 4px;
     transform: scale(.875);
   }
-  .crazy2__cta:hover::after {
+  .crazy3__cta:hover::after {
     border-radius: 4px;
     transform: scale(1.125);
   }
 
-  .crazy2__cta:hover .icon {
+  .crazy3__cta:hover .icon {
     opacity: 1;
     transform: translateX(0);
   }
-  .crazy2:hover .crazy2__title,
-  .crazy2:hover .crazy2__cta {
+  .crazy3:hover .crazy3__title,
+  .crazy3:hover .crazy3__cta {
     opacity: 1;
     transform: scale(.875) perspective(512px) translate3d(0, -32px, 64px);
   }

@@ -1,12 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const CustomerSignUp = () => {
+const ShopOwnerProfile = () => {
+    //read-only section open
+    const [readonly,SetReadOnly] = useState(true);
 
+    const ChangeReadOnly = () => {
+        SetReadOnly(false);
+    }
+    //read-only section close
+
+    //show profile section open
+    const [profile, SetProfile] = useState([]);
+
+    useEffect(() => {
+        axios
+        .get('https://glacial-caverns-39108.herokuapp.com/user/5fc0e4290c3d4d0017a7ec12')
+        .then((response) => {
+            SetProfile(response.data.data[0]);
+            console.log("tere bhai ki profile dekhle abhi - ", response.data.data[0]);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    }, []);
+    //show profile section close
+
+
+    //profile update section open
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [address, setAddress] = useState("");
 
 
     const changeName = (event) => {
@@ -17,28 +41,21 @@ const CustomerSignUp = () => {
         setPhone(event.target.value);
     }
 
-    const changeEmail = (event) => {
-        setEmail(event.target.value);
+    const changeAddress = (event) => {
+        setAddress(event.target.value);
     }
-
-    const changePassword = (event) => {
-        setPassword(event.target.value);
-    }
-
-    console.log("customer setails",name,phone,email,password);
     
     const handleSubmit=(event)=>{
         event.preventDefault();
         var body={
           name: name,
           phone: phone,
-          email: email,
-          password: password,
-          isCustomer: "true"
+          address: address,
+          isCustomer: "false"
         }
-        let res = axios({
+        axios({
           method: 'post',
-          url: 'https://glacial-caverns-39108.herokuapp.com/user/register',
+          url: 'https://glacial-caverns-39108.herokuapp.com/user/profile/update/5fc0e4290c3d4d0017a7ec12',
           data: body
         })
         .then(function (response) {
@@ -49,10 +66,11 @@ const CustomerSignUp = () => {
             window.location.reload();
         });
       }
+    //profile update section close
 
     return (
-        <>  <form>
-            <div class="container my-2">
+        <>  <form onSubmit={handleSubmit}>
+            <div class="container mt-2">
                 <div class="row">
                     <div class="col-md-6 mx-auto">
     
@@ -68,60 +86,52 @@ const CustomerSignUp = () => {
                                 </div>
     
                                 <div class="row">
-                                    <div class="col mt-3">
+                                    <div class="col mt-2">
                                         <center>
-                                            <h4>Customer Sign Up</h4>
+                                            <h4>Shop Owner</h4>
                                         </center>
+                                        <b>{profile.email_id}</b>
                                     </div>
                                 </div>
-    
+
                                 <hr />
     
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="">Full Name</label>
+                                        <label for="">Shop Name</label>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Full Name" name="full_name" onChange={changeName} required />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label for="">Contact Number</label>
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" placeholder="Contact Number" name="contact_no" onChange={changePhone} required />
+                                            <input type="text" class="form-control" placeholder={profile.name} value={name} name="shop_name" onChange={changeName} readOnly={readonly} required/>
                                         </div>
                                     </div>
                                 </div>
     
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="">Email ID</label>
+                                        <label for="">Contact Number</label>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Email ID" name="email_id" onChange={changeEmail} required />
+                                            <input type="number" class="form-control" placeholder={profile.phone} value={phone} name="contact_no" onChange={changePhone} readOnly={readonly} required/>
                                         </div>
                                     </div>
                                 </div>
-
+    
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <label for="">Password</label>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password" name="password" onChange={changePassword} required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row mt-4">
                                     <div class="col">
+                                        <label>Shop Address</label>
                                         <div class="form-group">
-                                            <a href="/" style={{textDecoration:"none"}}><button type="button" class="btn btn-success btn-block btn-lg" onClick={handleSubmit}>Sign Up</button></a>
+                                            <textarea  name="full_address" id="" cols="30" rows="2"
+                                             class="form-control" placeholder={profile.address} value={address} onChange={changeAddress} readOnly={readonly} required></textarea>
                                         </div>
                                     </div>
                                 </div>
-
-                                <br />
+    
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input name="role" onClick={ChangeReadOnly} class="btn btn-success btn-block btn-lg" value="Edit" />
+                                    </div>
+                                    <div class="col-6">
+                                        <input name="role" type="submit" class="btn btn-warning btn-block btn-lg" value="Update" />
+                                    </div>
+                                </div>
     
                             </div>
                         </div>
@@ -133,4 +143,4 @@ const CustomerSignUp = () => {
     );
 }
 
-export default CustomerSignUp;
+export default ShopOwnerProfile;

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import {Form, Button} from 'react-bootstrap'
-import {withRouter} from 'react-router-dom'
-import axios from 'axios'
-import Loading from '../Loading/Loading'
-import ReactTags from 'react-tag-autocomplete'
-import ShowPage from '../ShopsList/ShowPage';
-import { Link } from 'react-router-dom';
+import {Form, Button} from 'react-bootstrap';
+import {withRouter} from 'react-router-dom';
+import axios from 'axios';
+import Loading from '../Loading/Loading';
+import ReactTags from 'react-tag-autocomplete';
 import './SearchComponent.css'
 
 class Search extends Component{
@@ -62,7 +60,8 @@ class Search extends Component{
         this.setState({loading:true})
         // window.location.reload();
         event.preventDefault();
-        console.log(this.state.tags);
+        console.log("I was clicked");
+        console.log(this.state.tags)
         const params = JSON.stringify({
             latitude : "29.364138",
             longitude : "76.972546",
