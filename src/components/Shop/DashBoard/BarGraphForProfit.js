@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "zingchart/es6";
 import ZingChart from "zingchart-react";
 import './Graph.css'
-import BarGraphForProfitData from './BarGraphForData'
+// import BarGraphForProfitData from './BarGraphForData'
 
 class BarGraphForProfit extends Component {
   constructor(props) {
@@ -26,11 +26,11 @@ class BarGraphForProfit extends Component {
                 "series":[
                     {
                         "bar-width": "50%",
-                        "values":this.getProfit(BarGraphForProfitData.profit)
+                        "values":this.getProfit(this.props.profit)
                     },
                     {
                       "bar-width": "50%",
-                      "values":this.getLoss(BarGraphForProfitData.profit) //values for buffer stock
+                      "values":this.getLoss(this.props.profit) //values for buffer stock
                     }
                     
                 ],

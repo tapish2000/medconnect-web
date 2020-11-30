@@ -9,6 +9,7 @@ import Footer from './components/Shop/footer/FooterComponent'
 import CurrentBookings from './components/Shop/CurrentBookings/CurrentBookings';
 import ShopOwnerProfile from './components/Shop/Profile/ShopOwnerProfile';
 
+
 function Shop() {
   return (    
     <div>

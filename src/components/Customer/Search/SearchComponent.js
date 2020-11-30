@@ -60,7 +60,8 @@ class Search extends Component{
         this.setState({loading:true})
         // window.location.reload();
         event.preventDefault();
-        console.log(this.state.tags);
+        console.log("I was clicked");
+        console.log(this.state.tags)
         const params = JSON.stringify({
             latitude : "29.364138",
             longitude : "76.972546",
