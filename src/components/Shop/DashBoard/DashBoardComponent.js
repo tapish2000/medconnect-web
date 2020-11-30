@@ -29,6 +29,7 @@ const DashBoard = ()=>{
       });
   }, []);
         return (
+
           <div>
             {loading ? (
                 <div className="SpinnerDiv">
@@ -39,6 +40,7 @@ const DashBoard = ()=>{
                   />
                 </div>
           ):(
+          <div style={{marginBottom : "600px"}}>
               <div>
                 <div>
                   <h1 className = "block">DashBoard</h1>

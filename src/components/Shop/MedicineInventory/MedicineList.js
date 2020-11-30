@@ -2,7 +2,7 @@ const MedicineList=[
     {
         id:1,
         sn:101,
-        med_name:"medicine 1",
+        med_name:"lkg mlm",
         price:"100",
         manufacturer:"ABC",
         type:"branded",
@@ -17,9 +17,9 @@ const MedicineList=[
     {
         id:2,
         sn:102,
-        med_name:"medicine 2",
+        med_name:"bcd nkg",
         price:"100",
-        manufacturer:"ABC",
+        manufacturer:"XYZ",
         type:"branded",
         add_date:"12/12/12",
         manu_date:"12/12/12",
@@ -32,7 +32,7 @@ const MedicineList=[
     {
         id:3,
         sn:103,
-        med_name:"medicine 3",
+        med_name:"efg",
         price:"100",
         manufacturer:"ABC",
         type:"branded",
@@ -47,8 +47,8 @@ const MedicineList=[
     {
         id:4,
         sn:104,
-        med_name:"medicine 4",
-        price:"100",
+        med_name:"ijk",
+        price:"999",
         manufacturer:"ABC",
         type:"branded",
         add_date:"12/12/12",
