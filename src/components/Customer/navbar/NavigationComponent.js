@@ -38,7 +38,9 @@ const Navigation =(props)=> {
 		return (
 			<Navbar collapseOnSelect sticky="top" bg="info" variant="dark" expand="lg">
 				<Navbar.Brand as={Link} to="/">
-					<img src={iconImage} alt="" width="30" height="30" className="d-inline-block align-top" style={{backgroundColor:"white"}} />
+					<center>
+					    <img src={iconImage} alt="" width="30" height="30" className="d-inline-block align-top m-1" style={{backgroundColor:"white"}} />
+					</center>
 					<h6>MedConnect</h6>
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -89,10 +91,10 @@ const Navigation =(props)=> {
 										</Dropdown.Menu>
 									):(
 										<Dropdown.Menu className="dm">
-											<Dropdown.Item as={NavLink} to="#/action-1">Edit Profile</Dropdown.Item>
+											<Dropdown.Item as={NavLink} to="/profile">Edit Profile</Dropdown.Item>
 											<Dropdown.Item as={NavLink} to="/current">Current Bookings</Dropdown.Item>
 											<Dropdown.Item as={NavLink} to="/history">Booking History</Dropdown.Item>
-											<Dropdown.Item as={NavLink} to="/"><div onClick={eventHandler}>Logout</div></Dropdown.Item>
+											<Dropdown.Item as={NavLink} to="/login"><div onClick={eventHandler}>Logout</div></Dropdown.Item>
 										</Dropdown.Menu>
 									 )
 								} 

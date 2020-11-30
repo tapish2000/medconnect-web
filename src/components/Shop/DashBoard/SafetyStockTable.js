@@ -21,6 +21,8 @@ function SafetyStockTable(props) {
           'results': () => 'Records'
         }
       }
+
+      console.log(props.safetyStock);
     
     return (
       <div>

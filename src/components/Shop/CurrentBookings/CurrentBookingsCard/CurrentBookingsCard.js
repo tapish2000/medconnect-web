@@ -4,18 +4,22 @@ import {Button} from "react-bootstrap"
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 import moment from 'moment';
 
-function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
+function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler,rejectHandler}) {
     const customerData=data.items[0].customer_id;
 
     const OpenPrescription=(fileName)=>{
         window.open("https://glacial-caverns-39108.herokuapp.com/images/"+fileName,"_blank")
     }
+    let backgroundColor="#ce6c3b";
+    if(!waiting){
+        backgroundColor="#00a7e1";
+    }
     return (
-        <div className="root-CurrentBookingsCard fade-in-fwd">
+        <div className="root-CurrentBookingsCard fade-in-fwd" style={{backgroundColor}}>
             <div className="card-body text-light">
                 <div className="row">
                     <div className="col-6 text-left">
-                        TOTAL: ₹{data.totalAmount}
+                        <p>Total: ₹{data.totalAmount}</p>                        
                     </div>
                
                     <div className="col-6 text-right">
@@ -24,6 +28,7 @@ function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
                         <p>{customerData.phone}</p>
                     </div>
                 </div> 
+                <p>Deadline: {moment(data.items[0].deadline).format("dddd, MMMM Do YYYY, h:mm:ss a")}</p>
                  
                 {/* <div className="hr-custom"/>    */}
                 <div style={{marginTop:"2%"}}>
@@ -52,7 +57,10 @@ function CurrentBookingsCard({data,waiting,confirmHandler,doneHandler}) {
                 </div> 
                 <div className="row">
                     <div className="col-6">
-                        
+                         {(waiting)?
+                        (<Button variant="light" style={{color:"#343a40",fontSize:"17px"}} onClick={rejectHandler}>Reject</Button>)
+                        :
+                        null}
                     </div>
                     <div className="col-6 text-right">
                         {(waiting)?

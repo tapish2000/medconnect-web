@@ -78,7 +78,7 @@ render() {
         
       return rows.push(
         {
-        'img': <img src={row.medicine.image_url} alt="" className="img-fluid z-depth-0 image-cart" />,
+        'img': <img src={row.medicine.image_url} alt="" className="img-fluid z-depth-0 image-cart"  style={{width:"150px"}}/>,
         'name': [<h5 className="mt-3"><strong>{row.medicine.name}</strong></h5>, <p className="text-muted">{row.shop.name}</p>],
         'price': `₹ ${row.medicine.price}`,
         'qty':
@@ -95,28 +95,9 @@ render() {
      <Loading show={this.state.loading}/>
      <div className="successImageDiv">
          <img src={success}/>
-         <h1>Congrats!</h1>
-         <h1>Booking Confirmed</h1>
+         <h1>Thank You for using MedConnect!</h1>
+         <h1>You'll receive a mail when the shop confirms your order.</h1>
      </div>
-     <div className="yourItemsDiv">
-         
-         <h1>Your Items</h1>
-     </div>
-    <MDBRow className="my-2" center>
-      <MDBCard className="w-100">
-        <MDBCardBody>
-          <MDBTable className="product-table">
-            <MDBTableHead className="font-weight-bold" color="mdb-color lighten-5" columns={columns} />
-            <MDBTableBody rows={rows} />
-          </MDBTable>
-          <div className="row">
-              <div className="col-9">
-          <strong>Total Amount: {sum.toFixed(2)}</strong>
-              </div>
-          </div>
-        </MDBCardBody>
-      </MDBCard>
-    </MDBRow>
     </>
     );
   }

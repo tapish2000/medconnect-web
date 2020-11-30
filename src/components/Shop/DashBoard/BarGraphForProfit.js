@@ -14,8 +14,8 @@ class BarGraphForProfit extends Component {
                 "type":"bar3d",
                 '3d-aspect': {
                   true3d: false,
-                  angle:60,
-                  zoom:0.3
+                  zoom:0.3,
+                  angle:60
                 },
                 title: {
                   text: "Profit/Loss vs Month"
@@ -66,7 +66,7 @@ class BarGraphForProfit extends Component {
                   text: "Profit / Loss (Rs)"
                 },
                 item: {
-                  'font-size': 7
+                  'font-size': 5
                 },
                 
               },
