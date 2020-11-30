@@ -8,6 +8,7 @@ import HomePageComponent from './components/Shop/Home/HomePageComponent';
 import Footer from './components/Shop/footer/FooterComponent'
 import CurrentBookings from './components/Shop/CurrentBookings/CurrentBookings';
 import ShopOwnerProfile from './components/Shop/Profile/ShopOwnerProfile';
+import BookingHistory from './components/Shop/BookingHistory/BookingHistory';
 
 
 function Shop() {
@@ -52,6 +53,14 @@ function Shop() {
               <>
               <SideNavBar />
               <CurrentBookings/>
+              </>
+            )
+            }} />
+            <Route exact path="/shop/BookingHistory" component={()=>{
+            return(
+              <>
+              <SideNavBar />
+              <BookingHistory/>
               </>
             )
             }} />
