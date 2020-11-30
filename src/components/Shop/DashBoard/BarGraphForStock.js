@@ -14,7 +14,7 @@ class BarGraphForStock extends Component {
                 '3d-aspect': {
                   true3d: false,
                   angle:60,
-                  zoom:0.5
+                  zoom:0.3
                 },
                 title: {
                   text: "In Hand Stock / Dead Stock per Month"
@@ -66,7 +66,7 @@ class BarGraphForStock extends Component {
                   text: "Stocks (medicine)"
                 },
                 item: {
-                  'font-size': 8
+                  'font-size': 5
                 },
                 
               },
