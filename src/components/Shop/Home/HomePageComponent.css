@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Castoro&display=swap');
+
 .homepage{
-    padding-left: 60px;
+    /* padding-left: 60px; */
 }
 
 .MyHeading{
@@ -19,13 +21,33 @@
     border-radius: 24px;
 }
 
+.heading-HomePage{
+    background-color: #292f36;
+    width: 100%;
+    text-align: center;
+    color: #4ecdc4;
+    padding: 4%;
+    font-family: 'Castoro', serif;
+
+
+}
+.heading-2-HomePage{
+    background-color: #292f36;
+    width: 100%;
+    text-align: center;
+    color: #ff6b6b;
+    padding: 3%;
+    font-family: 'Castoro', serif;
+}
+
 .pimg1{
     position: relative;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    width: 100%;
 
-    background-image: url('https://w9d3e5t9.stackpathcdn.com/wp-content/uploads/bfi_thumb/Pharmacy-Banner01-392p0cj8seca7ymq2p47ii.jpg');
-    min-height: 550px;
+    background-image: url("./home.jpg");
+    min-height: 600px;
 }
