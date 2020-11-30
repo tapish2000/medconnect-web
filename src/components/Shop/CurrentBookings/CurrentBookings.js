@@ -15,7 +15,7 @@ const CurrentBookings=()=>{
 
 
     useEffect(()=>{
-        Axios.get("http://localhost:5000/booking/current/shop/5f47e5ea174464ed81cc5100").then((res)=>{
+        Axios.get("https://glacial-caverns-39108.herokuapp.com/booking/current/shop/5f47e5ea174464ed81cc5100").then((res)=>{
             console.log(res.data.waitingBookings)
             setConfirmedData(res.data.confirmedBookings);
             setWaitingData(res.data.waitingBookings);
@@ -26,8 +26,10 @@ const CurrentBookings=()=>{
 
     const marksAsConfirmed=(booking)=>{
         const newWaitingList=waitingData.filter((waiting_booking)=>{
-            return (waiting_booking._id!==booking._id)
+            // console.log(waiting_booking);
+            return (JSON.stringify( waiting_booking.items[0]._id) !== JSON.stringify( booking.items[0]._id))
         })
+        // console.log(newWaitingList);
         booking.status="confirmed";
         const newConfirmedList=[booking,...confirmedData];
         setWaitingData(newWaitingList);
@@ -36,7 +38,7 @@ const CurrentBookings=()=>{
 
     const marksAsDone=(booking)=>{
         const newConfirmedList=confirmedData.filter((confirm_booking)=>{
-            return (confirm_booking._id!==booking._id)
+            return (confirm_booking.items[0]._id!==booking.items[0]._id)
         })
         booking.status="done";
         setConfirmedData(newConfirmedList);
