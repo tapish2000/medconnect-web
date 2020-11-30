@@ -33,11 +33,13 @@ const DashBoard = ()=>{
       });
   }, []);
         return (
+
           <>
            <div className="heading-Dashboard">
                         <h1 style={{fontSize:"3vw"}}>DASHBOARD</h1>
                         
                  </div>
+
 
           <div>
             {loading ? (

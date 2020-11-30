@@ -38,7 +38,10 @@ function SafetyStockTable(props) {
           </div>
         ):(
             
-                            <div className="designTable">
+                            <div>
+                              <h3>Safety Stock Table (<span>Policy: {`remainingStocks < threshold`}</span>)</h3>
+                              <div className="designTable">
+                                
                                 <Grid
                                     data={data}
                                     className="table-body"
@@ -51,6 +54,9 @@ function SafetyStockTable(props) {
                                     }}
                                     language={options}
                                 />
+                              </div>
+
+
                             </div>
 
             
