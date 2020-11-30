@@ -5,18 +5,19 @@ import {Container,Row,Col, Spinner} from 'react-bootstrap';
 import CurrentBookingsCard from './CurrentBookingsCard/CurrentBookingsCard';
 import Axios from 'axios';
 import Loading from "../../Customer/Loading/Loading"
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 
 
 const CurrentBookings=()=>{
     const [loading,setLoading]=useState(true);
     const [waitingData,setWaitingData]=useState([]);
-
     const [confirmedData,setConfirmedData]=useState([]);
 
+    const id = reactLocalStorage.get('id');
 
     useEffect(()=>{
-        Axios.get("https://glacial-caverns-39108.herokuapp.com/booking/current/shop/5f47e5ea174464ed81cc5100").then((res)=>{
+        Axios.get("https://glacial-caverns-39108.herokuapp.com/booking/current/shop/" + id).then((res)=>{
             console.log(res.data)
             setConfirmedData(res.data.confirmedBookings);
             setWaitingData(res.data.waitingBookings);
@@ -29,13 +30,13 @@ const CurrentBookings=()=>{
     const marksAsConfirmed= (booking)=>{
         setLoading(true);
 
-        console.log({shop_id:"5f47e5ea174464ed81cc5100",
+        console.log({shop_id:id,
         customer_id:booking.items[0].customer_id._id,
         bookingCreationTime:booking.items[0].bookingCreationTime
        })
 
          Axios.post("https://glacial-caverns-39108.herokuapp.com/booking/confirm",
-        {shop_id:"5f47e5ea174464ed81cc5100",
+        {shop_id:id,
          customer_id:booking.items[0].customer_id._id,
          bookingCreationTime:booking.items[0].bookingCreationTime
         }).then((res)=>{
@@ -52,13 +53,13 @@ const CurrentBookings=()=>{
 
     const marksAsDone= (booking)=>{
         setLoading(true);
-        console.log({shop_id:"5f47e5ea174464ed81cc5100",
+        console.log({shop_id:id,
         customer_id:booking.items[0].customer_id._id,
         bookingCreationTime:booking.items[0].bookingCreationTime
        })
 
          Axios.post("https://glacial-caverns-39108.herokuapp.com/booking/delivered",
-        {shop_id:"5f47e5ea174464ed81cc5100",
+        {shop_id:id,
          customer_id:booking.items[0].customer_id._id,
          bookingCreationTime:booking.items[0].bookingCreationTime
         }).then((res)=>{
@@ -75,13 +76,13 @@ const CurrentBookings=()=>{
 
     const rejectBooking= (booking)=>{
         setLoading(true);
-        console.log({shop_id:"5f47e5ea174464ed81cc5100",
+        console.log({shop_id:id,
         customer_id:booking.items[0].customer_id._id,
         bookingCreationTime:booking.items[0].bookingCreationTime
        })
 
          Axios.post("https://glacial-caverns-39108.herokuapp.com/booking/reject",
-        {shop_id:"5f47e5ea174464ed81cc5100",
+        {shop_id:id,
          customer_id:booking.items[0].customer_id._id,
          bookingCreationTime:booking.items[0].bookingCreationTime
         }).then((res)=>{

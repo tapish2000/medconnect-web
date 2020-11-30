@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import {Data} from './Data';
 import Image from './img.png';
 import axios from 'axios';
+import Loading from '../../Customer/Loading/Loading'
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 function MedicineInventory() {
 
-    // const [addedMedicine, setAddedMedicine] = useState({});
+    const [loading, setLoading] = useState(false);
 
     const addToInventory = () => {
         var med_name = document.getElementById("med_name");
@@ -13,7 +15,7 @@ function MedicineInventory() {
         var mfg_date = document.getElementById("mfg_date");
         var add_date = document.getElementById("addition_date");
         var wholesale_price = document.getElementById("wholesale");
-        const shopId = "5f47e5ea174464ed81cc5100";
+        const shopId = reactLocalStorage.get('id');
 
         var params = {
             med_name: med_name.value,
@@ -31,6 +33,7 @@ function MedicineInventory() {
         .then(function (response) {
             console.log(response.data);
             // setAddedMedicine(response.data);
+            setLoading(true);
             window.location.reload();
         })
         .catch(function (error) {
@@ -39,7 +42,9 @@ function MedicineInventory() {
     }
 
     return (
-        <>  <form style={{paddingLeft:"75px"}}>
+        <>  
+        <Loading show={loading} />
+        <form style={{paddingLeft:"75px"}}>
             <div className="container-fluid mt-2">
                 <div className="row">
                     <div className="col-md-5">

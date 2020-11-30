@@ -10,14 +10,17 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container'
 import Spinner from 'react-bootstrap/Spinner';
 import './DashBoardComponent.css'
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 
 const DashBoard = ()=>{
   const [getGraphData, setGraphData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const shopId = reactLocalStorage.get('id');
+
   useEffect(() => {
-    const shopId = "5f47e5ea174464ed81cc5100";
+    
     axios
       .get('https://glacial-caverns-39108.herokuapp.com/shop/dashboard/' + shopId)
       .then((response) => {

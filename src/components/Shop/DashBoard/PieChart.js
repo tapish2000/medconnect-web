@@ -12,7 +12,7 @@ import './Graph.css'
 class PieChart extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.progress)
+    console.log(props.progress);
     this.state = {config:{
       type: "pie", 
       plot: {
