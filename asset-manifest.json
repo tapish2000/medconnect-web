@@ -1,27 +1,31 @@
 {
   "files": {
-    "main.css": "/medconnect-web/static/css/main.df2e0936.chunk.css",
-    "main.js": "/medconnect-web/static/js/main.eda1b7ef.chunk.js",
-    "main.js.map": "/medconnect-web/static/js/main.eda1b7ef.chunk.js.map",
+    "main.css": "/medconnect-web/static/css/main.a3ec2781.chunk.css",
+    "main.js": "/medconnect-web/static/js/main.f75df28f.chunk.js",
+    "main.js.map": "/medconnect-web/static/js/main.f75df28f.chunk.js.map",
     "runtime-main.js": "/medconnect-web/static/js/runtime-main.14d8c35b.js",
     "runtime-main.js.map": "/medconnect-web/static/js/runtime-main.14d8c35b.js.map",
-    "static/css/2.31452f42.chunk.css": "/medconnect-web/static/css/2.31452f42.chunk.css",
-    "static/js/2.8ded440d.chunk.js": "/medconnect-web/static/js/2.8ded440d.chunk.js",
-    "static/js/2.8ded440d.chunk.js.map": "/medconnect-web/static/js/2.8ded440d.chunk.js.map",
+    "static/css/2.5a0fa889.chunk.css": "/medconnect-web/static/css/2.5a0fa889.chunk.css",
+    "static/js/2.a9070edd.chunk.js": "/medconnect-web/static/js/2.a9070edd.chunk.js",
+    "static/js/2.a9070edd.chunk.js.map": "/medconnect-web/static/js/2.a9070edd.chunk.js.map",
     "index.html": "/medconnect-web/index.html",
-    "precache-manifest.8755459bec3422b1cea74cabf65f88d8.js": "/medconnect-web/precache-manifest.8755459bec3422b1cea74cabf65f88d8.js",
+    "precache-manifest.c0885e3b1e46c234d9c38c069238a5c8.js": "/medconnect-web/precache-manifest.c0885e3b1e46c234d9c38c069238a5c8.js",
     "service-worker.js": "/medconnect-web/service-worker.js",
-    "static/css/2.31452f42.chunk.css.map": "/medconnect-web/static/css/2.31452f42.chunk.css.map",
-    "static/css/main.df2e0936.chunk.css.map": "/medconnect-web/static/css/main.df2e0936.chunk.css.map",
-    "static/js/2.8ded440d.chunk.js.LICENSE.txt": "/medconnect-web/static/js/2.8ded440d.chunk.js.LICENSE.txt",
+    "static/css/2.5a0fa889.chunk.css.map": "/medconnect-web/static/css/2.5a0fa889.chunk.css.map",
+    "static/css/main.a3ec2781.chunk.css.map": "/medconnect-web/static/css/main.a3ec2781.chunk.css.map",
+    "static/js/2.a9070edd.chunk.js.LICENSE.txt": "/medconnect-web/static/js/2.a9070edd.chunk.js.LICENSE.txt",
+    "static/media/HomePageComponent.css": "/medconnect-web/static/media/home.54fdfc2d.jpg",
+    "static/media/img.png": "/medconnect-web/static/media/img.6b4d8706.png",
     "static/media/logo.png": "/medconnect-web/static/media/logo.4f60305f.png",
+    "static/media/member.png": "/medconnect-web/static/media/member.7dfe6cc4.png",
+    "static/media/pharmatist.jpg": "/medconnect-web/static/media/pharmatist.cbba6049.jpg",
     "static/media/success.png": "/medconnect-web/static/media/success.a1413391.png"
   },
   "entrypoints": [
     "static/js/runtime-main.14d8c35b.js",
-    "static/css/2.31452f42.chunk.css",
-    "static/js/2.8ded440d.chunk.js",
-    "static/css/main.df2e0936.chunk.css",
-    "static/js/main.eda1b7ef.chunk.js"
+    "static/css/2.5a0fa889.chunk.css",
+    "static/js/2.a9070edd.chunk.js",
+    "static/css/main.a3ec2781.chunk.css",
+    "static/js/main.f75df28f.chunk.js"
   ]
 }
