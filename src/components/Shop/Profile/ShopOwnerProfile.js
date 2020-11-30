@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 const ShopOwnerProfile = () => {
     //read-only section open
@@ -9,13 +10,14 @@ const ShopOwnerProfile = () => {
         SetReadOnly(false);
     }
     //read-only section close
-
     //show profile section open
     const [profile, SetProfile] = useState([]);
 
+    const id = reactLocalStorage.get('id');
+
     useEffect(() => {
         axios
-        .get('https://glacial-caverns-39108.herokuapp.com/user/5fc0e4290c3d4d0017a7ec12')
+        .get('https://glacial-caverns-39108.herokuapp.com/user/' + id)
         .then((response) => {
             SetProfile(response.data.data[0]);
             console.log("tere bhai ki profile dekhle abhi - ", response.data.data[0]);
@@ -55,7 +57,7 @@ const ShopOwnerProfile = () => {
         }
         axios({
           method: 'post',
-          url: 'https://glacial-caverns-39108.herokuapp.com/user/profile/update/5fc0e4290c3d4d0017a7ec12',
+          url: 'https://glacial-caverns-39108.herokuapp.com/user/profile/update/' + id,
           data: body
         })
         .then(function (response) {

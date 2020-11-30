@@ -1,10 +1,24 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import * as MdIcons from 'react-icons/md';
 import * as FaIcons from 'react-icons/fa';
+import * as IoIcons from 'react-icons/io';
 import iconImage from './logo.png';
+import { reactLocalStorage } from 'reactjs-localstorage';
 import './Sidebar.css';
 
 function Sidebar() {
+
+	const [isLoggedIn,setisLoggedIn] = useState(reactLocalStorage.get('isLoggedIn'))
+
+	function eventHandler(e){
+		console.log("inside logout");
+		// e.preventDefault();
+		reactLocalStorage.set('isLoggedIn',"false");
+		reactLocalStorage.set('id','');
+		reactLocalStorage.set('email', '');
+		reactLocalStorage.set('password', '');
+		setisLoggedIn("false");
+	}
 
 	return (
 		<div>
@@ -33,6 +47,10 @@ function Sidebar() {
 				<a href="#/shop/profile">
 					<MdIcons.MdPerson className="material-icons" />
 					<span class="icon-text">Profile</span>
+				</a>
+				<a href="#/login" onClick={eventHandler}>
+					<IoIcons.IoIosLogOut className="material-icons" />
+					<span class="icon-text">Log Out</span>
 				</a>
 			</div>
 		</div>
