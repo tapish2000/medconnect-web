@@ -114,9 +114,16 @@ const CurrentBookings=()=>{
                                 (<div className="SpinnerDivCurrentBookings">
                                 <Spinner animation="border" size="lg" variant="info" />
                                 </div>):
+                                <>
+                                {
+                                    (waitingData.length==0)?
+                                        ( <h3 className="empty-message-CurrentBookings">Waiting List is empty</h3>  )
+                                    :
                                     (waitingData.map((booking)=>{
                                         return (<CurrentBookingsCard key={booking.items[0].bookingCreationTime} data={booking} waiting confirmHandler={()=>{marksAsConfirmed(booking)}} rejectHandler={()=>{rejectBooking(booking)}}/>);
                                     }))
+                                }
+                                </>
                                 
                             }                                                                                   
                         </div>
@@ -133,9 +140,15 @@ const CurrentBookings=()=>{
                                 ( <div className="SpinnerDivCurrentBookings">
                                 <Spinner animation="border" size="lg" variant="info" />
                                 </div>):
-                                    (confirmedData.map((booking)=>{
-                                        return (<CurrentBookingsCard key={booking.items[0].bookingCreationTime} data={booking} waiting={false} doneHandler={()=>{marksAsDone(booking)}}/>);
-                                    }))
+                                <>  
+                                    {
+                                        (confirmedData.length===0)?
+                                        ( <h3 className="empty-message-CurrentBookings">Confirmed List is empty</h3>  ):
+                                                (confirmedData.map((booking)=>{
+                                                    return (<CurrentBookingsCard key={booking.items[0].bookingCreationTime} data={booking} waiting={false} doneHandler={()=>{marksAsDone(booking)}}/>);
+                                                }))
+                                    }
+                                </>
                                 
                             }                                                        
                            

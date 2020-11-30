@@ -31,7 +31,9 @@ class CartComponent extends Component {
        data : params
      }).then((res)=>{
        if(res.data==="booking done"){
+          this.props.onMedicineChanged();//Get new Cart Amount which will be 0
           this.props.history.push('/SuccessfulBooking')
+
        }
      }).catch((err)=>{
        console.log(err);
@@ -340,13 +342,6 @@ render() {
     );
   }
 }
-
-
-
-
-
-
-
 // const mapStateToProps = state => {
 //   return {
 //       data:state.medicinesInCart

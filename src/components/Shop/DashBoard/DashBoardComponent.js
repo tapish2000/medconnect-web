@@ -33,6 +33,14 @@ const DashBoard = ()=>{
       });
   }, []);
         return (
+
+          <>
+           <div className="heading-Dashboard">
+                        <h1 style={{fontSize:"3vw"}}>DASHBOARD</h1>
+                        
+                 </div>
+
+
           <div>
             {loading ? (
                 <div className="SpinnerDiv">
@@ -45,9 +53,7 @@ const DashBoard = ()=>{
           ):(
           <div style={{marginBottom : "600px"}}>
               <div>
-                <div>
-                  <h1 className = "block">DashBoard</h1>
-                </div>
+             
                 <div className = "dashBoardDesign">
                   <Container className = "containerOfDashBoard" >
                       <Row className = "rowOfDashBoard">
@@ -86,6 +92,7 @@ const DashBoard = ()=>{
           </div>
           )}
         </div>
+        </>
 
           
 
