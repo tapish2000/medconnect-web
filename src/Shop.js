@@ -9,17 +9,54 @@ import Footer from './components/Shop/footer/FooterComponent'
 import CurrentBookings from './components/Shop/CurrentBookings/CurrentBookings';
 import ShopOwnerProfile from './components/Shop/Profile/ShopOwnerProfile';
 
+
 function Shop() {
   return (    
     <div>
-      <SideNavBar />
+     
       <Switch>
-          <Route exact path="/shop/inventory" component={MedicineInventory} />
-          <Route exact path="/shop/dashboard" component={DashBoard} />
-          <Route path="/shop/profile" component={ShopOwnerProfile} />
-          <Route path="/shop/signup" component={ShopSignUp} />
+          <Route exact path="/shop/inventory" component={()=>{
+            return(
+              <>
+              <SideNavBar />
+              <MedicineInventory/>
+              </>
+            )
+            }} />
+          <Route exact path="/shop/dashboard" component={()=>{
+            return(
+              <>
+              <SideNavBar />
+              <DashBoard/>
+              </>
+            )
+            }} />
+          <Route exact path="/shop/profile" component={()=>{
+            return(
+              <>
+              <SideNavBar />
+              <ShopOwnerProfile/>
+              </>
+            )
+            }} />
+          <Route exact path="/shop/signup" component={()=>{
+            return(
+              <>
+             
+              <ShopSignUp/>
+              </>
+            )
+            }} />
+          <Route exact path="/shop/CurrentBookings" component={()=>{
+            return(
+              <>
+              <SideNavBar />
+              <CurrentBookings/>
+              </>
+            )
+            }} />
           <Route path="/shop" component={HomePageComponent} />
-          <Route path="/shop/CurrentBookings" component={CurrentBookings} />
+          
       </Switch>
       <Footer />
     </div>

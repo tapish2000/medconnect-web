@@ -7,7 +7,7 @@ import './Graph.css'
 
 function SafetyStockTable(props) {
     
-    const [data, setData] = useState(SafetyStockTableData.safetyStock);
+    const [data, setData] = useState(props.safetyStock);
     const [loading, setLoading] = useState(false);
 
     const options = {
@@ -21,6 +21,8 @@ function SafetyStockTable(props) {
           'results': () => 'Records'
         }
       }
+
+      console.log(props.safetyStock);
     
     return (
       <div>

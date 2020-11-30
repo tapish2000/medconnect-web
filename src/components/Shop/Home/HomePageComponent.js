@@ -1,4 +1,5 @@
 import React from 'react';
+import HomeImage from "./home.jpg"
 import './HomePageComponent.css';
 
 const HomePageComponent = () => {
@@ -8,8 +9,9 @@ const HomePageComponent = () => {
 
 
                 <div className="row">
-                    <div className="col-md-12 text-center text-muted bg-dark p-2">
-                        <h1>MedConnect for ShopOwners</h1>
+                    <div className="heading-HomePage">
+                        <h1 style={{fontSize:"4vw"}}>MEDCONNECT</h1>
+                        <p>For Shops</p>
                     </div>
 
                 </div>
@@ -19,20 +21,20 @@ const HomePageComponent = () => {
                 <div className="row">
                     <div className="col-md-12">
                         <div class="pimg1">
-
+                           
                         </div>
                     </div>
                 </div>
 
                 <div className="row">
-                    <div className="col-md-12 text-center text-muted bg-dark p-1">
-                        <h1>Why to join us</h1>
+                    <div className="heading-2-HomePage">
+                        <h1>OUR SERVICES</h1>
                     </div>
                 </div>
 
                 <div className="row m-5">
                     <div className="col-md-6 text-center my-auto">
-                        <h3>manage Inventory</h3>
+                        <h3>Manage Inventory</h3>
                         <p>Leave the traditional way of manage inventory. The goal of inventory management systems is to
                         know where your inventory is at any given time and how much of it you have in order to manage
                            inventory levels correctly.</p>

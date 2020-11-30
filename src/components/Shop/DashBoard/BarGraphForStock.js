@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "zingchart/es6";
 import ZingChart from "zingchart-react";
 import './Graph.css'
-import BarGraphForStockData from './BarGraphForData' // this data means Dead stock and remaining stock of every medicine
 
 class BarGraphForStock extends Component {
   constructor(props) {
@@ -26,12 +25,12 @@ class BarGraphForStock extends Component {
                 "series":[
                     {
                       "bar-width": "50%",
-                        "values":BarGraphForStockData.remainingStock,
+                        "values":this.props.inHandStock,
                         'background-color': "#e6df17"
                     },
                     {
                        "bar-width": "50%",
-                      "values":BarGraphForStockData.deadStock, 
+                      "values":this.props.deadStock, 
                       'background-color': "#ab0066 #ff0078"
                     }
                 ],

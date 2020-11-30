@@ -65,7 +65,12 @@ const ShopSignUp = () => {
 
     return (
         <>  <form>
+            <div className="heading-HomePage">
+                        <h1 style={{fontSize:"4vw"}}>MEDCONNECT</h1>
+                        <p>For Shops</p>
+                    </div>
             <div class="container mt-2">
+                
                 <div class="row">
                     <div class="col-md-6 mx-auto">
     
@@ -83,7 +88,7 @@ const ShopSignUp = () => {
                                 <div class="row mt-3">
                                     <div class="col">
                                         <center>
-                                            <h4>Shop Owner Sign Up</h4>
+                                            <h4>Sign Up</h4>
                                         </center>
                                     </div>
                                 </div>
