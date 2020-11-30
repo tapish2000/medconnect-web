@@ -95,7 +95,7 @@ class PieChart extends Component {
 
   render() {
     return (
-        <div className="crazy3" style={{height:"64vh",width:"44vw",marginLeft:"9%"}}>
+        <div className="crazy3" style={{height:"64vh",width:"40vw",marginLeft:"9%"}}>
             <div className="crazy3__bg"></div>
             <div className="crazy3__overlay cover"></div>
             <div className="crazy3__info cover">

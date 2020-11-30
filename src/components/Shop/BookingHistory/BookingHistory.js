@@ -26,7 +26,7 @@ function BookingHistory(props) {
         // }
         let id = reactLocalStorage.get('id');
         axios
-        .get(`http://localhost:5000/booking/past/${id}`)
+        .get(`https://glacial-caverns-39108.herokuapp.com/booking/past/${id}`)
         .then((response) => {
             console.log(response.data);
             setpastBookings(response.data.AllPastBookings);

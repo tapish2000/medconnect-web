@@ -43,7 +43,7 @@ function BookingHistoryCard(props) {
 
                 <div className="row">
                     <div className="col-8">
-                        {props.createdAt}
+                        {moment(props.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
                     </div>
                     <div className="col-1" id="vertical-line"></div>
 

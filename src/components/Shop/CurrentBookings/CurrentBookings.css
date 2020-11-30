@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Castoro&family=Saira+Condensed&display=swap');
+
 .waiting-bookings{
     -webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.37); 
     box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.37);
@@ -12,6 +14,12 @@
     height: 100vh;
     background-color: #ffffff;
     padding: 2%;
+}
+.empty-message-CurrentBookings{
+    color:#111;
+    margin: 5% auto;
+    text-align: center;
+    font-family: 'Saira Condensed', sans-serif;
 }
 
 .heading-bookings{
