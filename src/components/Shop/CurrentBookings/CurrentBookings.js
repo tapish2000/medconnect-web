@@ -42,12 +42,12 @@ const CurrentBookings=()=>{
             console.log(res.data)
             setConfirmedData(res.data.confirmedBookings);
             setWaitingData(res.data.waitingBookings);
-            
+            setLoading(false);
                 
         }).catch((err)=>{
             console.log(err);
         })
-        setLoading(false);
+        
     }
 
     const marksAsDone= (booking)=>{
@@ -65,12 +65,12 @@ const CurrentBookings=()=>{
             console.log(res.data)
             setConfirmedData(res.data.confirmedBookings);
             setWaitingData(res.data.waitingBookings);
-            
+            setLoading(false);
                 
         }).catch((err)=>{
             console.log(err);
         })
-        setLoading(false);
+        
     }
 
 
