@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {reactLocalStorage} from 'reactjs-localstorage';
 import axios from 'axios';
 
 const CustomerProfile = () => {
@@ -14,8 +15,9 @@ const CustomerProfile = () => {
     const [profile, SetProfile] = useState([]);
 
     useEffect(() => {
+        let id = reactLocalStorage.get('id');
         axios
-        .get('https://glacial-caverns-39108.herokuapp.com/user/5fba5b1e637eb10017b4e295')
+        .get('https://glacial-caverns-39108.herokuapp.com/user/'+id)
         .then((response) => {
             SetProfile(response.data.data[0]);
             console.log("tere bhai ki profile dekhle abhi - ", response.data.data[0]);
@@ -43,6 +45,7 @@ const CustomerProfile = () => {
     console.log("aaaaaaaaaaaa",name,phone);
     
     const handleSubmit=(event)=>{
+        let id = reactLocalStorage.get('id');
         event.preventDefault();
         var body={
           name: name,
@@ -51,7 +54,7 @@ const CustomerProfile = () => {
         }
         axios({
           method: 'post',
-          url: 'https://glacial-caverns-39108.herokuapp.com/user/profile/update/5fba5b1e637eb10017b4e295',
+          url: 'https://glacial-caverns-39108.herokuapp.com/user/profile/update/'+id,
           data: body
         })
         .then(function (response) {

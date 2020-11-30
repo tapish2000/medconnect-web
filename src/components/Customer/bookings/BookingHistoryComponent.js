@@ -61,7 +61,7 @@ function BookingHistory(props) {
             ) : (
               <div>
                 {pastBookings.map((val) => {
-                
+                  if(val.medicine_id){
                   val.medicine_id.strength=checkStrength(val.medicine_id.strength);
                   return (
                     <div className="row">
@@ -74,6 +74,9 @@ function BookingHistory(props) {
                         </div>
                     </div>
                   );
+                  }else{
+                    return null;
+                  }
                 })}
               </div>
             )}
